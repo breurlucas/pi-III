@@ -20,29 +20,28 @@ namespace onepiece
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
-            string filtroPartidas = "T";
-
+            
+            //string filtroPartidas = "T";
             /*
-            if (cboTipoPartidas = "Todas")
+            if (cboListarPartidas = "Todas")
             {
-                filtroPartidas = "T"
+                txtListarPartidas.Text = Jogo.ListarPartidas("T"); 
             }
-            else if (cboTipoPartidas = "Aberta")
+            else if (cboListarPartidas = "Aberta")
             {
-                filtroPartidas = "A"
+                txtListarPartidas.Text = Jogo.ListarPartidas("A"); 
             }
-            else if (cboTipoPartidas = "Jogando")
+            else if (cboListarPartidas = "Jogando")
             {
-                filtroPartidas = "J"
+                txtListarPartidas.Text = Jogo.ListarPartidas("J"); 
             }
             else
             {
-                filtroPartidas = "E"
+                txtListarPartidas.Text = Jogo.ListarPartidas("E"); 
             }
             */
 
-            txtListarPartidas.Text = Jogo.ListarPartidas("T");
-
+            txtListarPartidas.Text = Jogo.ListarPartidas("T");            
 
         }
 
@@ -57,6 +56,14 @@ namespace onepiece
                 txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
             else
                 MessageBox.Show("Id inválido! :(");
+        }
+
+        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        {
+            if (txtNomeJogador.Text != "")
+                txtIdJogador.Text = Jogo.EntrarPartida(Convert.ToInt32(txtIdJogador.Text), txtNomeJogador.Text, txtSenhaJogador.Text);
+            else
+                MessageBox.Show("Nome inválido :/");
         }
     }
 }
