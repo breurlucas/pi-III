@@ -20,7 +20,7 @@ namespace onepiece
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
         {
-            
+
             //string filtroPartidas = "T";
             /*
             if (cboListarPartidas = "Todas")
@@ -35,7 +35,7 @@ namespace onepiece
             {
                 txtListarPartidas.Text = Jogo.ListarPartidas("J"); 
             }
-            else
+            else (cboListarPartidas = "Encerrada")
             {
                 txtListarPartidas.Text = Jogo.ListarPartidas("E"); 
             }
@@ -60,10 +60,12 @@ namespace onepiece
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
-            if (txtNomeJogador.Text != "")
-                txtIdJogador.Text = Jogo.EntrarPartida(Convert.ToInt32(txtIdJogador.Text), txtNomeJogador.Text, txtSenhaJogador.Text);
-            else
-                MessageBox.Show("Nome inválido :/");
+            Jogo.EntrarPartida(Convert.ToInt32(txtIdJogador.Text), txtNomeJogador.Text, txtSenhaJogador.Text); 
+        }
+
+        private void btnExibirHistorico_Click(object sender, EventArgs e)
+        {
+            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(txtId.Text));
         }
     }
 }

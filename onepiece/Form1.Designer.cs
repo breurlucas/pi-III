@@ -50,7 +50,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnExibirHistorico = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHistorico = new System.Windows.Forms.TextBox();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.txtPosicao = new System.Windows.Forms.TextBox();
             this.cboSimbolo = new System.Windows.Forms.ComboBox();
@@ -86,7 +86,7 @@
             // cboListarPartidas
             // 
             this.cboListarPartidas.FormattingEnabled = true;
-            this.cboListarPartidas.Location = new System.Drawing.Point(121, 14);
+            this.cboListarPartidas.Location = new System.Drawing.Point(121, 13);
             this.cboListarPartidas.Name = "cboListarPartidas";
             this.cboListarPartidas.Size = new System.Drawing.Size(84, 21);
             this.cboListarPartidas.TabIndex = 2;
@@ -125,7 +125,7 @@
             // 
             // btnCriarPartida
             // 
-            this.btnCriarPartida.Location = new System.Drawing.Point(130, 277);
+            this.btnCriarPartida.Location = new System.Drawing.Point(130, 276);
             this.btnCriarPartida.Name = "btnCriarPartida";
             this.btnCriarPartida.Size = new System.Drawing.Size(75, 23);
             this.btnCriarPartida.TabIndex = 7;
@@ -154,7 +154,7 @@
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(374, 15);
+            this.txtId.Location = new System.Drawing.Point(374, 14);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 10;
@@ -168,7 +168,7 @@
             // 
             // btnEntrarPartida
             // 
-            this.btnEntrarPartida.Location = new System.Drawing.Point(229, 277);
+            this.btnEntrarPartida.Location = new System.Drawing.Point(229, 276);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(94, 23);
             this.btnEntrarPartida.TabIndex = 12;
@@ -251,15 +251,16 @@
             this.btnExibirHistorico.TabIndex = 21;
             this.btnExibirHistorico.Text = "Exibir Histórico";
             this.btnExibirHistorico.UseVisualStyleBackColor = true;
+            this.btnExibirHistorico.Click += new System.EventHandler(this.btnExibirHistorico_Click);
             // 
-            // textBox1
+            // txtHistorico
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 340);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(193, 117);
-            this.textBox1.TabIndex = 22;
+            this.txtHistorico.Location = new System.Drawing.Point(12, 340);
+            this.txtHistorico.Multiline = true;
+            this.txtHistorico.Name = "txtHistorico";
+            this.txtHistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtHistorico.Size = new System.Drawing.Size(193, 117);
+            this.txtHistorico.TabIndex = 22;
             // 
             // btnIniciarPartida
             // 
@@ -314,7 +315,7 @@
             // 
             // btnExibirMao
             // 
-            this.btnExibirMao.Location = new System.Drawing.Point(448, 233);
+            this.btnExibirMao.Location = new System.Drawing.Point(448, 238);
             this.btnExibirMao.Name = "btnExibirMao";
             this.btnExibirMao.Size = new System.Drawing.Size(192, 36);
             this.btnExibirMao.TabIndex = 29;
@@ -323,7 +324,7 @@
             // 
             // txtExibirMao
             // 
-            this.txtExibirMao.Location = new System.Drawing.Point(448, 275);
+            this.txtExibirMao.Location = new System.Drawing.Point(448, 280);
             this.txtExibirMao.Multiline = true;
             this.txtExibirMao.Name = "txtExibirMao";
             this.txtExibirMao.Size = new System.Drawing.Size(192, 96);
@@ -363,7 +364,7 @@
             this.Controls.Add(this.cboSimbolo);
             this.Controls.Add(this.txtPosicao);
             this.Controls.Add(this.btnIniciarPartida);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtHistorico);
             this.Controls.Add(this.btnExibirHistorico);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -417,7 +418,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnExibirHistorico;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHistorico;
         private System.Windows.Forms.Button btnIniciarPartida;
         private System.Windows.Forms.TextBox txtPosicao;
         private System.Windows.Forms.ComboBox cboSimbolo;
