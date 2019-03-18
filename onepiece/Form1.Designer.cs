@@ -686,7 +686,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1592, 826);
+            this.ClientSize = new System.Drawing.Size(1612, 841);
             this.Controls.Add(this.btnExibirTabuleiro);
             this.Controls.Add(this.txtExibirTabuleiro);
             this.Controls.Add(this.picTile36);

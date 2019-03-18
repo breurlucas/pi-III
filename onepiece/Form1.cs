@@ -13,10 +13,14 @@ namespace onepiece
 {
     public partial class Form1 : Form
     {
+        Tabuleiro tabuleiro;
 
         public Form1()
         {
             InitializeComponent();
+
+            // Instancia novo tabuleiro
+            tabuleiro = new Tabuleiro();
 
             // Initialize match filter combobox
             cmbFiltrarPartidas.Items.Add("Todas");
@@ -54,7 +58,7 @@ namespace onepiece
 
         private void btnExibirTabuleiro_Click(object sender, EventArgs e)
         {
-            // Declare the tiles vector
+            // Declaring the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
             PictureBox[] mapTiles =
             {
                 picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
@@ -64,50 +68,18 @@ namespace onepiece
                 picTile34, picTile35, picTile36
             };
 
-            string tabuleiro = Jogo.ExibirTabuleiro(Convert.ToInt32(txtId.Text));
-            txtExibirTabuleiro.Text = tabuleiro;
-       
-            tabuleiro = tabuleiro.Replace("\n","");
-            string[] mapTilesCode = tabuleiro.Split('\r');
-
-            // Make the tiles transparent
-
-            //picMapBackground.Controls.Add(picTile1);
-            //picTile1.Location = new Point(Convert.ToInt32(picMapBackground.Width * 0.15), Convert.ToInt32(picMapBackground.Height * 0.78));
-            //picTile1.BackColor = Color.Transparent;
-
-            char tile;
-            for (int i = 1; i < 37; i++) {
-
-                if (i < 10)
-                    tile = mapTilesCode[i][2];
-                else
-                    tile = mapTilesCode[i][3];
-
-                switch (tile) { 
-   
-                case 'E':
-                        mapTiles[i-1].Image = Properties.Resources.cardSkull;
-                        break;
-                case 'T':
-                        mapTiles[i-1].Image = Properties.Resources.piratehat;
-                        break;
-                case 'P':
-                        mapTiles[i-1].Image = Properties.Resources.cardPistol;
-                        break;
-                case 'C':
-                        mapTiles[i-1].Image = Properties.Resources.cardKey;
-                        break;
-                case 'G':
-                        mapTiles[i-1].Image = Properties.Resources.cardBottle;
-                        break;
-                case 'F':
-                        mapTiles[i-1].Image = Properties.Resources.cardKnife;
-                        break;
-
-                }
-
-                mapTiles[i-1].SizeMode = PictureBoxSizeMode.Zoom;
+            if (txtId.Text != "")
+            {
+                // Requests the server the blueprint of the map
+                string mapBlueprint = Jogo.ExibirTabuleiro(Convert.ToInt32(txtId.Text));
+                // Shows the map blueprint as text
+                txtExibirTabuleiro.Text = mapBlueprint;
+                // Builds the map using tiles based on the blueprint requested from the server
+                tabuleiro.construir(mapTiles, mapBlueprint);
+            }
+            else
+            {
+                MessageBox.Show("Id inválido! :(");
             }
         }
     }
