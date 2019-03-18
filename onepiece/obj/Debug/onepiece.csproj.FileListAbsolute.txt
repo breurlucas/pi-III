@@ -10,3 +10,15 @@ C:\Users\lucas.breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CoreCom
 C:\Users\lucas.breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CopyComplete
 C:\Users\lucas.breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.exe
 C:\Users\lucas.breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.pdb
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\bin\Debug\onepiece.exe.config
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\bin\Debug\onepiece.exe
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\bin\Debug\onepiece.pdb
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\bin\Debug\CartagenaServer.dll
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csprojAssemblyReference.cache
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.Form1.resources
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.Properties.Resources.resources
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.GenerateResource.cache
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CoreCompileInputs.cache
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CopyComplete
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.exe
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.pdb
