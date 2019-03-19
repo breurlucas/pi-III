@@ -22,3 +22,4 @@ C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CoreCom
 C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.csproj.CopyComplete
 C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.exe
 C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.pdb
+C:\Users\Lucas Breur\Desktop\onepiece\onepiece\obj\Debug\onepiece.Form2.resources

@@ -19,6 +19,9 @@ namespace onepiece
         {
             InitializeComponent();
 
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+
             // Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
@@ -81,6 +84,13 @@ namespace onepiece
             {
                 MessageBox.Show("Id inválido! :(");
             }
+        }
+
+        private void btnNovoForm_Click(object sender, EventArgs e)
+        {
+            Form2 novoForm;
+            novoForm = new Form2();
+            novoForm.ShowDialog();
         }
     }
 }

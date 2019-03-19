@@ -88,6 +88,7 @@
             this.picTile2 = new System.Windows.Forms.PictureBox();
             this.picTile1 = new System.Windows.Forms.PictureBox();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
+            this.btnNovoForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile34)).BeginInit();
@@ -682,11 +683,22 @@
             this.picMapBackground.TabIndex = 59;
             this.picMapBackground.TabStop = false;
             // 
+            // btnNovoForm
+            // 
+            this.btnNovoForm.Location = new System.Drawing.Point(120, 523);
+            this.btnNovoForm.Name = "btnNovoForm";
+            this.btnNovoForm.Size = new System.Drawing.Size(130, 23);
+            this.btnNovoForm.TabIndex = 60;
+            this.btnNovoForm.Text = "Novo Form";
+            this.btnNovoForm.UseVisualStyleBackColor = true;
+            this.btnNovoForm.Click += new System.EventHandler(this.btnNovoForm_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1612, 841);
+            this.Controls.Add(this.btnNovoForm);
             this.Controls.Add(this.btnExibirTabuleiro);
             this.Controls.Add(this.txtExibirTabuleiro);
             this.Controls.Add(this.picTile36);
@@ -854,6 +866,7 @@
         private System.Windows.Forms.TextBox txtExibirTabuleiro;
         private System.Windows.Forms.Button btnExibirTabuleiro;
         private System.Windows.Forms.PictureBox picMapBackground;
+        private System.Windows.Forms.Button btnNovoForm;
     }
 }
 
