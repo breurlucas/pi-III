@@ -14,6 +14,8 @@ namespace onepiece
     public partial class Form2 : Form
     {
         Tabuleiro tabuleiro;
+        PictureBox[] mapTiles;
+        Pirate pirate;
 
         public Form2()
         {
@@ -24,12 +26,9 @@ namespace onepiece
 
             // Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
-        }
 
-        private void btnExibirTabuleiro_Click(object sender, EventArgs e)
-        {
-            // Declaring the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
-            PictureBox[] mapTiles =
+            // Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
+            mapTiles = new PictureBox[]
             {
                 picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
                 picTile10, picTile11, picTile12, picTile13, picTile14, picTile15, picTile16, picTile17,
@@ -37,8 +36,10 @@ namespace onepiece
                 picTile26, picTile27, picTile28, picTile29, picTile30, picTile31, picTile32, picTile33,
                 picTile34, picTile35, picTile36
             };
+        }
 
-            
+        private void btnExibirTabuleiro_Click(object sender, EventArgs e)
+        {
             // Requests the server the blueprint of the map
             string mapBlueprint = Jogo.ExibirTabuleiro(2);
             // Builds the map using tiles based on the blueprint requested from the server
@@ -56,17 +57,13 @@ namespace onepiece
                 mapTiles[i].BackColor = Color.Transparent;
 
                 if (i < 11)
-                {
                     heightPercentage = 0.79;
-                }
+
                 else if (i > 11 && i < 23)
-                {
                     heightPercentage = 0.47;
-                } 
+
                 else
-                {
                     heightPercentage = 0.15;
-                }
 
                 if (i == 11)
                 {
@@ -84,6 +81,18 @@ namespace onepiece
                     widthPercentage += spacingTiles;
                 }
             }
+        }
+
+        private void picMapBackground_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            int x = mapTiles[1].Location.X;
+            int y = mapTiles[1].Location.Y;
+            //pirate.draw(g, x, y);
+            //Pen p = new Pen(Color.Red);
+            SolidBrush sb = new SolidBrush(Color.Red);
+            //g.DrawEllipse(p, x, y, 10, 10);
+            g.FillEllipse(sb, x, y, 10, 10);
         }
     }
 }

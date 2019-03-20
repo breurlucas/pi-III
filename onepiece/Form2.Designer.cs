@@ -451,6 +451,7 @@
             this.picMapBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
+            this.picMapBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.picMapBackground_Paint);
             // 
             // Form2
             // 
