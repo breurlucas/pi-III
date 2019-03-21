@@ -12,13 +12,14 @@ using CartagenaServer;
 namespace onepiece
 {
     public partial class Form2 : Form
-    {
+    { 
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
         PictureBox unit;
         Pirate pirate;
         int[] occupation;
         Dictionary<string, Color> colors;
+        int tempID;
 
         public Form2()
         {
@@ -40,6 +41,7 @@ namespace onepiece
                 picTile34, picTile35, picTile36
             };
 
+            tempID = 17;
             //  Shows the map as soon as the form opens
             exibirTabuleiro();
             // Assigns a color to each player
@@ -49,7 +51,7 @@ namespace onepiece
         private void exibirTabuleiro()
         {
             //  Requests the server the blueprint of the map
-            string mapBlueprint = Jogo.ExibirTabuleiro(5);
+            string mapBlueprint = Jogo.ExibirTabuleiro(tempID);
             //  Builds the map using tiles based on the blueprint requested from the server
             tabuleiro.construir(mapTiles, mapBlueprint);
 
@@ -104,7 +106,7 @@ namespace onepiece
         {
             //  Builds dictionary for the player colors
 
-            string req = Jogo.ListarJogadores(5);
+            string req = Jogo.ListarJogadores(tempID);
             req = req.Replace("\n", "");
             string[] players = req.Split('\r', ',');
 
@@ -138,17 +140,24 @@ namespace onepiece
         
             colors = new Dictionary<string, Color>
                 {
-                    { p1, Color.DarkRed },
+                    { p1, Color.Red },
                     { p2, Color.DarkGreen },
-                    { p3, Color.LightGoldenrodYellow },
-                    { p4, Color.DarkBlue },
-                    { p5, Color.SaddleBrown },
+                    { p3, Color.Yellow },
+                    { p4, Color.Blue },
+                    { p5, Color.Brown },
                 };
         }
 
         private void btnUpdateMap_Click(object sender, EventArgs e)
         {
-            string req = Jogo.VerificarVez(5);
+            //  Clear units
+            foreach (PictureBox unit in picMapBackground.Controls)
+            {
+                if (unit != null && unit.Image == null)
+                    unit.Dispose();
+            }
+
+            string req = Jogo.VerificarVez(tempID);
             txtVerificarVez.Text = req;
 
             //  Replace the 'next line' characters from the string with blanks
