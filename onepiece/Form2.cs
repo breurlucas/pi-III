@@ -57,7 +57,7 @@ namespace onepiece
                 the parent control background). */
             double startingWidthTiles = 0.053;
             double spacingTiles = 0.086;
-            double widthPercentage = startingWidthTiles; 
+            double widthPercentage = startingWidthTiles;
             double heightPercentage;
             for(int i = 0; i < mapTiles.Length; i++)
             {
@@ -75,18 +75,27 @@ namespace onepiece
 
                 if (i == 11)
                 {
-                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * (spacingTiles * 10 + startingWidthTiles)), Convert.ToInt32(picMapBackground.Height * 0.63));
-                    widthPercentage = startingWidthTiles;
+                    widthPercentage = startingWidthTiles + 10 * spacingTiles;
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage), 
+                        Convert.ToInt32(picMapBackground.Height * 0.63));
+                    
                 }
                 else if (i == 23)
                 {
-                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * startingWidthTiles), Convert.ToInt32(picMapBackground.Height * 0.31));
                     widthPercentage = startingWidthTiles;
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * startingWidthTiles), 
+                        Convert.ToInt32(picMapBackground.Height * 0.31));
                 }
                 else
                 {
-                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage), Convert.ToInt32(picMapBackground.Height * heightPercentage));
-                    widthPercentage += spacingTiles;
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage),
+                            Convert.ToInt32(picMapBackground.Height * heightPercentage));
+
+                    if (i > 11 && i < 23)
+                        //  Starts from the right
+                        widthPercentage -= spacingTiles;
+                    else
+                        widthPercentage += spacingTiles;
                 }
             }
         }
@@ -137,9 +146,10 @@ namespace onepiece
                 };
         }
 
-        private void btnEstadoTabuleiro_Click(object sender, EventArgs e)
+        private void btnUpdateMap_Click(object sender, EventArgs e)
         {
             string req = Jogo.VerificarVez(5);
+            txtVerificarVez.Text = req;
 
             //  Replace the 'next line' characters from the string with blanks
             req = req.Replace("\n", "");
@@ -154,7 +164,7 @@ namespace onepiece
             occupation = new int[36];
 
             //  Last input of estadoTabuleiro is empty
-            for(int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
+            for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
             {
                 int position, repeat;
                 string player;
@@ -170,6 +180,7 @@ namespace onepiece
                 if (position != 0)
                     drawUnit(position, color, repeat);
             }
+
         }
 
         private void drawUnit(int position, Color color, int repeat)

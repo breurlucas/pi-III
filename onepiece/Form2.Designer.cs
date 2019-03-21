@@ -65,7 +65,8 @@
             this.picTile2 = new System.Windows.Forms.PictureBox();
             this.picTile1 = new System.Windows.Forms.PictureBox();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
-            this.btnEstadoTabuleiro = new System.Windows.Forms.Button();
+            this.btnUpdateMap = new System.Windows.Forms.Button();
+            this.txtVerificarVez = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile34)).BeginInit();
@@ -442,22 +443,33 @@
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
             // 
-            // btnEstadoTabuleiro
+            // btnUpdateMap
             // 
-            this.btnEstadoTabuleiro.Location = new System.Drawing.Point(29, 625);
-            this.btnEstadoTabuleiro.Name = "btnEstadoTabuleiro";
-            this.btnEstadoTabuleiro.Size = new System.Drawing.Size(152, 45);
-            this.btnEstadoTabuleiro.TabIndex = 94;
-            this.btnEstadoTabuleiro.Text = "Update";
-            this.btnEstadoTabuleiro.UseVisualStyleBackColor = true;
-            this.btnEstadoTabuleiro.Click += new System.EventHandler(this.btnEstadoTabuleiro_Click);
+            this.btnUpdateMap.Location = new System.Drawing.Point(27, 603);
+            this.btnUpdateMap.Name = "btnUpdateMap";
+            this.btnUpdateMap.Size = new System.Drawing.Size(152, 45);
+            this.btnUpdateMap.TabIndex = 94;
+            this.btnUpdateMap.Text = "Update";
+            this.btnUpdateMap.UseVisualStyleBackColor = true;
+            this.btnUpdateMap.Click += new System.EventHandler(this.btnUpdateMap_Click);
+            // 
+            // txtVerificarVez
+            // 
+            this.txtVerificarVez.Location = new System.Drawing.Point(185, 603);
+            this.txtVerificarVez.Multiline = true;
+            this.txtVerificarVez.Name = "txtVerificarVez";
+            this.txtVerificarVez.ReadOnly = true;
+            this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtVerificarVez.Size = new System.Drawing.Size(147, 205);
+            this.txtVerificarVez.TabIndex = 95;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
-            this.Controls.Add(this.btnEstadoTabuleiro);
+            this.Controls.Add(this.txtVerificarVez);
+            this.Controls.Add(this.btnUpdateMap);
             this.Controls.Add(this.picTile36);
             this.Controls.Add(this.picTile35);
             this.Controls.Add(this.picTile34);
@@ -535,6 +547,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTile1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -577,6 +590,7 @@
         private System.Windows.Forms.PictureBox picTile3;
         private System.Windows.Forms.PictureBox picTile2;
         private System.Windows.Forms.PictureBox picTile1;
-        private System.Windows.Forms.Button btnEstadoTabuleiro;
+        private System.Windows.Forms.Button btnUpdateMap;
+        private System.Windows.Forms.TextBox txtVerificarVez;
     }
 }
