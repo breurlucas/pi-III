@@ -39,9 +39,14 @@ namespace onepiece
                 picTile26, picTile27, picTile28, picTile29, picTile30, picTile31, picTile32, picTile33,
                 picTile34, picTile35, picTile36
             };
+
+            //  Shows the map as soon as the form opens
+            exibirTabuleiro();
+            // Assigns a color to each player
+            definirJogadores();
         }
 
-        private void btnExibirTabuleiro_Click(object sender, EventArgs e)
+        private void exibirTabuleiro()
         {
             //  Requests the server the blueprint of the map
             string mapBlueprint = Jogo.ExibirTabuleiro(5);
@@ -83,44 +88,53 @@ namespace onepiece
                     mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage), Convert.ToInt32(picMapBackground.Height * heightPercentage));
                     widthPercentage += spacingTiles;
                 }
-
-                //  Build dictionary for the player colors
-
-                //string req = Jogo.ListarJogadores(5);
-                //req = req.Replace("\n", "");
-                //string[] players = req.Split('\r', ',');
-
-                string[] players = { "9", "0", "Vermelho", "10", "0", "Verde" };
-
-                Color colorP1 = Color.DeepPink;
-                Color colorP2 = Color.DeepPink;
-
-                switch (players[2])
-                {
-                    case "Vermelho":
-                        colorP1 = Color.DarkRed;
-                        break;
-                    case "Verde":
-                        colorP1 = Color.DarkGreen;
-                        break;
-                }
-
-                switch (players[5])
-                {
-                    case "Vermelho":
-                        colorP2 = Color.DarkRed;
-                        break;
-                    case "Verde":
-                        colorP2 = Color.DarkGreen;
-                        break;
-                }
-                //  Needs to be extended to accomodate more players and colors
-                colors = new Dictionary<string, Color>
-                {
-                    { players[0], colorP1 },
-                    { players[3], colorP2 }
-                };
             }
+        }
+
+        private void definirJogadores()
+        {
+            //  Builds dictionary for the player colors
+
+            string req = Jogo.ListarJogadores(5);
+            req = req.Replace("\n", "");
+            string[] players = req.Split('\r', ',');
+
+            string p1 = "player id 1";
+            string p2 = "player id 2";
+            string p3 = "player id 3";
+            string p4 = "player id 4";
+            string p5 = "player id 5";
+
+            for (int i = 0; i < players.Length - 1; i += 3)
+            {
+                switch (i)
+                {
+                    case 0:
+                        p1 = players[i];
+                        break;
+                    case 3:
+                        p2 = players[i];
+                        break;
+                    case 6:
+                        p3 = players[i];
+                        break;
+                    case 9:
+                        p4 = players[i];
+                        break;
+                    case 12:
+                        p5 = players[i];
+                        break;
+                }
+            }
+        
+            colors = new Dictionary<string, Color>
+                {
+                    { p1, Color.DarkRed },
+                    { p2, Color.DarkGreen },
+                    { p3, Color.LightGoldenrodYellow },
+                    { p4, Color.DarkBlue },
+                    { p5, Color.SaddleBrown },
+                };
         }
 
         private void btnEstadoTabuleiro_Click(object sender, EventArgs e)
