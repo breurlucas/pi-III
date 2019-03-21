@@ -15,6 +15,7 @@ namespace onepiece
     {
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
+        PictureBox unit;
         Pirate pirate;
 
         public Form2()
@@ -83,16 +84,66 @@ namespace onepiece
             }
         }
 
-        private void picMapBackground_Paint(object sender, PaintEventArgs e)
+        private void btnEstadoTabuleiro_Click(object sender, EventArgs e)
         {
-            Graphics g = e.Graphics;
-            int x = mapTiles[1].Location.X;
-            int y = mapTiles[1].Location.Y;
-            //pirate.draw(g, x, y);
-            //Pen p = new Pen(Color.Red);
-            SolidBrush sb = new SolidBrush(Color.Red);
-            //g.DrawEllipse(p, x, y, 10, 10);
-            g.FillEllipse(sb, x, y, 10, 10);
+            //string req = Jogo.VerificarVez(2);
+
+            //// Replace the 'next line' characters from the string with blanks
+            //req = req.Replace("\n", "");
+            //// Split the string at the '\r' characters so that we're left with an array of strings
+            //// Every three items make up a line POSITION / PLAYER / NR PIRATES
+            //// The first line defines whose turn it is and how many plays he has left.
+            //// The other lines define the positions of the pirates.
+            //string[] estadoTabuleiro = req.Split('\r',',');
+
+            //string[] mockInput = { "1", "1", "3", "4", "1", "1", "8", "1", "1" };
+
+            // Position input is sent to the mapTiles[]
+
+            // Number of pirates and color depending on player
+
+            int x = mapTiles[0].Location.X - 15;
+            int y = mapTiles[0].Location.Y + 30;
+            for (int i = 0; i < 3; i++)
+            {
+                drawUnit(x, y);
+                x += 20;
+            }
+
+            x = mapTiles[1].Location.X - 15;
+            y = mapTiles[1].Location.Y + 30;
+            for (int i = 0; i < 2; i++)
+            {
+                drawUnit(x, y);
+                x += 20;
+            }
+
+            x = mapTiles[2].Location.X - 15;
+            y = mapTiles[2].Location.Y + 30;
+            drawUnit(x, y);
+
         }
+
+        private void drawUnit(int x, int y)
+        {
+            unit = new PictureBox();
+            unit.Size = new Size(15, 15);
+            unit.BackColor = Color.DarkRed;
+            unit.Location = new Point(x, y);
+            picMapBackground.Controls.Add(unit);
+            unit.BringToFront();
+        }
+
+        //private void picMapBackground_Paint(object sender, PaintEventArgs e)
+        //{
+        //    Graphics g = e.Graphics;
+        //    int x = mapTiles[1].Location.X + 20;
+        //    int y = mapTiles[1].Location.Y;
+        //    //pirate.draw(g, x, y);
+        //    //Pen p = new Pen(Color.Red);
+        //    SolidBrush sb = new SolidBrush(Color.Red);
+        //    //g.DrawEllipse(p, x, y, 10, 10);
+        //    g.FillEllipse(sb, x, y, 15, 15);
+        //}
     }
 }

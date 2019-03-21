@@ -66,6 +66,10 @@
             this.picTile2 = new System.Windows.Forms.PictureBox();
             this.picTile1 = new System.Windows.Forms.PictureBox();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
+            this.btnEstadoTabuleiro = new System.Windows.Forms.Button();
+            this.txtEstadoTabuleiro = new System.Windows.Forms.TextBox();
+            this.txtIdTeste = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile34)).BeginInit();
@@ -451,13 +455,51 @@
             this.picMapBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
-            this.picMapBackground.Paint += new System.Windows.Forms.PaintEventHandler(this.picMapBackground_Paint);
+            // 
+            // btnEstadoTabuleiro
+            // 
+            this.btnEstadoTabuleiro.Location = new System.Drawing.Point(1364, 12);
+            this.btnEstadoTabuleiro.Name = "btnEstadoTabuleiro";
+            this.btnEstadoTabuleiro.Size = new System.Drawing.Size(152, 45);
+            this.btnEstadoTabuleiro.TabIndex = 94;
+            this.btnEstadoTabuleiro.Text = "Verificar Vez";
+            this.btnEstadoTabuleiro.UseVisualStyleBackColor = true;
+            this.btnEstadoTabuleiro.Click += new System.EventHandler(this.btnEstadoTabuleiro_Click);
+            // 
+            // txtEstadoTabuleiro
+            // 
+            this.txtEstadoTabuleiro.Location = new System.Drawing.Point(1364, 72);
+            this.txtEstadoTabuleiro.Multiline = true;
+            this.txtEstadoTabuleiro.Name = "txtEstadoTabuleiro";
+            this.txtEstadoTabuleiro.ReadOnly = true;
+            this.txtEstadoTabuleiro.Size = new System.Drawing.Size(152, 528);
+            this.txtEstadoTabuleiro.TabIndex = 95;
+            // 
+            // txtIdTeste
+            // 
+            this.txtIdTeste.Location = new System.Drawing.Point(1522, 35);
+            this.txtIdTeste.Name = "txtIdTeste";
+            this.txtIdTeste.Size = new System.Drawing.Size(36, 22);
+            this.txtIdTeste.TabIndex = 96;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1522, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 17);
+            this.label1.TabIndex = 97;
+            this.label1.Text = "Id";
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 853);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtIdTeste);
+            this.Controls.Add(this.txtEstadoTabuleiro);
+            this.Controls.Add(this.btnEstadoTabuleiro);
             this.Controls.Add(this.btnExibirTabuleiro);
             this.Controls.Add(this.picTile36);
             this.Controls.Add(this.picTile35);
@@ -536,6 +578,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTile1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -579,5 +622,9 @@
         private System.Windows.Forms.PictureBox picTile2;
         private System.Windows.Forms.PictureBox picTile1;
         private System.Windows.Forms.Button btnExibirTabuleiro;
+        private System.Windows.Forms.Button btnEstadoTabuleiro;
+        private System.Windows.Forms.TextBox txtEstadoTabuleiro;
+        private System.Windows.Forms.TextBox txtIdTeste;
+        private System.Windows.Forms.Label label1;
     }
 }
