@@ -17,6 +17,8 @@ namespace onepiece
         PictureBox[] mapTiles;
         PictureBox unit;
         Pirate pirate;
+        int[] occupation;
+        Dictionary<string, Color> colors;
 
         public Form2()
         {
@@ -25,10 +27,10 @@ namespace onepiece
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
 
-            // Instancia novo tabuleiro
+            //  Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
-            // Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
+            //  Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
             mapTiles = new PictureBox[]
             {
                 picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
@@ -41,13 +43,13 @@ namespace onepiece
 
         private void btnExibirTabuleiro_Click(object sender, EventArgs e)
         {
-            // Requests the server the blueprint of the map
-            string mapBlueprint = Jogo.ExibirTabuleiro(2);
-            // Builds the map using tiles based on the blueprint requested from the server
+            //  Requests the server the blueprint of the map
+            string mapBlueprint = Jogo.ExibirTabuleiro(5);
+            //  Builds the map using tiles based on the blueprint requested from the server
             tabuleiro.construir(mapTiles, mapBlueprint);
 
-            // Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
-            // the parent control background).
+            /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
+                the parent control background). */
             double startingWidthTiles = 0.053;
             double spacingTiles = 0.086;
             double widthPercentage = startingWidthTiles; 
@@ -81,57 +83,125 @@ namespace onepiece
                     mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage), Convert.ToInt32(picMapBackground.Height * heightPercentage));
                     widthPercentage += spacingTiles;
                 }
+
+                //  Build dictionary for the player colors
+
+                //string req = Jogo.ListarJogadores(5);
+                //req = req.Replace("\n", "");
+                //string[] players = req.Split('\r', ',');
+
+                string[] players = { "9", "0", "Vermelho", "10", "0", "Verde" };
+
+                Color colorP1 = Color.DeepPink;
+                Color colorP2 = Color.DeepPink;
+
+                switch (players[2])
+                {
+                    case "Vermelho":
+                        colorP1 = Color.DarkRed;
+                        break;
+                    case "Verde":
+                        colorP1 = Color.DarkGreen;
+                        break;
+                }
+
+                switch (players[5])
+                {
+                    case "Vermelho":
+                        colorP2 = Color.DarkRed;
+                        break;
+                    case "Verde":
+                        colorP2 = Color.DarkGreen;
+                        break;
+                }
+                //  Needs to be extended to accomodate more players and colors
+                colors = new Dictionary<string, Color>
+                {
+                    { players[0], colorP1 },
+                    { players[3], colorP2 }
+                };
             }
         }
 
         private void btnEstadoTabuleiro_Click(object sender, EventArgs e)
         {
-            //string req = Jogo.VerificarVez(2);
+            string req = Jogo.VerificarVez(5);
 
-            //// Replace the 'next line' characters from the string with blanks
-            //req = req.Replace("\n", "");
-            //// Split the string at the '\r' characters so that we're left with an array of strings
-            //// Every three items make up a line POSITION / PLAYER / NR PIRATES
-            //// The first line defines whose turn it is and how many plays he has left.
-            //// The other lines define the positions of the pirates.
-            //string[] estadoTabuleiro = req.Split('\r',',');
+            //  Replace the 'next line' characters from the string with blanks
+            req = req.Replace("\n", "");
 
-            //string[] mockInput = { "1", "1", "3", "4", "1", "1", "8", "1", "1" };
+            /*  Split the string at the '\r' and ',' characters so that we're left with an array of strings
+                Every three items make up a line POSITION / PLAYER / NR PIRATES
+                The first line defines whose turn it is and how many plays he has left.
+                The other lines define the positions of the pirates. */
+            string[] estadoTabuleiro = req.Split('\r', ',');
 
-            // Position input is sent to the mapTiles[]
+            //  Instatiates new occupation array
+            occupation = new int[36];
 
-            // Number of pirates and color depending on player
-
-            int x = mapTiles[0].Location.X - 15;
-            int y = mapTiles[0].Location.Y + 30;
-            for (int i = 0; i < 3; i++)
+            //  Last input of estadoTabuleiro is empty
+            for(int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
             {
-                drawUnit(x, y);
-                x += 20;
+                int position, repeat;
+                string player;
+                Color color;
+
+                position = Convert.ToInt32(estadoTabuleiro[i]);
+
+                repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
+
+                player = estadoTabuleiro[i + 1];
+                color = colors[player];
+
+                if (position != 0)
+                    drawUnit(position, color, repeat);
             }
-
-            x = mapTiles[1].Location.X - 15;
-            y = mapTiles[1].Location.Y + 30;
-            for (int i = 0; i < 2; i++)
-            {
-                drawUnit(x, y);
-                x += 20;
-            }
-
-            x = mapTiles[2].Location.X - 15;
-            y = mapTiles[2].Location.Y + 30;
-            drawUnit(x, y);
-
         }
 
-        private void drawUnit(int x, int y)
+        private void drawUnit(int position, Color color, int repeat)
         {
+            int x, y;
+            x = mapTiles[position - 1].Location.X;
+            y = mapTiles[position - 1].Location.Y;
+
+            //  x and y offsets based on pic tiles size
+            switch (occupation[position])
+            {
+                case 0:
+                    x -= 15;
+                    break;
+                case 1:
+                    x += 5;
+                    break;
+                case 2:
+                    x += 25;
+                    break;
+            }
+
+            y += 30;
+
             unit = new PictureBox();
             unit.Size = new Size(15, 15);
-            unit.BackColor = Color.DarkRed;
+            unit.BackColor = color;
             unit.Location = new Point(x, y);
             picMapBackground.Controls.Add(unit);
             unit.BringToFront();
+
+            //  Checks for number of pirates
+            if (repeat == 2)
+            {
+                occupation[position] += 1;
+                drawUnit(position, color, 0);
+            }
+            else if (repeat == 3)
+            {
+                occupation[position] += 1;
+                drawUnit(position, color, 2);
+            }
+            else
+            {
+                occupation[position] += 1;
+            }
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)

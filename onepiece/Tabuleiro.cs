@@ -12,12 +12,6 @@ namespace onepiece
     {
         public void construir(PictureBox[] mapTiles, string mapBlueprint)
         {
-            // Make the tiles transparent
-
-            //picMapBackground.Controls.Add(picTile1);
-            //picTile1.Location = new Point(Convert.ToInt32(picMapBackground.Width * 0.15), Convert.ToInt32(picMapBackground.Height * 0.78));
-            //picTile1.BackColor = Color.Transparent;
-
             // Replace the 'next line' characters from the string with blanks
             mapBlueprint = mapBlueprint.Replace("\n", "");
             // Split the string at the '\r' characters so that we're left with an array of strings
