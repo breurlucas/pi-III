@@ -30,7 +30,7 @@
         {
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.txtListarPartidas = new System.Windows.Forms.TextBox();
-            this.cboListarPartidas = new System.Windows.Forms.ComboBox();
+            this.cmbFiltrarPartidas = new System.Windows.Forms.ComboBox();
             this.txtNomePartida = new System.Windows.Forms.TextBox();
             this.txtSenhaPartida = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnExibirHistorico = new System.Windows.Forms.Button();
@@ -61,6 +60,7 @@
             this.txtExibirMao = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnListarPartidas
@@ -82,14 +82,16 @@
             this.txtListarPartidas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtListarPartidas.Size = new System.Drawing.Size(193, 165);
             this.txtListarPartidas.TabIndex = 1;
+            this.txtListarPartidas.TextChanged += new System.EventHandler(this.txtListarPartidas_TextChanged);
             // 
-            // cboListarPartidas
+            // cmbFiltrarPartidas
             // 
-            this.cboListarPartidas.FormattingEnabled = true;
-            this.cboListarPartidas.Location = new System.Drawing.Point(121, 13);
-            this.cboListarPartidas.Name = "cboListarPartidas";
-            this.cboListarPartidas.Size = new System.Drawing.Size(84, 21);
-            this.cboListarPartidas.TabIndex = 2;
+            this.cmbFiltrarPartidas.FormattingEnabled = true;
+            this.cmbFiltrarPartidas.Location = new System.Drawing.Point(121, 13);
+            this.cmbFiltrarPartidas.Name = "cmbFiltrarPartidas";
+            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(84, 21);
+            this.cmbFiltrarPartidas.TabIndex = 2;
+            this.cmbFiltrarPartidas.SelectedIndexChanged += new System.EventHandler(this.cmbFiltrarPartidas_SelectedIndexChanged);
             // 
             // txtNomePartida
             // 
@@ -97,6 +99,7 @@
             this.txtNomePartida.Name = "txtNomePartida";
             this.txtNomePartida.Size = new System.Drawing.Size(193, 20);
             this.txtNomePartida.TabIndex = 3;
+            this.txtNomePartida.TextChanged += new System.EventHandler(this.txtNomePartida_TextChanged);
             // 
             // txtSenhaPartida
             // 
@@ -104,6 +107,7 @@
             this.txtSenhaPartida.Name = "txtSenhaPartida";
             this.txtSenhaPartida.Size = new System.Drawing.Size(112, 20);
             this.txtSenhaPartida.TabIndex = 4;
+            this.txtSenhaPartida.TextChanged += new System.EventHandler(this.txtSenhaPartida_TextChanged);
             // 
             // label1
             // 
@@ -113,6 +117,7 @@
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 5;
             this.label1.Text = "Nome Partida";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -122,6 +127,7 @@
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Senha Partida";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // btnCriarPartida
             // 
@@ -215,15 +221,6 @@
             this.label4.Size = new System.Drawing.Size(91, 13);
             this.label4.TabIndex = 17;
             this.label4.Text = "Nome do Jogador";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(226, 309);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(72, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Id do Jogador";
             // 
             // label6
             // 
@@ -348,12 +345,22 @@
             this.label9.TabIndex = 32;
             this.label9.Text = "Símbolo";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(226, 309);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Id do Jogador";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1015, 469);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtExibirMao);
@@ -368,7 +375,6 @@
             this.Controls.Add(this.btnExibirHistorico);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox6);
@@ -384,7 +390,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSenhaPartida);
             this.Controls.Add(this.txtNomePartida);
-            this.Controls.Add(this.cboListarPartidas);
+            this.Controls.Add(this.cmbFiltrarPartidas);
             this.Controls.Add(this.txtListarPartidas);
             this.Controls.Add(this.btnListarPartidas);
             this.Name = "Form1";
@@ -398,7 +404,7 @@
 
         private System.Windows.Forms.Button btnListarPartidas;
         private System.Windows.Forms.TextBox txtListarPartidas;
-        private System.Windows.Forms.ComboBox cboListarPartidas;
+        private System.Windows.Forms.ComboBox cmbFiltrarPartidas;
         private System.Windows.Forms.TextBox txtNomePartida;
         private System.Windows.Forms.TextBox txtSenhaPartida;
         private System.Windows.Forms.Label label1;
@@ -414,7 +420,6 @@
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnExibirHistorico;
@@ -429,6 +434,7 @@
         private System.Windows.Forms.TextBox txtExibirMao;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
     }
 }
 
