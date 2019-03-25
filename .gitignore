@@ -1,1 +1,5 @@
 .vs/
+
+# Ignore folders
+onepiece/bin/
+onepiece/obj/
