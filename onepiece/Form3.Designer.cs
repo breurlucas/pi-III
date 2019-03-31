@@ -144,7 +144,7 @@
             this.btnUpdateMap.TabIndex = 94;
             this.btnUpdateMap.Text = "Update";
             this.btnUpdateMap.UseVisualStyleBackColor = true;
-            this.btnUpdateMap.Click += new System.EventHandler(this.btnUpdateMap_Click);
+            
             // 
             // txtVerificarVez
             // 

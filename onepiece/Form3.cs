@@ -55,14 +55,8 @@ namespace onepiece
             cboSimbolo.Items.Add("Tricórnio");
             cboSimbolo.Items.Add("Faca");
 
-            //tempID = Convert.ToInt32(form2.idPartida);
-            tempID = 17;
-            //  Shows the map as soon as the form opens
-            exibirTabuleiro();
-            // Assigns a color to each player
-            //definirJogadores();
+            tempID = Convert.ToInt32(form2.idPartida);
 
-            
         }
 
         private void exibirTabuleiro()
@@ -119,54 +113,8 @@ namespace onepiece
             }
         }
 
-        private void definirJogadores()
-        {
-            //  Builds dictionary for the player colors
-
-            string req = Jogo.ListarJogadores(tempID);
-            req = req.Replace("\n", "");
-            string[] players = req.Split('\r', ',');
-
-            string p1 = "player id 1";
-            string p2 = "player id 2";
-            string p3 = "player id 3";
-            string p4 = "player id 4";
-            string p5 = "player id 5";
-
-            for (int i = 0; i < players.Length - 1; i += 3)
-            {
-                switch (i)
-                {
-                    case 0:
-                        p1 = players[i];
-                        break;
-                    case 3:
-                        p2 = players[i];
-                        break;
-                    case 6:
-                        p3 = players[i];
-                        break;
-                    case 9:
-                        p4 = players[i];
-                        break;
-                    case 12:
-                        p5 = players[i];
-                        break;
-                }
-            }
-
-            colors = new Dictionary<string, Color>
-                {
-                    { p1, Color.Red },
-                    { p2, Color.DarkGreen },
-                    { p3, Color.Yellow },
-                    { p4, Color.Blue },
-                    { p5, Color.Brown },
-                };
-        }
-
-        private void btnUpdateMap_Click(object sender, EventArgs e)
-        {
+        private void UpdateMap() {
+            
             //  Clear units
             foreach (PictureBox unit in picMapBackground.Controls)
             {
@@ -201,12 +149,29 @@ namespace onepiece
                 repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
 
                 player = estadoTabuleiro[i + 1];
-                color = colors[player];
+
+                color = Color.FromName(ConvertColor(form2.corJogador));
 
                 if (position != 0)
                     drawUnit(position, color, repeat);
             }
 
+        }
+
+        private string ConvertColor(string color)
+        {
+            if (color == "Amarelo\r\n")
+                return "Yellow";
+            else if (color == "Vermelho\r\n")
+                return "Red";
+            else if (color == "Azul\r\n")
+                return "Blue";
+            else if (color == "Verde\r\n")
+                return "Green";
+            else if (color == "Marrom\r\n")
+                return "Brown";
+            else
+                return "";
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -264,8 +229,9 @@ namespace onepiece
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idPartida), form2.senhaJogador);
+            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
             MessageBox.Show(testeIniciar);
+            exibirTabuleiro();
         }
 
         private void btnExibirMao_Click(object sender, EventArgs e)
@@ -276,6 +242,7 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(form2.idPartida));
+            UpdateMap();
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -286,6 +253,7 @@ namespace onepiece
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
+            UpdateMap();
         }
 
         private void btnMoverFrente_Click(object sender, EventArgs e)
@@ -293,11 +261,13 @@ namespace onepiece
             string comboBoxSimbolo = cboSimbolo.Text;
             string simbolo  = comboBoxSimbolo[0].ToString();
             Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
+            UpdateMap();
         }
 
         private void btnMoverTras_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text));
+            UpdateMap();
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)
