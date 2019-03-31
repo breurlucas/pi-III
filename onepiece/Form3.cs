@@ -33,16 +33,6 @@ namespace onepiece
             //  Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
-            //  Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
-            mapTiles = new PictureBox[]
-            {
-                picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
-                picTile10, picTile11, picTile12, picTile13, picTile14, picTile15, picTile16, picTile17,
-                picTile18, picTile19, picTile20, picTile21, picTile22, picTile23, picTile24, picTile25,
-                picTile26, picTile27, picTile28, picTile29, picTile30, picTile31, picTile32, picTile33,
-                picTile34, picTile35, picTile36
-            };
-
             txtIdJogador.Text = form2.idJogador;
             txtSenhaJogador.Text = form2.senhaJogador;
             txtCorJogador.Text = form2.corJogador;
@@ -61,6 +51,18 @@ namespace onepiece
 
         private void exibirTabuleiro()
         {
+            
+
+            //  Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
+            mapTiles = new PictureBox[]
+            {
+                picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
+                picTile10, picTile11, picTile12, picTile13, picTile14, picTile15, picTile16, picTile17,
+                picTile18, picTile19, picTile20, picTile21, picTile22, picTile23, picTile24, picTile25,
+                picTile26, picTile27, picTile28, picTile29, picTile30, picTile31, picTile32, picTile33,
+                picTile34, picTile35, picTile36
+            };
+
             //  Requests the server the blueprint of the map
             string mapBlueprint = Jogo.ExibirTabuleiro(tempID);
             //  Builds the map using tiles based on the blueprint requested from the server

@@ -85,15 +85,11 @@ namespace onepiece
                 corJogador = array[2];
                 idPartida = txtId.Text;
                 senhaPartida = txtSenhaPartida.Text;
-
-                //Jogador jogador = new Jogador();
-                //jogador.EntrouPartida(txtNomeJogador.Text, senhaJogador, array[2], txtId.Text, array[0]);
-
+                
                 Form3 novoForm;
                 novoForm = new Form3(this);
-    
                 novoForm.Show();
-               // this.Close();
+                
             }
             else
             {
