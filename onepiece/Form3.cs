@@ -283,6 +283,23 @@ namespace onepiece
             txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(form2.idPartida));
         }
 
+        private void btnPularVez_Click(object sender, EventArgs e)
+        {
+            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
+        }
+
+        private void btnMoverFrente_Click(object sender, EventArgs e)
+        {
+            string comboBoxSimbolo = cboSimbolo.Text;
+            string simbolo  = comboBoxSimbolo[0].ToString();
+            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
+        }
+
+        private void btnMoverTras_Click(object sender, EventArgs e)
+        {
+            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text));
+        }
+
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)
         //{
         //    Graphics g = e.Graphics;

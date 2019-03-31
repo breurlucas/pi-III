@@ -648,6 +648,7 @@
             this.btnMoverFrente.TabIndex = 107;
             this.btnMoverFrente.Text = "Para frente";
             this.btnMoverFrente.UseVisualStyleBackColor = true;
+            this.btnMoverFrente.Click += new System.EventHandler(this.btnMoverFrente_Click);
             // 
             // btnMoverTras
             // 
@@ -657,6 +658,7 @@
             this.btnMoverTras.TabIndex = 108;
             this.btnMoverTras.Text = "Para trás";
             this.btnMoverTras.UseVisualStyleBackColor = true;
+            this.btnMoverTras.Click += new System.EventHandler(this.btnMoverTras_Click);
             // 
             // btnPularVez
             // 
@@ -666,6 +668,7 @@
             this.btnPularVez.TabIndex = 109;
             this.btnPularVez.Text = "Pular Vez";
             this.btnPularVez.UseVisualStyleBackColor = true;
+            this.btnPularVez.Click += new System.EventHandler(this.btnPularVez_Click);
             // 
             // groupBox2
             // 
