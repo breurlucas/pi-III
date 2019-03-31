@@ -31,6 +31,7 @@
             this.btnUpdateMap = new System.Windows.Forms.Button();
             this.txtVerificarVez = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnIniciar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.txtIdJogador = new System.Windows.Forms.TextBox();
@@ -74,23 +75,22 @@
             this.picTile2 = new System.Windows.Forms.PictureBox();
             this.picTile1 = new System.Windows.Forms.PictureBox();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
-            this.btnIniciar = new System.Windows.Forms.Button();
-            this.txtPosicaoJ = new System.Windows.Forms.TextBox();
+            this.txtPosicao = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cboSimbolo = new System.Windows.Forms.ComboBox();
+            this.btnMoverFrente = new System.Windows.Forms.Button();
+            this.btnMoverTras = new System.Windows.Forms.Button();
             this.btnPularVez = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtMao = new System.Windows.Forms.TextBox();
             this.btnExibirMao = new System.Windows.Forms.Button();
+            this.txtMao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnVerificarVez = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtHistorico = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnHistorico = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).BeginInit();
@@ -173,6 +173,17 @@
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jogador";
+            // 
+            // btnIniciar
+            // 
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnIniciar.Location = new System.Drawing.Point(114, 140);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(150, 27);
+            this.btnIniciar.TabIndex = 97;
+            this.btnIniciar.Text = "Iniciar Partida";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // label5
             // 
@@ -596,23 +607,12 @@
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
             // 
-            // btnIniciar
+            // txtPosicao
             // 
-            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnIniciar.Location = new System.Drawing.Point(114, 140);
-            this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(150, 27);
-            this.btnIniciar.TabIndex = 97;
-            this.btnIniciar.Text = "Iniciar Partida";
-            this.btnIniciar.UseVisualStyleBackColor = true;
-            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
-            // 
-            // txtPosicaoJ
-            // 
-            this.txtPosicaoJ.Location = new System.Drawing.Point(9, 48);
-            this.txtPosicaoJ.Name = "txtPosicaoJ";
-            this.txtPosicaoJ.Size = new System.Drawing.Size(88, 24);
-            this.txtPosicaoJ.TabIndex = 103;
+            this.txtPosicao.Location = new System.Drawing.Point(9, 48);
+            this.txtPosicao.Name = "txtPosicao";
+            this.txtPosicao.Size = new System.Drawing.Size(88, 24);
+            this.txtPosicao.TabIndex = 103;
             // 
             // label1
             // 
@@ -632,31 +632,31 @@
             this.label2.TabIndex = 105;
             this.label2.Text = "Símbolo";
             // 
-            // comboBox1
+            // cboSimbolo
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 46);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(98, 26);
-            this.comboBox1.TabIndex = 106;
+            this.cboSimbolo.FormattingEnabled = true;
+            this.cboSimbolo.Location = new System.Drawing.Point(139, 46);
+            this.cboSimbolo.Name = "cboSimbolo";
+            this.cboSimbolo.Size = new System.Drawing.Size(98, 26);
+            this.cboSimbolo.TabIndex = 106;
             // 
-            // button1
+            // btnMoverFrente
             // 
-            this.button1.Location = new System.Drawing.Point(9, 91);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 35);
-            this.button1.TabIndex = 107;
-            this.button1.Text = "Para frente";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMoverFrente.Location = new System.Drawing.Point(9, 91);
+            this.btnMoverFrente.Name = "btnMoverFrente";
+            this.btnMoverFrente.Size = new System.Drawing.Size(108, 35);
+            this.btnMoverFrente.TabIndex = 107;
+            this.btnMoverFrente.Text = "Para frente";
+            this.btnMoverFrente.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnMoverTras
             // 
-            this.button2.Location = new System.Drawing.Point(139, 91);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 35);
-            this.button2.TabIndex = 108;
-            this.button2.Text = "Para trás";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnMoverTras.Location = new System.Drawing.Point(139, 91);
+            this.btnMoverTras.Name = "btnMoverTras";
+            this.btnMoverTras.Size = new System.Drawing.Size(108, 35);
+            this.btnMoverTras.TabIndex = 108;
+            this.btnMoverTras.Text = "Para trás";
+            this.btnMoverTras.UseVisualStyleBackColor = true;
             // 
             // btnPularVez
             // 
@@ -669,12 +669,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtPosicaoJ);
+            this.groupBox2.Controls.Add(this.txtPosicao);
             this.groupBox2.Controls.Add(this.btnPularVez);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnMoverTras);
+            this.groupBox2.Controls.Add(this.cboSimbolo);
+            this.groupBox2.Controls.Add(this.btnMoverFrente);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox2.Location = new System.Drawing.Point(294, 499);
@@ -696,6 +696,16 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
             // 
+            // btnExibirMao
+            // 
+            this.btnExibirMao.Location = new System.Drawing.Point(39, 140);
+            this.btnExibirMao.Name = "btnExibirMao";
+            this.btnExibirMao.Size = new System.Drawing.Size(140, 34);
+            this.btnExibirMao.TabIndex = 110;
+            this.btnExibirMao.Text = "Exibir Mão";
+            this.btnExibirMao.UseVisualStyleBackColor = true;
+            this.btnExibirMao.Click += new System.EventHandler(this.btnExibirMao_Click);
+            // 
             // txtMao
             // 
             this.txtMao.Location = new System.Drawing.Point(0, 25);
@@ -706,15 +716,6 @@
             this.txtMao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtMao.Size = new System.Drawing.Size(215, 101);
             this.txtMao.TabIndex = 112;
-            // 
-            // btnExibirMao
-            // 
-            this.btnExibirMao.Location = new System.Drawing.Point(39, 140);
-            this.btnExibirMao.Name = "btnExibirMao";
-            this.btnExibirMao.Size = new System.Drawing.Size(140, 34);
-            this.btnExibirMao.TabIndex = 110;
-            this.btnExibirMao.Text = "Exibir Mão";
-            this.btnExibirMao.UseVisualStyleBackColor = true;
             // 
             // groupBox4
             // 
@@ -736,24 +737,23 @@
             this.btnVerificarVez.TabIndex = 113;
             this.btnVerificarVez.Text = "Verificar Vez";
             this.btnVerificarVez.UseVisualStyleBackColor = true;
-            this.btnVerificarVez.Click += new System.EventHandler(this.button3_Click);
+            this.btnVerificarVez.Click += new System.EventHandler(this.btnVerificarVez_Click);
             // 
-            // textBox1
+            // txtHistorico
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 41);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(208, 318);
-            this.textBox1.TabIndex = 114;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtHistorico.Location = new System.Drawing.Point(8, 41);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2);
+            this.txtHistorico.Multiline = true;
+            this.txtHistorico.Name = "txtHistorico";
+            this.txtHistorico.ReadOnly = true;
+            this.txtHistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtHistorico.Size = new System.Drawing.Size(208, 318);
+            this.txtHistorico.TabIndex = 114;
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.button3);
-            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Controls.Add(this.btnHistorico);
+            this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox5.Location = new System.Drawing.Point(1027, 268);
             this.groupBox5.Name = "groupBox5";
@@ -762,14 +762,15 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
             // 
-            // button3
+            // btnHistorico
             // 
-            this.button3.Location = new System.Drawing.Point(47, 371);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 33);
-            this.button3.TabIndex = 114;
-            this.button3.Text = "Exibir Histórico";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnHistorico.Location = new System.Drawing.Point(47, 371);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(140, 33);
+            this.btnHistorico.TabIndex = 114;
+            this.btnHistorico.Text = "Exibir Histórico";
+            this.btnHistorico.UseVisualStyleBackColor = true;
+            this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             // 
             // Form3
             // 
@@ -923,12 +924,12 @@
         private System.Windows.Forms.TextBox txtSenhaJogador;
         private System.Windows.Forms.TextBox txtCorJogador;
         private System.Windows.Forms.Button btnIniciar;
-        private System.Windows.Forms.TextBox txtPosicaoJ;
+        private System.Windows.Forms.TextBox txtPosicao;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox cboSimbolo;
+        private System.Windows.Forms.Button btnMoverFrente;
+        private System.Windows.Forms.Button btnMoverTras;
         private System.Windows.Forms.Button btnPularVez;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -936,8 +937,8 @@
         private System.Windows.Forms.TextBox txtMao;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnVerificarVez;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtHistorico;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnHistorico;
     }
 }

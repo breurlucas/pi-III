@@ -21,10 +21,10 @@ namespace onepiece
         Dictionary<string, Color> colors;
         int tempID;
 
-        Form2 original;
+        Form2 form2;
         public Form3(Form2 formDois)
         {
-            original = formDois;
+            form2 = formDois;
             InitializeComponent();
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -43,11 +43,20 @@ namespace onepiece
                 picTile34, picTile35, picTile36
             };
 
-            txtIdJogador.Text = original.idJogador;
-            txtSenhaJogador.Text = original.senhaJogador;
-            txtCorJogador.Text = original.corJogador;
+            txtIdJogador.Text = form2.idJogador;
+            txtSenhaJogador.Text = form2.senhaJogador;
+            txtCorJogador.Text = form2.corJogador;
 
-            tempID = Convert.ToInt32(original.idPartida);
+            cboSimbolo.Items.Add("");
+            cboSimbolo.Items.Add("Esqueleto");
+            cboSimbolo.Items.Add("Chave");
+            cboSimbolo.Items.Add("Garrafa");
+            cboSimbolo.Items.Add("Pistola");
+            cboSimbolo.Items.Add("Tricórnio");
+            cboSimbolo.Items.Add("Faca");
+
+            //tempID = Convert.ToInt32(form2.idPartida);
+            tempID = 17;
             //  Shows the map as soon as the form opens
             exibirTabuleiro();
             // Assigns a color to each player
@@ -255,18 +264,23 @@ namespace onepiece
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(original.idPartida), original.senhaPartida);
+            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idPartida), form2.senhaJogador);
             MessageBox.Show(testeIniciar);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnExibirMao_Click(object sender, EventArgs e)
         {
-
+            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btnVerificarVez_Click(object sender, EventArgs e)
         {
+            txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(form2.idPartida));
+        }
 
+        private void btnHistorico_Click(object sender, EventArgs e)
+        {
+            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(form2.idPartida));
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)
