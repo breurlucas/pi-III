@@ -45,12 +45,14 @@
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
+            this.lista = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnCriarPartida
             // 
+            this.btnCriarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCriarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnCriarPartida.Location = new System.Drawing.Point(164, 105);
             this.btnCriarPartida.Name = "btnCriarPartida";
@@ -115,11 +117,12 @@
             this.txtListarPartidas.Name = "txtListarPartidas";
             this.txtListarPartidas.ReadOnly = true;
             this.txtListarPartidas.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtListarPartidas.Size = new System.Drawing.Size(256, 254);
+            this.txtListarPartidas.Size = new System.Drawing.Size(256, 244);
             this.txtListarPartidas.TabIndex = 9;
             // 
             // btnListarPartidas
             // 
+            this.btnListarPartidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarPartidas.Location = new System.Drawing.Point(12, 34);
             this.btnListarPartidas.Name = "btnListarPartidas";
@@ -146,6 +149,7 @@
             // 
             // btnListarJogadores
             // 
+            this.btnListarJogadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarJogadores.Location = new System.Drawing.Point(344, 34);
             this.btnListarJogadores.Name = "btnListarJogadores";
@@ -157,17 +161,19 @@
             // 
             // txtListarJogadores
             // 
+            this.txtListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtListarJogadores.Location = new System.Drawing.Point(293, 86);
             this.txtListarJogadores.Multiline = true;
             this.txtListarJogadores.Name = "txtListarJogadores";
             this.txtListarJogadores.ReadOnly = true;
-            this.txtListarJogadores.Size = new System.Drawing.Size(229, 254);
+            this.txtListarJogadores.Size = new System.Drawing.Size(229, 244);
             this.txtListarJogadores.TabIndex = 18;
             // 
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(293, 54);
             this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(48, 20);
             this.txtId.TabIndex = 19;
             // 
@@ -196,6 +202,7 @@
             // 
             // btnEntrarPartida
             // 
+            this.btnEntrarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrarPartida.Location = new System.Drawing.Point(14, 105);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(193, 31);
@@ -220,11 +227,23 @@
             this.txtNomeJogador.Size = new System.Drawing.Size(193, 26);
             this.txtNomeJogador.TabIndex = 12;
             // 
+            // lista
+            // 
+            this.lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lista.FormattingEnabled = true;
+            this.lista.ItemHeight = 20;
+            this.lista.Location = new System.Drawing.Point(12, 86);
+            this.lista.Name = "lista";
+            this.lista.Size = new System.Drawing.Size(256, 244);
+            this.lista.TabIndex = 22;
+            this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 511);
+            this.Controls.Add(this.lista);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtId);
@@ -265,5 +284,6 @@
         private System.Windows.Forms.TextBox txtNomeJogador;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEntrarPartida;
+        private System.Windows.Forms.ListBox lista;
     }
 }

@@ -22,10 +22,7 @@ namespace onepiece
             cmbFiltrarPartidas.Items.Add("Jogando");
             cmbFiltrarPartidas.Items.Add("Encerrada");
             cmbFiltrarPartidas.SelectedIndex = 0;
-
-            Form2 novoForm;
-            novoForm = new Form2();
-            novoForm.ShowDialog();
+            
         }
        
         private void btnListarPartidas_Click(object sender, EventArgs e)

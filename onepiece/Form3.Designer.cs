@@ -28,6 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.btnUpdateMap = new System.Windows.Forms.Button();
+            this.txtVerificarVez = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtIdJogador = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtSenhaJogador = new System.Windows.Forms.TextBox();
+            this.txtCorJogador = new System.Windows.Forms.TextBox();
             this.picTile36 = new System.Windows.Forms.PictureBox();
             this.picTile35 = new System.Windows.Forms.PictureBox();
             this.picTile34 = new System.Windows.Forms.PictureBox();
@@ -65,15 +74,24 @@
             this.picTile2 = new System.Windows.Forms.PictureBox();
             this.picTile1 = new System.Windows.Forms.PictureBox();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
-            this.btnUpdateMap = new System.Windows.Forms.Button();
-            this.txtVerificarVez = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.txtSenhaJogador = new System.Windows.Forms.TextBox();
-            this.txtIdJogador = new System.Windows.Forms.TextBox();
+            this.btnIniciar = new System.Windows.Forms.Button();
+            this.txtPosicaoJ = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnPularVez = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtMao = new System.Windows.Forms.TextBox();
+            this.btnExibirMao = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnVerificarVez = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile34)).BeginInit();
@@ -111,14 +129,105 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTile2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // btnUpdateMap
+            // 
+            this.btnUpdateMap.Location = new System.Drawing.Point(1046, 65);
+            this.btnUpdateMap.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdateMap.Name = "btnUpdateMap";
+            this.btnUpdateMap.Size = new System.Drawing.Size(114, 37);
+            this.btnUpdateMap.TabIndex = 94;
+            this.btnUpdateMap.Text = "Update";
+            this.btnUpdateMap.UseVisualStyleBackColor = true;
+            this.btnUpdateMap.Click += new System.EventHandler(this.btnUpdateMap_Click);
+            // 
+            // txtVerificarVez
+            // 
+            this.txtVerificarVez.Location = new System.Drawing.Point(0, 27);
+            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
+            this.txtVerificarVez.Multiline = true;
+            this.txtVerificarVez.Name = "txtVerificarVez";
+            this.txtVerificarVez.ReadOnly = true;
+            this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtVerificarVez.Size = new System.Drawing.Size(233, 101);
+            this.txtVerificarVez.TabIndex = 95;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnIniciar);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.txtIdJogador);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.txtSenhaJogador);
+            this.groupBox1.Controls.Add(this.txtCorJogador);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.groupBox1.Location = new System.Drawing.Point(12, 499);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(276, 182);
+            this.groupBox1.TabIndex = 96;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Jogador";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(2, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(107, 20);
+            this.label5.TabIndex = 100;
+            this.label5.Text = "Id do Jogador";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(2, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 20);
+            this.label7.TabIndex = 102;
+            this.label7.Text = "Cor do Jogador";
+            // 
+            // txtIdJogador
+            // 
+            this.txtIdJogador.Location = new System.Drawing.Point(6, 60);
+            this.txtIdJogador.Name = "txtIdJogador";
+            this.txtIdJogador.Size = new System.Drawing.Size(88, 26);
+            this.txtIdJogador.TabIndex = 97;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(124, 37);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 20);
+            this.label6.TabIndex = 101;
+            this.label6.Text = "Senha do Jogador";
+            // 
+            // txtSenhaJogador
+            // 
+            this.txtSenhaJogador.Location = new System.Drawing.Point(128, 60);
+            this.txtSenhaJogador.Name = "txtSenhaJogador";
+            this.txtSenhaJogador.Size = new System.Drawing.Size(86, 26);
+            this.txtSenhaJogador.TabIndex = 98;
+            // 
+            // txtCorJogador
+            // 
+            this.txtCorJogador.Location = new System.Drawing.Point(6, 141);
+            this.txtCorJogador.Name = "txtCorJogador";
+            this.txtCorJogador.ReadOnly = true;
+            this.txtCorJogador.Size = new System.Drawing.Size(75, 26);
+            this.txtCorJogador.TabIndex = 99;
             // 
             // picTile36
             // 
             this.picTile36.BackColor = System.Drawing.Color.Transparent;
             this.picTile36.Location = new System.Drawing.Point(962, 268);
-            this.picTile36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile36.Margin = new System.Windows.Forms.Padding(2);
             this.picTile36.Name = "picTile36";
             this.picTile36.Size = new System.Drawing.Size(26, 28);
             this.picTile36.TabIndex = 92;
@@ -128,7 +237,7 @@
             // 
             this.picTile35.BackColor = System.Drawing.Color.Transparent;
             this.picTile35.Location = new System.Drawing.Point(932, 268);
-            this.picTile35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile35.Margin = new System.Windows.Forms.Padding(2);
             this.picTile35.Name = "picTile35";
             this.picTile35.Size = new System.Drawing.Size(26, 28);
             this.picTile35.TabIndex = 91;
@@ -138,7 +247,7 @@
             // 
             this.picTile34.BackColor = System.Drawing.Color.Transparent;
             this.picTile34.Location = new System.Drawing.Point(901, 268);
-            this.picTile34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile34.Margin = new System.Windows.Forms.Padding(2);
             this.picTile34.Name = "picTile34";
             this.picTile34.Size = new System.Drawing.Size(26, 28);
             this.picTile34.TabIndex = 90;
@@ -148,7 +257,7 @@
             // 
             this.picTile33.BackColor = System.Drawing.Color.Transparent;
             this.picTile33.Location = new System.Drawing.Point(870, 268);
-            this.picTile33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile33.Margin = new System.Windows.Forms.Padding(2);
             this.picTile33.Name = "picTile33";
             this.picTile33.Size = new System.Drawing.Size(26, 28);
             this.picTile33.TabIndex = 89;
@@ -158,7 +267,7 @@
             // 
             this.picTile32.BackColor = System.Drawing.Color.Transparent;
             this.picTile32.Location = new System.Drawing.Point(839, 268);
-            this.picTile32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile32.Margin = new System.Windows.Forms.Padding(2);
             this.picTile32.Name = "picTile32";
             this.picTile32.Size = new System.Drawing.Size(26, 28);
             this.picTile32.TabIndex = 88;
@@ -168,7 +277,7 @@
             // 
             this.picTile31.BackColor = System.Drawing.Color.Transparent;
             this.picTile31.Location = new System.Drawing.Point(808, 268);
-            this.picTile31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile31.Margin = new System.Windows.Forms.Padding(2);
             this.picTile31.Name = "picTile31";
             this.picTile31.Size = new System.Drawing.Size(26, 28);
             this.picTile31.TabIndex = 87;
@@ -178,7 +287,7 @@
             // 
             this.picTile30.BackColor = System.Drawing.Color.Transparent;
             this.picTile30.Location = new System.Drawing.Point(778, 268);
-            this.picTile30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile30.Margin = new System.Windows.Forms.Padding(2);
             this.picTile30.Name = "picTile30";
             this.picTile30.Size = new System.Drawing.Size(26, 28);
             this.picTile30.TabIndex = 86;
@@ -188,7 +297,7 @@
             // 
             this.picTile29.BackColor = System.Drawing.Color.Transparent;
             this.picTile29.Location = new System.Drawing.Point(747, 268);
-            this.picTile29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile29.Margin = new System.Windows.Forms.Padding(2);
             this.picTile29.Name = "picTile29";
             this.picTile29.Size = new System.Drawing.Size(26, 28);
             this.picTile29.TabIndex = 85;
@@ -198,7 +307,7 @@
             // 
             this.picTile28.BackColor = System.Drawing.Color.Transparent;
             this.picTile28.Location = new System.Drawing.Point(716, 268);
-            this.picTile28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile28.Margin = new System.Windows.Forms.Padding(2);
             this.picTile28.Name = "picTile28";
             this.picTile28.Size = new System.Drawing.Size(26, 28);
             this.picTile28.TabIndex = 84;
@@ -208,7 +317,7 @@
             // 
             this.picTile27.BackColor = System.Drawing.Color.Transparent;
             this.picTile27.Location = new System.Drawing.Point(686, 268);
-            this.picTile27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile27.Margin = new System.Windows.Forms.Padding(2);
             this.picTile27.Name = "picTile27";
             this.picTile27.Size = new System.Drawing.Size(26, 28);
             this.picTile27.TabIndex = 83;
@@ -218,7 +327,7 @@
             // 
             this.picTile26.BackColor = System.Drawing.Color.Transparent;
             this.picTile26.Location = new System.Drawing.Point(655, 268);
-            this.picTile26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile26.Margin = new System.Windows.Forms.Padding(2);
             this.picTile26.Name = "picTile26";
             this.picTile26.Size = new System.Drawing.Size(26, 28);
             this.picTile26.TabIndex = 82;
@@ -228,7 +337,7 @@
             // 
             this.picTile25.BackColor = System.Drawing.Color.Transparent;
             this.picTile25.Location = new System.Drawing.Point(624, 268);
-            this.picTile25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile25.Margin = new System.Windows.Forms.Padding(2);
             this.picTile25.Name = "picTile25";
             this.picTile25.Size = new System.Drawing.Size(26, 28);
             this.picTile25.TabIndex = 81;
@@ -238,7 +347,7 @@
             // 
             this.picTile24.BackColor = System.Drawing.Color.Transparent;
             this.picTile24.Location = new System.Drawing.Point(962, 235);
-            this.picTile24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile24.Margin = new System.Windows.Forms.Padding(2);
             this.picTile24.Name = "picTile24";
             this.picTile24.Size = new System.Drawing.Size(26, 28);
             this.picTile24.TabIndex = 80;
@@ -248,7 +357,7 @@
             // 
             this.picTile23.BackColor = System.Drawing.Color.Transparent;
             this.picTile23.Location = new System.Drawing.Point(932, 235);
-            this.picTile23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile23.Margin = new System.Windows.Forms.Padding(2);
             this.picTile23.Name = "picTile23";
             this.picTile23.Size = new System.Drawing.Size(26, 28);
             this.picTile23.TabIndex = 79;
@@ -258,7 +367,7 @@
             // 
             this.picTile22.BackColor = System.Drawing.Color.Transparent;
             this.picTile22.Location = new System.Drawing.Point(901, 235);
-            this.picTile22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile22.Margin = new System.Windows.Forms.Padding(2);
             this.picTile22.Name = "picTile22";
             this.picTile22.Size = new System.Drawing.Size(26, 28);
             this.picTile22.TabIndex = 78;
@@ -268,7 +377,7 @@
             // 
             this.picTile21.BackColor = System.Drawing.Color.Transparent;
             this.picTile21.Location = new System.Drawing.Point(870, 235);
-            this.picTile21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile21.Margin = new System.Windows.Forms.Padding(2);
             this.picTile21.Name = "picTile21";
             this.picTile21.Size = new System.Drawing.Size(26, 28);
             this.picTile21.TabIndex = 77;
@@ -278,7 +387,7 @@
             // 
             this.picTile20.BackColor = System.Drawing.Color.Transparent;
             this.picTile20.Location = new System.Drawing.Point(839, 235);
-            this.picTile20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile20.Margin = new System.Windows.Forms.Padding(2);
             this.picTile20.Name = "picTile20";
             this.picTile20.Size = new System.Drawing.Size(26, 28);
             this.picTile20.TabIndex = 76;
@@ -288,7 +397,7 @@
             // 
             this.picTile19.BackColor = System.Drawing.Color.Transparent;
             this.picTile19.Location = new System.Drawing.Point(808, 235);
-            this.picTile19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile19.Margin = new System.Windows.Forms.Padding(2);
             this.picTile19.Name = "picTile19";
             this.picTile19.Size = new System.Drawing.Size(26, 28);
             this.picTile19.TabIndex = 75;
@@ -298,7 +407,7 @@
             // 
             this.picTile18.BackColor = System.Drawing.Color.Transparent;
             this.picTile18.Location = new System.Drawing.Point(778, 235);
-            this.picTile18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile18.Margin = new System.Windows.Forms.Padding(2);
             this.picTile18.Name = "picTile18";
             this.picTile18.Size = new System.Drawing.Size(26, 28);
             this.picTile18.TabIndex = 74;
@@ -308,7 +417,7 @@
             // 
             this.picTile17.BackColor = System.Drawing.Color.Transparent;
             this.picTile17.Location = new System.Drawing.Point(747, 235);
-            this.picTile17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile17.Margin = new System.Windows.Forms.Padding(2);
             this.picTile17.Name = "picTile17";
             this.picTile17.Size = new System.Drawing.Size(26, 28);
             this.picTile17.TabIndex = 73;
@@ -318,7 +427,7 @@
             // 
             this.picTile16.BackColor = System.Drawing.Color.Transparent;
             this.picTile16.Location = new System.Drawing.Point(716, 235);
-            this.picTile16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile16.Margin = new System.Windows.Forms.Padding(2);
             this.picTile16.Name = "picTile16";
             this.picTile16.Size = new System.Drawing.Size(26, 28);
             this.picTile16.TabIndex = 72;
@@ -328,7 +437,7 @@
             // 
             this.picTile15.BackColor = System.Drawing.Color.Transparent;
             this.picTile15.Location = new System.Drawing.Point(686, 235);
-            this.picTile15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile15.Margin = new System.Windows.Forms.Padding(2);
             this.picTile15.Name = "picTile15";
             this.picTile15.Size = new System.Drawing.Size(26, 28);
             this.picTile15.TabIndex = 71;
@@ -338,7 +447,7 @@
             // 
             this.picTile14.BackColor = System.Drawing.Color.Transparent;
             this.picTile14.Location = new System.Drawing.Point(655, 235);
-            this.picTile14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile14.Margin = new System.Windows.Forms.Padding(2);
             this.picTile14.Name = "picTile14";
             this.picTile14.Size = new System.Drawing.Size(26, 28);
             this.picTile14.TabIndex = 70;
@@ -348,7 +457,7 @@
             // 
             this.picTile13.BackColor = System.Drawing.Color.Transparent;
             this.picTile13.Location = new System.Drawing.Point(624, 235);
-            this.picTile13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile13.Margin = new System.Windows.Forms.Padding(2);
             this.picTile13.Name = "picTile13";
             this.picTile13.Size = new System.Drawing.Size(26, 28);
             this.picTile13.TabIndex = 69;
@@ -358,7 +467,7 @@
             // 
             this.picTile12.BackColor = System.Drawing.Color.Transparent;
             this.picTile12.Location = new System.Drawing.Point(962, 202);
-            this.picTile12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile12.Margin = new System.Windows.Forms.Padding(2);
             this.picTile12.Name = "picTile12";
             this.picTile12.Size = new System.Drawing.Size(26, 28);
             this.picTile12.TabIndex = 68;
@@ -368,7 +477,7 @@
             // 
             this.picTile11.BackColor = System.Drawing.Color.Transparent;
             this.picTile11.Location = new System.Drawing.Point(932, 202);
-            this.picTile11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile11.Margin = new System.Windows.Forms.Padding(2);
             this.picTile11.Name = "picTile11";
             this.picTile11.Size = new System.Drawing.Size(26, 28);
             this.picTile11.TabIndex = 67;
@@ -378,7 +487,7 @@
             // 
             this.picTile10.BackColor = System.Drawing.Color.Transparent;
             this.picTile10.Location = new System.Drawing.Point(901, 202);
-            this.picTile10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile10.Margin = new System.Windows.Forms.Padding(2);
             this.picTile10.Name = "picTile10";
             this.picTile10.Size = new System.Drawing.Size(26, 28);
             this.picTile10.TabIndex = 66;
@@ -388,7 +497,7 @@
             // 
             this.picTile9.BackColor = System.Drawing.Color.Transparent;
             this.picTile9.Location = new System.Drawing.Point(870, 202);
-            this.picTile9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile9.Margin = new System.Windows.Forms.Padding(2);
             this.picTile9.Name = "picTile9";
             this.picTile9.Size = new System.Drawing.Size(26, 28);
             this.picTile9.TabIndex = 65;
@@ -398,7 +507,7 @@
             // 
             this.picTile8.BackColor = System.Drawing.Color.Transparent;
             this.picTile8.Location = new System.Drawing.Point(839, 202);
-            this.picTile8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile8.Margin = new System.Windows.Forms.Padding(2);
             this.picTile8.Name = "picTile8";
             this.picTile8.Size = new System.Drawing.Size(26, 28);
             this.picTile8.TabIndex = 64;
@@ -408,7 +517,7 @@
             // 
             this.picTile7.BackColor = System.Drawing.Color.Transparent;
             this.picTile7.Location = new System.Drawing.Point(808, 202);
-            this.picTile7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile7.Margin = new System.Windows.Forms.Padding(2);
             this.picTile7.Name = "picTile7";
             this.picTile7.Size = new System.Drawing.Size(26, 28);
             this.picTile7.TabIndex = 63;
@@ -418,7 +527,7 @@
             // 
             this.picTile6.BackColor = System.Drawing.Color.Transparent;
             this.picTile6.Location = new System.Drawing.Point(778, 202);
-            this.picTile6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile6.Margin = new System.Windows.Forms.Padding(2);
             this.picTile6.Name = "picTile6";
             this.picTile6.Size = new System.Drawing.Size(26, 28);
             this.picTile6.TabIndex = 62;
@@ -428,7 +537,7 @@
             // 
             this.picTile5.BackColor = System.Drawing.Color.Transparent;
             this.picTile5.Location = new System.Drawing.Point(747, 202);
-            this.picTile5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile5.Margin = new System.Windows.Forms.Padding(2);
             this.picTile5.Name = "picTile5";
             this.picTile5.Size = new System.Drawing.Size(26, 28);
             this.picTile5.TabIndex = 61;
@@ -438,7 +547,7 @@
             // 
             this.picTile4.BackColor = System.Drawing.Color.Transparent;
             this.picTile4.Location = new System.Drawing.Point(716, 202);
-            this.picTile4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile4.Margin = new System.Windows.Forms.Padding(2);
             this.picTile4.Name = "picTile4";
             this.picTile4.Size = new System.Drawing.Size(26, 28);
             this.picTile4.TabIndex = 60;
@@ -448,7 +557,7 @@
             // 
             this.picTile3.BackColor = System.Drawing.Color.Transparent;
             this.picTile3.Location = new System.Drawing.Point(686, 202);
-            this.picTile3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile3.Margin = new System.Windows.Forms.Padding(2);
             this.picTile3.Name = "picTile3";
             this.picTile3.Size = new System.Drawing.Size(26, 28);
             this.picTile3.TabIndex = 59;
@@ -458,7 +567,7 @@
             // 
             this.picTile2.BackColor = System.Drawing.Color.Transparent;
             this.picTile2.Location = new System.Drawing.Point(655, 202);
-            this.picTile2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile2.Margin = new System.Windows.Forms.Padding(2);
             this.picTile2.Name = "picTile2";
             this.picTile2.Size = new System.Drawing.Size(26, 28);
             this.picTile2.TabIndex = 58;
@@ -468,7 +577,7 @@
             // 
             this.picTile1.BackColor = System.Drawing.Color.Transparent;
             this.picTile1.Location = new System.Drawing.Point(624, 202);
-            this.picTile1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile1.Margin = new System.Windows.Forms.Padding(2);
             this.picTile1.Name = "picTile1";
             this.picTile1.Size = new System.Drawing.Size(26, 28);
             this.picTile1.TabIndex = 57;
@@ -487,100 +596,191 @@
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
             // 
-            // btnUpdateMap
+            // btnIniciar
             // 
-            this.btnUpdateMap.Location = new System.Drawing.Point(764, 499);
-            this.btnUpdateMap.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnUpdateMap.Name = "btnUpdateMap";
-            this.btnUpdateMap.Size = new System.Drawing.Size(114, 37);
-            this.btnUpdateMap.TabIndex = 94;
-            this.btnUpdateMap.Text = "Update";
-            this.btnUpdateMap.UseVisualStyleBackColor = true;
-            this.btnUpdateMap.Click += new System.EventHandler(this.btnUpdateMap_Click);
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnIniciar.Location = new System.Drawing.Point(114, 140);
+            this.btnIniciar.Name = "btnIniciar";
+            this.btnIniciar.Size = new System.Drawing.Size(150, 27);
+            this.btnIniciar.TabIndex = 97;
+            this.btnIniciar.Text = "Iniciar Partida";
+            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
-            // txtVerificarVez
+            // txtPosicaoJ
             // 
-            this.txtVerificarVez.Location = new System.Drawing.Point(901, 499);
-            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtVerificarVez.Multiline = true;
-            this.txtVerificarVez.Name = "txtVerificarVez";
-            this.txtVerificarVez.ReadOnly = true;
-            this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtVerificarVez.Size = new System.Drawing.Size(111, 167);
-            this.txtVerificarVez.TabIndex = 95;
+            this.txtPosicaoJ.Location = new System.Drawing.Point(9, 48);
+            this.txtPosicaoJ.Name = "txtPosicaoJ";
+            this.txtPosicaoJ.Size = new System.Drawing.Size(88, 24);
+            this.txtPosicaoJ.TabIndex = 103;
             // 
-            // groupBox1
+            // label1
             // 
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.txtIdJogador);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.txtSenhaJogador);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(12, 499);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(283, 167);
-            this.groupBox1.TabIndex = 96;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Jogador";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 18);
+            this.label1.TabIndex = 104;
+            this.label1.Text = "Posição ";
             // 
-            // label5
+            // label2
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(2, 52);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 20);
-            this.label5.TabIndex = 100;
-            this.label5.Text = "Id do Jogador";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(136, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 18);
+            this.label2.TabIndex = 105;
+            this.label2.Text = "Símbolo";
             // 
-            // label7
+            // comboBox1
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(2, 112);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 20);
-            this.label7.TabIndex = 102;
-            this.label7.Text = "Cor do Jogador";
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(139, 46);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(98, 26);
+            this.comboBox1.TabIndex = 106;
             // 
-            // label6
+            // button1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(143, 52);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 20);
-            this.label6.TabIndex = 101;
-            this.label6.Text = "Senha do Jogador";
+            this.button1.Location = new System.Drawing.Point(9, 91);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(108, 35);
+            this.button1.TabIndex = 107;
+            this.button1.Text = "Para frente";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // button2
             // 
-            this.textBox6.Location = new System.Drawing.Point(19, 135);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(75, 26);
-            this.textBox6.TabIndex = 99;
+            this.button2.Location = new System.Drawing.Point(139, 91);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(108, 35);
+            this.button2.TabIndex = 108;
+            this.button2.Text = "Para trás";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // txtSenhaJogador
+            // btnPularVez
             // 
-            this.txtSenhaJogador.Location = new System.Drawing.Point(163, 83);
-            this.txtSenhaJogador.Name = "txtSenhaJogador";
-            this.txtSenhaJogador.Size = new System.Drawing.Size(86, 26);
-            this.txtSenhaJogador.TabIndex = 98;
+            this.btnPularVez.Location = new System.Drawing.Point(59, 141);
+            this.btnPularVez.Name = "btnPularVez";
+            this.btnPularVez.Size = new System.Drawing.Size(140, 34);
+            this.btnPularVez.TabIndex = 109;
+            this.btnPularVez.Text = "Pular Vez";
+            this.btnPularVez.UseVisualStyleBackColor = true;
             // 
-            // txtIdJogador
+            // groupBox2
             // 
-            this.txtIdJogador.Location = new System.Drawing.Point(19, 83);
-            this.txtIdJogador.Name = "txtIdJogador";
-            this.txtIdJogador.Size = new System.Drawing.Size(88, 26);
-            this.txtIdJogador.TabIndex = 97;
+            this.groupBox2.Controls.Add(this.txtPosicaoJ);
+            this.groupBox2.Controls.Add(this.btnPularVez);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox2.Location = new System.Drawing.Point(294, 499);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(253, 182);
+            this.groupBox2.TabIndex = 110;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Jogada";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.btnExibirMao);
+            this.groupBox3.Controls.Add(this.txtMao);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox3.Location = new System.Drawing.Point(553, 499);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(215, 182);
+            this.groupBox3.TabIndex = 111;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Cartas";
+            // 
+            // txtMao
+            // 
+            this.txtMao.Location = new System.Drawing.Point(0, 25);
+            this.txtMao.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMao.Multiline = true;
+            this.txtMao.Name = "txtMao";
+            this.txtMao.ReadOnly = true;
+            this.txtMao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtMao.Size = new System.Drawing.Size(215, 101);
+            this.txtMao.TabIndex = 112;
+            // 
+            // btnExibirMao
+            // 
+            this.btnExibirMao.Location = new System.Drawing.Point(39, 140);
+            this.btnExibirMao.Name = "btnExibirMao";
+            this.btnExibirMao.Size = new System.Drawing.Size(140, 34);
+            this.btnExibirMao.TabIndex = 110;
+            this.btnExibirMao.Text = "Exibir Mão";
+            this.btnExibirMao.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.btnVerificarVez);
+            this.groupBox4.Controls.Add(this.txtVerificarVez);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox4.Location = new System.Drawing.Point(778, 499);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(234, 182);
+            this.groupBox4.TabIndex = 112;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Vez";
+            // 
+            // btnVerificarVez
+            // 
+            this.btnVerificarVez.Location = new System.Drawing.Point(52, 139);
+            this.btnVerificarVez.Name = "btnVerificarVez";
+            this.btnVerificarVez.Size = new System.Drawing.Size(140, 33);
+            this.btnVerificarVez.TabIndex = 113;
+            this.btnVerificarVez.Text = "Verificar Vez";
+            this.btnVerificarVez.UseVisualStyleBackColor = true;
+            this.btnVerificarVez.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(8, 41);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(208, 318);
+            this.textBox1.TabIndex = 114;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.button3);
+            this.groupBox5.Controls.Add(this.textBox1);
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.groupBox5.Location = new System.Drawing.Point(1027, 268);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(224, 413);
+            this.groupBox5.TabIndex = 115;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Histórico";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(47, 371);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(140, 33);
+            this.button3.TabIndex = 114;
+            this.button3.Text = "Exibir Histórico";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1186, 693);
+            this.ClientSize = new System.Drawing.Size(1254, 693);
+            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.groupBox4);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtVerificarVez);
             this.Controls.Add(this.btnUpdateMap);
             this.Controls.Add(this.picTile36);
             this.Controls.Add(this.picTile35);
@@ -619,9 +819,12 @@
             this.Controls.Add(this.picTile2);
             this.Controls.Add(this.picTile1);
             this.Controls.Add(this.picMapBackground);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form3";
             this.Text = "Form3";
+            this.Load += new System.EventHandler(this.Form3_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picTile36)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile34)).EndInit();
@@ -659,10 +862,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.picTile2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picTile1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -713,6 +921,23 @@
         private System.Windows.Forms.TextBox txtIdJogador;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSenhaJogador;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtCorJogador;
+        private System.Windows.Forms.Button btnIniciar;
+        private System.Windows.Forms.TextBox txtPosicaoJ;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnPularVez;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnExibirMao;
+        private System.Windows.Forms.TextBox txtMao;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Button btnVerificarVez;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Button button3;
     }
 }

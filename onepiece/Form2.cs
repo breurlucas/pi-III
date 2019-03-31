@@ -13,6 +13,12 @@ namespace onepiece
 {
     public partial class Form2 : Form
     {
+        public string idPartida;
+        public string idJogador;
+        public string senhaJogador;
+        public string corJogador;
+        public string senhaPartida;
+
         public Form2()
         {
             InitializeComponent();
@@ -31,7 +37,15 @@ namespace onepiece
             string comboBoxFiltro = cmbFiltrarPartidas.Text;
             string filtroPartida = comboBoxFiltro[0].ToString();
 
-            txtListarPartidas.Text = Jogo.ListarPartidas(filtroPartida);
+            string listaInteira = Jogo.ListarPartidas(filtroPartida);
+            string[] listaPartida = listaInteira.Split('\r');
+
+            for (int i = 0; i < listaPartida.Length; i++)
+            {
+                lista.Items.Add(listaPartida[i]);
+            }
+            lista.SelectedIndex = 0;
+            //txtListarPartidas.Text = Jogo.ListarPartidas(filtroPartida);
 
         }
 
@@ -42,10 +56,19 @@ namespace onepiece
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
-            if (txtId.Text != "")
-                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
+            if(lista.Text != "")
+            {
+                string[] teste = lista.Text.Split(',');
+                int id = Convert.ToInt32(teste[0]);
+                txtId.Text = id.ToString();
+                txtListarJogadores.Text = Jogo.ListarJogadores(id);
+            }
             else
-                MessageBox.Show("Id inválido! :(");
+            {
+                MessageBox.Show("Não há jogadores se não há partida");
+            }
+                
+           
         }
 
         private void btnEntrarPartida_Click(object sender, EventArgs e)
@@ -53,15 +76,35 @@ namespace onepiece
             int i = 0;
             if (Int32.TryParse(txtId.Text, out i) && txtNomeJogador.Text != "" && txtSenhaPartida.Text != "")
             {
-                Jogo.EntrarPartida(Convert.ToInt32(txtId.Text), txtNomeJogador.Text, txtSenhaPartida.Text);
-                Form2 novoForm;
-                novoForm = new Form2();
-                novoForm.Dispose();
+
+                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(txtId.Text), txtNomeJogador.Text, txtSenhaPartida.Text);
+                string[] array = retornoEntrar.Split(',');
+
+                idJogador = array[0];
+                senhaJogador = array[1];
+                corJogador = array[2];
+                idPartida = txtId.Text;
+                senhaPartida = txtSenhaPartida.Text;
+
+                //Jogador jogador = new Jogador();
+                //jogador.EntrouPartida(txtNomeJogador.Text, senhaJogador, array[2], txtId.Text, array[0]);
+
+                Form3 novoForm;
+                novoForm = new Form3(this);
+    
+                novoForm.Show();
+               // this.Close();
             }
             else
             {
                 MessageBox.Show("Verificar se os dados estão preenchidos corretamente");
             }
+        }
+
+        private void lista_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] teste = lista.Text.Split(',');
+            txtId.Text = teste[0];
         }
     }
 }

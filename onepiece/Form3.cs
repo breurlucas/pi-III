@@ -21,13 +21,11 @@ namespace onepiece
         Dictionary<string, Color> colors;
         int tempID;
 
-        public Form3()
+        Form2 original;
+        public Form3(Form2 formDois)
         {
+            original = formDois;
             InitializeComponent();
-
-            Form2 novoForm;
-            novoForm = new Form2();
-            novoForm.ShowDialog();
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
@@ -45,11 +43,15 @@ namespace onepiece
                 picTile34, picTile35, picTile36
             };
 
-            tempID = 17;
+            txtIdJogador.Text = original.idJogador;
+            txtSenhaJogador.Text = original.senhaJogador;
+            txtCorJogador.Text = original.corJogador;
+
+            tempID = Convert.ToInt32(original.idPartida);
             //  Shows the map as soon as the form opens
             exibirTabuleiro();
             // Assigns a color to each player
-            definirJogadores();
+            //definirJogadores();
 
             
         }
@@ -242,6 +244,29 @@ namespace onepiece
             {
                 occupation[position] += 1;
             }
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+            
+
+
+        }
+
+        private void btnIniciar_Click(object sender, EventArgs e)
+        {
+            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(original.idPartida), original.senhaPartida);
+            MessageBox.Show(testeIniciar);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)
