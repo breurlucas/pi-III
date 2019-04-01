@@ -162,18 +162,21 @@ namespace onepiece
 
         private string ConvertColor(string color)
         {
-            if (color == "Amarelo\r\n")
-                return "Yellow";
-            else if (color == "Vermelho\r\n")
-                return "Red";
-            else if (color == "Azul\r\n")
-                return "Blue";
-            else if (color == "Verde\r\n")
-                return "Green";
-            else if (color == "Marrom\r\n")
-                return "Brown";
-            else
-                return "";
+            switch(color.Substring(0,4))
+            {
+                case "Amar":
+                    return "Yellow";
+                case "Verm":
+                    return "Red"; 
+                case "Azul":
+                    return "Blue";
+                case "Verd":
+                    return "Green";
+                case "Marr":
+                    return "Brown";
+                default:
+                    return "Pink";
+            }
         }
 
         private void drawUnit(int position, Color color, int repeat)
