@@ -47,6 +47,57 @@ namespace onepiece
 
             tempID = Convert.ToInt32(form2.idPartida);
 
+            /* ** DEVELOPING ** */
+            tempID = 115;
+            definirJogadores();
+            exibirTabuleiro();
+            UpdateMap();
+        }
+
+        private void definirJogadores()
+        {
+            //  Builds dictionary for the player colors
+
+            string req = Jogo.ListarJogadores(tempID);
+            req = req.Replace("\n", "");
+            string[] players = req.Split('\r', ',');
+
+            string p1 = "player id 1";
+            string p2 = "player id 2";
+            string p3 = "player id 3";
+            string p4 = "player id 4";
+            string p5 = "player id 5";
+
+            for (int i = 0; i < players.Length - 1; i += 3)
+            {
+                switch (i)
+                {
+                    case 0:
+                        p1 = players[i];
+                        break;
+                    case 3:
+                        p2 = players[i];
+                        break;
+                    case 6:
+                        p3 = players[i];
+                        break;
+                    case 9:
+                        p4 = players[i];
+                        break;
+                    case 12:
+                        p5 = players[i];
+                        break;
+                }
+            }
+
+            colors = new Dictionary<string, Color>
+                {
+                    { p1, Color.Red },
+                    { p2, Color.DarkGreen },
+                    { p3, Color.Yellow },
+                    { p4, Color.Blue },
+                    { p5, Color.Brown },
+                };
         }
 
         private void exibirTabuleiro()
@@ -116,12 +167,19 @@ namespace onepiece
         }
 
         private void UpdateMap() {
-            
+
             //  Clear units
-            foreach (PictureBox unit in picMapBackground.Controls)
+            IList<PictureBox> pbs = new List<PictureBox>();
+
+            foreach (var pb in picMapBackground.Controls.OfType<PictureBox>())
             {
-                if (unit != null && unit.Image == null)
-                    unit.Dispose();
+                if ((string)pb.Tag == "pirate")
+                    pbs.Add(pb);
+            }
+
+            for (int i = pbs.Count - 1; i >= 0; i--)
+            {
+                picMapBackground.Controls.Remove(pbs[i]);
             }
 
             string req = Jogo.VerificarVez(tempID);
@@ -151,32 +209,12 @@ namespace onepiece
                 repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
 
                 player = estadoTabuleiro[i + 1];
-
-                color = Color.FromName(ConvertColor(form2.corJogador));
+                color = colors[player];
 
                 if (position != 0)
                     drawUnit(position, color, repeat);
             }
 
-        }
-
-        private string ConvertColor(string color)
-        {
-            switch(color.Substring(0,4))
-            {
-                case "Amar":
-                    return "Yellow";
-                case "Verm":
-                    return "Red"; 
-                case "Azul":
-                    return "Blue";
-                case "Verd":
-                    return "Green";
-                case "Marr":
-                    return "Brown";
-                default:
-                    return "Pink";
-            }
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -206,6 +244,7 @@ namespace onepiece
             unit.BackColor = color;
             unit.Location = new Point(x, y);
             picMapBackground.Controls.Add(unit);
+            unit.Tag = "pirate";
             unit.BringToFront();
 
             //  Checks for number of pirates
@@ -225,13 +264,6 @@ namespace onepiece
             }
         }
 
-        private void Form3_Load(object sender, EventArgs e)
-        {
-            
-
-
-        }
-
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
@@ -246,7 +278,6 @@ namespace onepiece
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(form2.idPartida));
             UpdateMap();
         }
 

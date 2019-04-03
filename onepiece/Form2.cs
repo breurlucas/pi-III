@@ -98,5 +98,13 @@ namespace onepiece
             string[] teste = lista.Text.Split(',');
             txtId.Text = teste[0];
         }
+
+        /* ** DEVELOPING ** */
+        private void btnJogar_Click(object sender, EventArgs e)
+        {
+            Form3 novoForm;
+            novoForm = new Form3(this);
+            novoForm.Show();
+        }
     }
 }

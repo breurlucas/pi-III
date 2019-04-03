@@ -45,6 +45,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtNomeJogador = new System.Windows.Forms.TextBox();
             this.lista = new System.Windows.Forms.ListBox();
+            this.btnJogar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             this.btnCriarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnCriarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnCriarPartida.Location = new System.Drawing.Point(219, 129);
-            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCriarPartida.Margin = new System.Windows.Forms.Padding(4);
             this.btnCriarPartida.Name = "btnCriarPartida";
             this.btnCriarPartida.Size = new System.Drawing.Size(100, 38);
             this.btnCriarPartida.TabIndex = 15;
@@ -85,7 +86,7 @@
             // txtSenhaPartida
             // 
             this.txtSenhaPartida.Location = new System.Drawing.Point(21, 138);
-            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenhaPartida.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaPartida.Name = "txtSenhaPartida";
             this.txtSenhaPartida.Size = new System.Drawing.Size(148, 28);
             this.txtSenhaPartida.TabIndex = 12;
@@ -93,7 +94,7 @@
             // txtNomePartida
             // 
             this.txtNomePartida.Location = new System.Drawing.Point(21, 66);
-            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomePartida.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomePartida.Name = "txtNomePartida";
             this.txtNomePartida.Size = new System.Drawing.Size(256, 28);
             this.txtNomePartida.TabIndex = 11;
@@ -109,9 +110,9 @@
             this.cmbFiltrarPartidas.FormattingEnabled = true;
             this.cmbFiltrarPartidas.ItemHeight = 26;
             this.cmbFiltrarPartidas.Location = new System.Drawing.Point(0, 0);
-            this.cmbFiltrarPartidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cmbFiltrarPartidas.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFiltrarPartidas.Name = "cmbFiltrarPartidas";
-            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(712, 34);
+            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(715, 34);
             this.cmbFiltrarPartidas.TabIndex = 10;
             // 
             // btnListarPartidas
@@ -119,7 +120,7 @@
             this.btnListarPartidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarPartidas.Location = new System.Drawing.Point(16, 42);
-            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnListarPartidas.Margin = new System.Windows.Forms.Padding(4);
             this.btnListarPartidas.Name = "btnListarPartidas";
             this.btnListarPartidas.Size = new System.Drawing.Size(333, 49);
             this.btnListarPartidas.TabIndex = 8;
@@ -136,10 +137,10 @@
             this.groupBox1.Controls.Add(this.btnCriarPartida);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox1.Location = new System.Drawing.Point(16, 426);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox1.Size = new System.Drawing.Size(341, 188);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(341, 234);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Partida";
@@ -149,7 +150,7 @@
             this.btnListarJogadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarJogadores.Location = new System.Drawing.Point(459, 42);
-            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(4);
             this.btnListarJogadores.Name = "btnListarJogadores";
             this.btnListarJogadores.Size = new System.Drawing.Size(237, 49);
             this.btnListarJogadores.TabIndex = 17;
@@ -161,7 +162,7 @@
             // 
             this.txtListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txtListarJogadores.Location = new System.Drawing.Point(391, 106);
-            this.txtListarJogadores.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtListarJogadores.Margin = new System.Windows.Forms.Padding(4);
             this.txtListarJogadores.Multiline = true;
             this.txtListarJogadores.Name = "txtListarJogadores";
             this.txtListarJogadores.ReadOnly = true;
@@ -171,7 +172,7 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(391, 66);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(63, 22);
@@ -190,15 +191,16 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnJogar);
             this.groupBox2.Controls.Add(this.btnEntrarPartida);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.txtNomeJogador);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox2.Location = new System.Drawing.Point(391, 426);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(305, 188);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(305, 234);
             this.groupBox2.TabIndex = 21;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jogador";
@@ -207,7 +209,7 @@
             // 
             this.btnEntrarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEntrarPartida.Location = new System.Drawing.Point(19, 129);
-            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(4);
             this.btnEntrarPartida.Name = "btnEntrarPartida";
             this.btnEntrarPartida.Size = new System.Drawing.Size(257, 38);
             this.btnEntrarPartida.TabIndex = 19;
@@ -228,7 +230,7 @@
             // txtNomeJogador
             // 
             this.txtNomeJogador.Location = new System.Drawing.Point(19, 66);
-            this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeJogador.Name = "txtNomeJogador";
             this.txtNomeJogador.Size = new System.Drawing.Size(256, 30);
             this.txtNomeJogador.TabIndex = 12;
@@ -239,17 +241,29 @@
             this.lista.FormattingEnabled = true;
             this.lista.ItemHeight = 25;
             this.lista.Location = new System.Drawing.Point(16, 106);
-            this.lista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lista.Margin = new System.Windows.Forms.Padding(4);
             this.lista.Name = "lista";
             this.lista.Size = new System.Drawing.Size(333, 304);
             this.lista.TabIndex = 22;
             this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
             // 
+            // btnJogar
+            // 
+            this.btnJogar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJogar.Location = new System.Drawing.Point(19, 175);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnJogar.Name = "btnJogar";
+            this.btnJogar.Size = new System.Drawing.Size(257, 38);
+            this.btnJogar.TabIndex = 20;
+            this.btnJogar.Text = "Jogar";
+            this.btnJogar.UseVisualStyleBackColor = true;
+            this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(712, 629);
+            this.ClientSize = new System.Drawing.Size(715, 673);
             this.Controls.Add(this.lista);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label3);
@@ -260,7 +274,7 @@
             this.Controls.Add(this.cmbFiltrarPartidas);
             this.Controls.Add(this.btnListarPartidas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.groupBox1.ResumeLayout(false);
@@ -291,5 +305,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.ListBox lista;
+        private System.Windows.Forms.Button btnJogar;
     }
 }
