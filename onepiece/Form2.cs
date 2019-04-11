@@ -13,10 +13,8 @@ namespace onepiece
 {
     public partial class Form2 : Form
     {
+
         public string idPartida;
-        public string idJogador;
-        public string senhaJogador;
-        public string corJogador;
         public string senhaPartida;
 
         public Form2()
@@ -70,21 +68,14 @@ namespace onepiece
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             int i = 0;
-            if (Int32.TryParse(txtId.Text, out i) && txtNomeJogador.Text != "" && txtSenhaPartida.Text != "")
+            if (Int32.TryParse(txtId.Text, out i)&& txtSenhaPartida.Text != "")
             {
 
-                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(txtId.Text), txtNomeJogador.Text, txtSenhaPartida.Text);
-                string[] array = retornoEntrar.Split(',');
-
-                idJogador = array[0];
-                senhaJogador = array[1];
-                corJogador = array[2];
                 idPartida = txtId.Text;
                 senhaPartida = txtSenhaPartida.Text;
-                
-                Form3 novoForm;
-                novoForm = new Form3(this);
-                novoForm.Show();
+                Form4 dialogLogin;
+                dialogLogin = new Form4(this);
+                dialogLogin.Show();
                 
             }
             else
@@ -99,12 +90,5 @@ namespace onepiece
             txtId.Text = teste[0];
         }
 
-        /* ** DEVELOPING ** */
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            Form3 novoForm;
-            novoForm = new Form3(this);
-            novoForm.Show();
-        }
     }
 }
