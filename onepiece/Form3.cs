@@ -48,9 +48,9 @@ namespace onepiece
             tempID = Convert.ToInt32(form2.idPartida);
 
             /* ** DEVELOPING ** */
-            tempID = 115;
-            definirJogadores();
-            exibirTabuleiro();
+            //tempID = 115;
+            
+            //exibirTabuleiro();
             UpdateMap();
         }
 
@@ -268,6 +268,7 @@ namespace onepiece
         {
             string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
             MessageBox.Show(testeIniciar);
+            definirJogadores();
             exibirTabuleiro();
         }
 
