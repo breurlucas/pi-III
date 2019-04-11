@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +52,7 @@ namespace onepiece
             //tempID = 115;
             
             //exibirTabuleiro();
-            UpdateMap();
+            //UpdateMap();
         }
 
         private void definirJogadores()
@@ -209,9 +209,10 @@ namespace onepiece
 
                 repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
 
-                player = Form4.idJogador;
-                //player = estadoTabuleiro[i + 1];
-                color = Color.FromName(ConvertColor(txtCorJogador.Text));
+                //player = Form4.idJogador;
+                player = estadoTabuleiro[i + 1];
+                color = colors[player];
+                //color = Color.FromName(ConvertColor(txtCorJogador.Text));
 
                 if (position != 0)
                     drawUnit(position, color, repeat);
@@ -297,6 +298,8 @@ namespace onepiece
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
+            definirJogadores();
+            exibirTabuleiro();
             UpdateMap();
         }
 
