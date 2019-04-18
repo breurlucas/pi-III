@@ -23,8 +23,6 @@ namespace onepiece
 
         int indexTEMP;
      
-
-
         Form4 Form4;
         public Form3(Form4 formDois)
         {
@@ -59,6 +57,8 @@ namespace onepiece
 
             // ENTREGA 18/04
             indexTEMP = 0;
+
+            tmrJogarFrente.Interval = 4000;
 
         }
 
@@ -297,9 +297,7 @@ namespace onepiece
             definirJogadores();
             exibirTabuleiro();
 
-            tmrJogarFrente.Enabled = false;
-            
-            tmrJogarFrente.Interval = 4000;
+            tmrJogarFrente.Enabled = true;
             
         }
 
@@ -310,6 +308,7 @@ namespace onepiece
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
+            txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
             definirJogadores();
             exibirTabuleiro();
             UpdateMap();
@@ -342,12 +341,18 @@ namespace onepiece
 
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
-            string x = Jogo.VerificarVez(tempID);
-            string[] y = x.Split(',');
+            string vezAtual = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
+            string[] atualVez = vezAtual.Split(',');
+            string vez = atualVez[1];
+
+            string[] rodada = atualVez[2].Split('\r');
+            int rodadaAtual = Convert.ToInt32(rodada[0]);
+
+            
+            string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            string[] mao = carta.Split(',');
+
             string simbolo = "Chave";
-            int vez = Convert.ToInt32(y[2]);
-            x = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
-            string[] mao = x.Split(',');
             switch (mao[0])
             {
                 case "C":
@@ -369,15 +374,14 @@ namespace onepiece
                     simbolo = "Faca";
                     break;
             }
-            if (y[1] == Form4.idJogador && vez < 4 && indexTEMP < 6)
+            if (vez == Form4.idJogador && rodadaAtual < 4 )
             {
-
-                Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
-
+                
+                string testando = Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, 0, mao[0].ToString());
+               
             }
-
-            if (vez == 3)
-                vez = 0;
+            UpdateMap();
+            
             indexTEMP++;
 
         }

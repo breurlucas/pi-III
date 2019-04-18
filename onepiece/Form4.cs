@@ -39,6 +39,8 @@ namespace onepiece
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
+            string[] tes = lblIdPartida.Text.Split('\n');
+            lblIdPartida.Text = tes[1].ToString();
             idPartida = lblIdPartida.Text;
             if (txtSenhaJogador.Text != "")
             {
