@@ -32,15 +32,10 @@ namespace onepiece
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            string[] tes = lblIdPartida.Text.Split('\n');
-            lblIdPartida.Text = tes[1].ToString();
+            string[] idPartidaAtual = lblIdPartida.Text.Split('\n');
+            lblIdPartida.Text = idPartidaAtual[1].ToString();
             idPartida = lblIdPartida.Text;
             if (txtSenhaJogador.Text != "")
             {
@@ -48,6 +43,13 @@ namespace onepiece
                 senhaJogador = txtSenhaJogador.Text;
 
                 string jogadores = Jogo.ListarJogadores(Convert.ToInt32(lblIdPartida.Text));
+                if (jogadores.Contains("ERRO"))
+                {
+                    MessageBox.Show(jogadores);
+                }
+                else
+                {
+                
                 string[] arrayJog = jogadores.Split('\n');
                 string[] arrayColors = jogadores.Split('\r');
                 string[] arrayJ = jogadores.Split('\r');
@@ -66,26 +68,31 @@ namespace onepiece
                 novoForm = new Form3(this);
                 novoForm.Show();
                 this.Close();
+                }
             }
             else
             {
                 string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(lblIdPartida.Text), txtNomeJogador.Text, senhaPartida);
-                string[] array = retornoEntrar.Split(',');
+                if (retornoEntrar.Contains("ERRO"))
+                {
+                    MessageBox.Show(retornoEntrar);
+                }
+                else
+                {
+                    string[] array = retornoEntrar.Split(',');
 
-                idJogador = array[0];
-                senhaJogador = array[1];
-                corJogador = array[2];
-                
-                Form3 novoForm;
-                novoForm = new Form3(this);
-                novoForm.Show();
-                this.Close();
+                    idJogador = array[0];
+                    senhaJogador = array[1];
+                    corJogador = array[2];
+
+                    Form3 novoForm;
+                    novoForm = new Form3(this);
+                    novoForm.Show();
+                    this.Close();
+                }
+
             }
         }
-
-        private void Form4_Load(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }

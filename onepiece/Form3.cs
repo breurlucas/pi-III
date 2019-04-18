@@ -58,7 +58,8 @@ namespace onepiece
             // ENTREGA 18/04
             indexTEMP = 0;
 
-            tmrJogarFrente.Interval = 4000;
+            tmrJogarFrente.Enabled = true;
+            tmrJogarFrente.Interval = 3000;
 
         }
 
@@ -293,12 +294,15 @@ namespace onepiece
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
-            definirJogadores();
-            exibirTabuleiro();
-
-            tmrJogarFrente.Enabled = true;
-            
+            string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            if (iniciarPartida.Contains("ERRO")){
+                MessageBox.Show(iniciarPartida);
+            }
+            else
+            {
+                definirJogadores();
+                exibirTabuleiro();
+            }
         }
 
         private void btnExibirMao_Click(object sender, EventArgs e)
@@ -309,9 +313,18 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            definirJogadores();
-            exibirTabuleiro();
-            UpdateMap();
+            if (txtVerificarVez.Text.Contains("ERRO"))
+            {
+                MessageBox.Show(txtVerificarVez.Text);
+            }
+            else
+            {
+                tmrJogarFrente.Enabled = true;
+                definirJogadores();
+                exibirTabuleiro();
+                UpdateMap();
+            }
+            
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -351,29 +364,7 @@ namespace onepiece
             
             string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
             string[] mao = carta.Split(',');
-
-            string simbolo = "Chave";
-            switch (mao[0])
-            {
-                case "C":
-                    simbolo = "Chave";
-                    break;
-                case "E":
-                    simbolo = "Esqueleto";
-                    break;
-                case "T":
-                    simbolo = "Tricórnio";
-                    break;
-                case "P":
-                    simbolo = "Pistola";
-                    break;
-                case "G":
-                    simbolo = "Garrafa";
-                    break;
-                case "F":
-                    simbolo = "Faca";
-                    break;
-            }
+            
             if (vez == Form4.idJogador && rodadaAtual < 4 )
             {
                 

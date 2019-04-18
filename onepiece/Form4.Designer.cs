@@ -126,7 +126,6 @@
             this.label1.Size = new System.Drawing.Size(73, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Id Partida:";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblIdPartida
             // 
@@ -161,7 +160,6 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Form4";
             this.Text = "Form4";
-            this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

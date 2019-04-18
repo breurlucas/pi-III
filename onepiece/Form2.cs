@@ -47,17 +47,38 @@ namespace onepiece
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
-            Jogo.CriarPartida(txtNomePartida.Text, txtSenhaPartida.Text);
+            string idNovaPartida = Jogo.CriarPartida(txtNomePartida.Text, txtSenhaPartida.Text);
+            if (idNovaPartida.Contains("ERRO"))
+            {
+                MessageBox.Show(idNovaPartida);
+            }
+            else
+            {
+                string comboBoxFiltro = cmbFiltrarPartidas.Text;
+                string filtroPartida = comboBoxFiltro[0].ToString();
+
+                string listaInteira = Jogo.ListarPartidas(filtroPartida);
+                string[] listaPartida = listaInteira.Split('\r');
+
+                //wipes the list clear before loading new games
+                lista.Items.Clear();
+                for (int i = 0; i < listaPartida.Length; i++)
+                {
+                    lista.Items.Add(listaPartida[i]);
+                }
+                lista.SelectedIndex = 0;
+                txtId.Text = idNovaPartida;
+            }
         }
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
-            if(lista.Text != "")
+            string[] idSelected = lista.Text.Split(',');
+            int id = Convert.ToInt32(idSelected[0]);
+            if (txtId.Text != "")
             {
-                string[] teste = lista.Text.Split(',');
-                int id = Convert.ToInt32(teste[0]);
-                txtId.Text = id.ToString();
-                txtListarJogadores.Text = Jogo.ListarJogadores(id);
+                //txtId.Text = id.ToString();
+                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
             }
             else
             {
