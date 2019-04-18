@@ -21,6 +21,9 @@ namespace onepiece
         Dictionary<string, Color> colors;
         int tempID;
 
+        int indexTEMP;
+     
+
 
         Form4 Form4;
         public Form3(Form4 formDois)
@@ -50,9 +53,13 @@ namespace onepiece
 
             /* ** DEVELOPING ** */
             //tempID = 115;
-            
+
             //exibirTabuleiro();
             //UpdateMap();
+
+            // ENTREGA 18/04
+            indexTEMP = 0;
+
         }
 
         private void definirJogadores()
@@ -289,6 +296,11 @@ namespace onepiece
             string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
             definirJogadores();
             exibirTabuleiro();
+
+            tmrJogarFrente.Enabled = false;
+            
+            tmrJogarFrente.Interval = 4000;
+            
         }
 
         private void btnExibirMao_Click(object sender, EventArgs e)
@@ -326,6 +338,48 @@ namespace onepiece
         {
             Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text));
             UpdateMap();
+        }
+
+        private void tmrJogarFrente_Tick(object sender, EventArgs e)
+        {
+            string x = Jogo.VerificarVez(tempID);
+            string[] y = x.Split(',');
+            string simbolo = "Chave";
+            int vez = Convert.ToInt32(y[2]);
+            x = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            string[] mao = x.Split(',');
+            switch (mao[0])
+            {
+                case "C":
+                    simbolo = "Chave";
+                    break;
+                case "E":
+                    simbolo = "Esqueleto";
+                    break;
+                case "T":
+                    simbolo = "Tricórnio";
+                    break;
+                case "P":
+                    simbolo = "Pistola";
+                    break;
+                case "G":
+                    simbolo = "Garrafa";
+                    break;
+                case "F":
+                    simbolo = "Faca";
+                    break;
+            }
+            if (y[1] == Form4.idJogador && vez < 4 && indexTEMP < 6)
+            {
+
+                Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
+
+            }
+
+            if (vez == 3)
+                vez = 0;
+            indexTEMP++;
+
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)
