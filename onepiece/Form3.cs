@@ -59,7 +59,7 @@ namespace onepiece
             indexTEMP = 0;
 
             tmrJogarFrente.Enabled = true;
-            tmrJogarFrente.Interval = 3000;
+            tmrJogarFrente.Interval = 2000;
 
         }
 
@@ -295,7 +295,7 @@ namespace onepiece
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
-            if (iniciarPartida.Contains("ERRO")){
+            if (iniciarPartida.Contains("Erro")){
                 MessageBox.Show(iniciarPartida);
             }
             else
@@ -313,13 +313,12 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            if (txtVerificarVez.Text.Contains("ERRO"))
+            if (txtVerificarVez.Text.Contains("Erro"))
             {
                 MessageBox.Show(txtVerificarVez.Text);
             }
             else
             {
-                tmrJogarFrente.Enabled = true;
                 definirJogadores();
                 exibirTabuleiro();
                 UpdateMap();
@@ -355,25 +354,32 @@ namespace onepiece
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            string[] atualVez = vezAtual.Split(',');
-            string vez = atualVez[1];
-
-            string[] rodada = atualVez[2].Split('\r');
-            int rodadaAtual = Convert.ToInt32(rodada[0]);
-
-            
-            string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
-            string[] mao = carta.Split(',');
-            
-            if (vez == Form4.idJogador && rodadaAtual < 4 )
+            if (!vezAtual.Contains("Erro"))
             {
-                
-                string testando = Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, 0, mao[0].ToString());
-               
-            }
-            UpdateMap();
+                        string[] atualVez = vezAtual.Split(',');
+                        string vez = atualVez[1];
+
+                        string[] rodada = atualVez[2].Split('\r');
+                        int rodadaAtual = Convert.ToInt32(rodada[0]);
+
             
-            indexTEMP++;
+                        string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+                        string[] mao = carta.Split(',');
+            
+                        if (vez == Form4.idJogador && rodadaAtual < 4 )
+                        {
+                
+                            string testando = Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, 0, mao[0].ToString());
+               
+                        }
+                        definirJogadores();
+                        exibirTabuleiro();
+                        UpdateMap();
+            
+                        indexTEMP++;
+
+            }
+           
 
         }
 

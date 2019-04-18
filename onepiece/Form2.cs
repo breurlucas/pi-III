@@ -74,7 +74,11 @@ namespace onepiece
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
             string[] idSelected = lista.Text.Split(',');
-            int id = Convert.ToInt32(idSelected[0]);
+            if(idSelected[0] != "")
+            {
+                int id = Convert.ToInt32(idSelected[0]);
+            }
+               
             if (txtId.Text != "")
             {
                 //txtId.Text = id.ToString();
