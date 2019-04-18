@@ -59,7 +59,7 @@ namespace onepiece
             indexTEMP = 0;
 
             tmrJogarFrente.Enabled = true;
-            tmrJogarFrente.Interval = 2000;
+            tmrJogarFrente.Interval = 4000;
 
         }
 
@@ -313,12 +313,7 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            if (txtVerificarVez.Text.Contains("Erro"))
-            {
-                MessageBox.Show(txtVerificarVez.Text);
-            }
-            else
-            {
+            if (!txtVerificarVez.Text.Contains("Erro")) { 
                 definirJogadores();
                 exibirTabuleiro();
                 UpdateMap();
