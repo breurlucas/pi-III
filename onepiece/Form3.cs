@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,10 +21,12 @@ namespace onepiece
         Dictionary<string, Color> colors;
         int tempID;
 
-        Form2 form2;
-        public Form3(Form2 formDois)
+        int indexTEMP;
+     
+        Form4 Form4;
+        public Form3(Form4 formDois)
         {
-            form2 = formDois;
+            Form4 = formDois;
             InitializeComponent();
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -33,9 +35,9 @@ namespace onepiece
             //  Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
-            txtIdJogador.Text = form2.idJogador;
-            txtSenhaJogador.Text = form2.senhaJogador;
-            txtCorJogador.Text = form2.corJogador;
+            txtIdJogador.Text = Form4.idJogador;
+            txtSenhaJogador.Text = Form4.senhaJogador;
+            txtCorJogador.Text = Form4.corJogador;
 
             cboSimbolo.Items.Add("");
             cboSimbolo.Items.Add("Esqueleto");
@@ -45,13 +47,20 @@ namespace onepiece
             cboSimbolo.Items.Add("Tricórnio");
             cboSimbolo.Items.Add("Faca");
 
-            tempID = Convert.ToInt32(form2.idPartida);
+            tempID = Convert.ToInt32(Form4.idPartida);
 
             /* ** DEVELOPING ** */
             //tempID = 115;
-            
+
             //exibirTabuleiro();
-            UpdateMap();
+            //UpdateMap();
+
+            // ENTREGA 18/04
+            indexTEMP = 0;
+
+            tmrJogarFrente.Enabled = true;
+            tmrJogarFrente.Interval = 4000;
+
         }
 
         private void definirJogadores()
@@ -208,13 +217,32 @@ namespace onepiece
 
                 repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
 
+                //player = Form4.idJogador;
                 player = estadoTabuleiro[i + 1];
                 color = colors[player];
+                //color = Color.FromName(ConvertColor(txtCorJogador.Text));
 
                 if (position != 0)
                     drawUnit(position, color, repeat);
             }
+            definirJogadores();
+            exibirTabuleiro();
 
+        }
+        private string ConvertColor(string color)
+        {
+            if (color == "Amarelo")
+                return "Yellow";
+            else if (color == "Vermelho")
+                return "Red";
+            else if (color == "Azul")
+                return "Blue";
+            else if (color == "Verde")
+                return "Green";
+            else if (color == "Marrom")
+                return "Brown";
+            else
+                return "";
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -266,30 +294,41 @@ namespace onepiece
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string testeIniciar = Jogo.IniciarPartida(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
-            MessageBox.Show(testeIniciar);
-            definirJogadores();
-            exibirTabuleiro();
+            string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            if (iniciarPartida.Contains("Erro")){
+                MessageBox.Show(iniciarPartida);
+            }
+            else
+            {
+                definirJogadores();
+                exibirTabuleiro();
+            }
         }
 
         private void btnExibirMao_Click(object sender, EventArgs e)
         {
-            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
+            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
         }
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            UpdateMap();
+            txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
+            if (!txtVerificarVez.Text.Contains("Erro")) { 
+                definirJogadores();
+                exibirTabuleiro();
+                UpdateMap();
+            }
+            
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
-            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(form2.idPartida));
+            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(Form4.idPartida));
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)
         {
-            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador);
+            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
             UpdateMap();
         }
 
@@ -297,14 +336,46 @@ namespace onepiece
         {
             string comboBoxSimbolo = cboSimbolo.Text;
             string simbolo  = comboBoxSimbolo[0].ToString();
-            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
+            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
             UpdateMap();
         }
 
         private void btnMoverTras_Click(object sender, EventArgs e)
         {
-            Jogo.Jogar(Convert.ToInt32(form2.idJogador), form2.senhaJogador, Convert.ToInt32(txtPosicao.Text));
+            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text));
             UpdateMap();
+        }
+
+        private void tmrJogarFrente_Tick(object sender, EventArgs e)
+        {
+            string vezAtual = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
+            if (!vezAtual.Contains("Erro"))
+            {
+                        string[] atualVez = vezAtual.Split(',');
+                        string vez = atualVez[1];
+
+                        string[] rodada = atualVez[2].Split('\r');
+                        int rodadaAtual = Convert.ToInt32(rodada[0]);
+
+            
+                        string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+                        string[] mao = carta.Split(',');
+            
+                        if (vez == Form4.idJogador && rodadaAtual < 4 )
+                        {
+                
+                            string testando = Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, 0, mao[0].ToString());
+               
+                        }
+                        definirJogadores();
+                        exibirTabuleiro();
+                        UpdateMap();
+            
+                        indexTEMP++;
+
+            }
+           
+
         }
 
         //private void picMapBackground_Paint(object sender, PaintEventArgs e)

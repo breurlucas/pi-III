@@ -13,10 +13,8 @@ namespace onepiece
 {
     public partial class Form2 : Form
     {
+
         public string idPartida;
-        public string idJogador;
-        public string senhaJogador;
-        public string corJogador;
         public string senhaPartida;
 
         public Form2()
@@ -49,17 +47,42 @@ namespace onepiece
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
         {
-            Jogo.CriarPartida(txtNomePartida.Text, txtSenhaPartida.Text);
+            string idNovaPartida = Jogo.CriarPartida(txtNomePartida.Text, txtSenhaPartida.Text);
+            if (idNovaPartida.Contains("ERRO"))
+            {
+                MessageBox.Show(idNovaPartida);
+            }
+            else
+            {
+                string comboBoxFiltro = cmbFiltrarPartidas.Text;
+                string filtroPartida = comboBoxFiltro[0].ToString();
+
+                string listaInteira = Jogo.ListarPartidas(filtroPartida);
+                string[] listaPartida = listaInteira.Split('\r');
+
+                //wipes the list clear before loading new games
+                lista.Items.Clear();
+                for (int i = 0; i < listaPartida.Length; i++)
+                {
+                    lista.Items.Add(listaPartida[i]);
+                }
+                lista.SelectedIndex = 0;
+                txtId.Text = idNovaPartida;
+            }
         }
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
-            if(lista.Text != "")
+            string[] idSelected = lista.Text.Split(',');
+            if(idSelected[0] != "")
             {
-                string[] teste = lista.Text.Split(',');
-                int id = Convert.ToInt32(teste[0]);
-                txtId.Text = id.ToString();
-                txtListarJogadores.Text = Jogo.ListarJogadores(id);
+                int id = Convert.ToInt32(idSelected[0]);
+            }
+               
+            if (txtId.Text != "")
+            {
+                //txtId.Text = id.ToString();
+                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
             }
             else
             {
@@ -70,21 +93,14 @@ namespace onepiece
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             int i = 0;
-            if (Int32.TryParse(txtId.Text, out i) && txtNomeJogador.Text != "" && txtSenhaPartida.Text != "")
+            if (Int32.TryParse(txtId.Text, out i)&& txtSenhaPartida.Text != "")
             {
 
-                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(txtId.Text), txtNomeJogador.Text, txtSenhaPartida.Text);
-                string[] array = retornoEntrar.Split(',');
-
-                idJogador = array[0];
-                senhaJogador = array[1];
-                corJogador = array[2];
                 idPartida = txtId.Text;
                 senhaPartida = txtSenhaPartida.Text;
-                
-                Form3 novoForm;
-                novoForm = new Form3(this);
-                novoForm.Show();
+                Form4 dialogLogin;
+                dialogLogin = new Form4(this);
+                dialogLogin.Show();
                 
             }
             else
@@ -99,12 +115,5 @@ namespace onepiece
             txtId.Text = teste[0];
         }
 
-        /* ** DEVELOPING ** */
-        private void btnJogar_Click(object sender, EventArgs e)
-        {
-            Form3 novoForm;
-            novoForm = new Form3(this);
-            novoForm.Show();
-        }
     }
 }
