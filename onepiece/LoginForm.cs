@@ -12,7 +12,7 @@ using CartagenaServer;
 
 namespace onepiece
 {
-    public partial class Form4 : Form
+    public partial class LoginForm : Form
     {
 
         public string idPartida;
@@ -21,8 +21,8 @@ namespace onepiece
         public string corJogador;
         public string senhaPartida;
 
-        Form2 formDois;
-        public Form4(Form2 form2)
+        LobbyForm formDois;
+        public LoginForm(LobbyForm form2)
         {
             InitializeComponent();
             formDois = form2;
@@ -64,8 +64,8 @@ namespace onepiece
                             corJogador = newArray[2];
                         }
                 }
-                Form3 novoForm;
-                novoForm = new Form3(this);
+                GameForm novoForm;
+                novoForm = new GameForm(this);
                 novoForm.Show();
                 this.Close();
                 }
@@ -85,8 +85,8 @@ namespace onepiece
                     senhaJogador = array[1];
                     corJogador = array[2];
 
-                    Form3 novoForm;
-                    novoForm = new Form3(this);
+                    GameForm novoForm;
+                    novoForm = new GameForm(this);
                     novoForm.Show();
                     this.Close();
                 }

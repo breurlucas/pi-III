@@ -11,7 +11,7 @@ using CartagenaServer;
 
 namespace onepiece
 {
-    public partial class Form3 : Form
+    public partial class GameForm : Form
     {
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
@@ -23,10 +23,10 @@ namespace onepiece
 
         int indexTEMP;
      
-        Form4 Form4;
-        public Form3(Form4 formDois)
+        LoginForm loginForm;
+        public GameForm(LoginForm form)
         {
-            Form4 = formDois;
+            loginForm = form;
             InitializeComponent();
 
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -35,9 +35,9 @@ namespace onepiece
             //  Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
-            txtIdJogador.Text = Form4.idJogador;
-            txtSenhaJogador.Text = Form4.senhaJogador;
-            txtCorJogador.Text = Form4.corJogador;
+            txtIdJogador.Text = loginForm.idJogador;
+            txtSenhaJogador.Text = loginForm.senhaJogador;
+            txtCorJogador.Text = loginForm.corJogador;
 
             cboSimbolo.Items.Add("");
             cboSimbolo.Items.Add("Esqueleto");
@@ -47,7 +47,7 @@ namespace onepiece
             cboSimbolo.Items.Add("Tricórnio");
             cboSimbolo.Items.Add("Faca");
 
-            tempID = Convert.ToInt32(Form4.idPartida);
+            tempID = Convert.ToInt32(loginForm.idPartida);
 
             /* ** DEVELOPING ** */
             //tempID = 115;

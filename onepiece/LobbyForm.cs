@@ -11,13 +11,13 @@ using CartagenaServer;
 
 namespace onepiece
 {
-    public partial class Form2 : Form
+    public partial class LobbyForm : Form
     {
 
         public string idPartida;
         public string senhaPartida;
 
-        public Form2()
+        public LobbyForm()
         {
             InitializeComponent();
 
@@ -98,8 +98,8 @@ namespace onepiece
 
                 idPartida = txtId.Text;
                 senhaPartida = txtSenhaPartida.Text;
-                Form4 dialogLogin;
-                dialogLogin = new Form4(this);
+                LoginForm dialogLogin;
+                dialogLogin = new LoginForm(this);
                 dialogLogin.Show();
                 
             }
