@@ -229,20 +229,24 @@ namespace onepiece
             exibirTabuleiro();
 
         }
+
         private string ConvertColor(string color)
         {
-            if (color == "Amarelo")
-                return "Yellow";
-            else if (color == "Vermelho")
-                return "Red";
-            else if (color == "Azul")
-                return "Blue";
-            else if (color == "Verde")
-                return "Green";
-            else if (color == "Marrom")
-                return "Brown";
-            else
-                return "";
+            switch (color.Substring(0, 4))
+            {
+                case "Amar":
+                    return "Yellow";
+                case "Verm":
+                    return "Red";
+                case "Azul":
+                    return "Blue";
+                case "Verd":
+                    return "Green";
+                case "Marr":
+                    return "Brown";
+                default:
+                    return "Pink";
+            }
         }
 
         private void drawUnit(int position, Color color, int repeat)
