@@ -15,15 +15,20 @@ namespace onepiece
     {
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
+        PictureBox tile;
         PictureBox unit;
         Pirate pirate;
+        // Keeps track of the number of pirates in each tile
         int[] occupation;
+        // Stores the players (id and color) at the start of the game
         Dictionary<string, Color> colors;
-        int tempID;
+        int idPartida;
 
         int indexTEMP;
      
         LoginForm loginForm;
+
+        // Initializes the game form
         public GameForm(LoginForm form)
         {
             loginForm = form;
@@ -35,6 +40,8 @@ namespace onepiece
             //  Instancia novo tabuleiro
             tabuleiro = new Tabuleiro();
 
+            // Takes over the variables from the Login Form
+            idPartida = Convert.ToInt32(loginForm.idPartida);
             txtIdJogador.Text = loginForm.idJogador;
             txtSenhaJogador.Text = loginForm.senhaJogador;
             txtCorJogador.Text = loginForm.corJogador;
@@ -47,27 +54,33 @@ namespace onepiece
             cboSimbolo.Items.Add("Tricórnio");
             cboSimbolo.Items.Add("Faca");
 
-            tempID = Convert.ToInt32(loginForm.idPartida);
-
-            /* ** DEVELOPING ** */
-            //tempID = 115;
-
-            //exibirTabuleiro();
-            //UpdateMap();
-
-            // ENTREGA 18/04
+            // Automation
             indexTEMP = 0;
 
             tmrJogarFrente.Enabled = true;
             tmrJogarFrente.Interval = 4000;
+        }
+        
+        /* DEV Initializes in spectator mode */
+        public GameForm()
+        {
+            InitializeComponent();
 
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+
+            //  Instancia novo tabuleiro
+            idPartida = 139;
+            tabuleiro = new Tabuleiro();
+            exibirTabuleiro();
         }
 
+
+
+        // Method that builds a dictionary for the players (id and color)
         private void definirJogadores()
         {
-            //  Builds dictionary for the player colors
-
-            string req = Jogo.ListarJogadores(tempID);
+            string req = Jogo.ListarJogadores(idPartida);
             req = req.Replace("\n", "");
             string[] players = req.Split('\r', ',');
 
@@ -99,6 +112,7 @@ namespace onepiece
                 }
             }
 
+            // Colors are always distributed in the same order
             colors = new Dictionary<string, Color>
                 {
                     { p1, Color.Red },
@@ -111,22 +125,10 @@ namespace onepiece
 
         private void exibirTabuleiro()
         {
-            
+
 
             //  Constructing the map tiles vector. Consists of the 36 different pictureboxes the tiles are drawn into
-            mapTiles = new PictureBox[]
-            {
-                picTile1, picTile2, picTile3, picTile4, picTile5, picTile6, picTile7, picTile8, picTile9,
-                picTile10, picTile11, picTile12, picTile13, picTile14, picTile15, picTile16, picTile17,
-                picTile18, picTile19, picTile20, picTile21, picTile22, picTile23, picTile24, picTile25,
-                picTile26, picTile27, picTile28, picTile29, picTile30, picTile31, picTile32, picTile33,
-                picTile34, picTile35, picTile36
-            };
-
-            //  Requests the server the blueprint of the map
-            string mapBlueprint = Jogo.ExibirTabuleiro(tempID);
-            //  Builds the map using tiles based on the blueprint requested from the server
-            tabuleiro.construir(mapTiles, mapBlueprint);
+            mapTiles = new PictureBox[36];
 
             /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
                 the parent control background). */
@@ -136,8 +138,13 @@ namespace onepiece
             double heightPercentage;
             for (int i = 0; i < mapTiles.Length; i++)
             {
-                picMapBackground.Controls.Add(mapTiles[i]);
-                mapTiles[i].BackColor = Color.Transparent;
+                tile = new PictureBox();
+                tile.Size = new Size(35, 35);
+                tile.BackColor = Color.Transparent;
+                picMapBackground.Controls.Add(tile);
+                tile.Tag = "tile";
+                tile.BringToFront();
+                mapTiles[i] = tile;
 
                 if (i < 11)
                     heightPercentage = 0.79;
@@ -173,6 +180,11 @@ namespace onepiece
                         widthPercentage += spacingTiles;
                 }
             }
+
+            //  Requests the server the blueprint of the map
+            string mapBlueprint = Jogo.ExibirTabuleiro(idPartida);
+            //  Builds the map using tiles based on the blueprint requested from the server
+            tabuleiro.construir(mapTiles, mapBlueprint);
         }
 
         private void UpdateMap() {
@@ -191,7 +203,7 @@ namespace onepiece
                 picMapBackground.Controls.Remove(pbs[i]);
             }
 
-            string req = Jogo.VerificarVez(tempID);
+            string req = Jogo.VerificarVez(idPartida);
             txtVerificarVez.Text = req;
 
             //  Replace the 'next line' characters from the string with blanks
@@ -298,7 +310,7 @@ namespace onepiece
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
             if (iniciarPartida.Contains("Erro")){
                 MessageBox.Show(iniciarPartida);
             }
@@ -311,12 +323,12 @@ namespace onepiece
 
         private void btnExibirMao_Click(object sender, EventArgs e)
         {
-            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
         }
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
+            txtVerificarVez.Text = Jogo.VerificarVez(idPartida);
             if (!txtVerificarVez.Text.Contains("Erro")) { 
                 definirJogadores();
                 exibirTabuleiro();
@@ -327,12 +339,12 @@ namespace onepiece
 
         private void btnHistorico_Click(object sender, EventArgs e)
         {
-            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(Form4.idPartida));
+            txtHistorico.Text = Jogo.ExibirHistorico(Convert.ToInt32(loginForm.idPartida));
         }
 
         private void btnPularVez_Click(object sender, EventArgs e)
         {
-            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+            Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
             UpdateMap();
         }
 
@@ -340,19 +352,19 @@ namespace onepiece
         {
             string comboBoxSimbolo = cboSimbolo.Text;
             string simbolo  = comboBoxSimbolo[0].ToString();
-            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
+            Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
             UpdateMap();
         }
 
         private void btnMoverTras_Click(object sender, EventArgs e)
         {
-            Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, Convert.ToInt32(txtPosicao.Text));
+            Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, Convert.ToInt32(txtPosicao.Text));
             UpdateMap();
         }
 
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
-            string vezAtual = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
+            string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
             if (!vezAtual.Contains("Erro"))
             {
                         string[] atualVez = vezAtual.Split(',');
@@ -362,13 +374,13 @@ namespace onepiece
                         int rodadaAtual = Convert.ToInt32(rodada[0]);
 
             
-                        string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+                        string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
                         string[] mao = carta.Split(',');
             
-                        if (vez == Form4.idJogador && rodadaAtual < 4 )
+                        if (vez == loginForm.idJogador && rodadaAtual < 4 )
                         {
                 
-                            string testando = Jogo.Jogar(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador, 0, mao[0].ToString());
+                            string testando = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
                
                         }
                         definirJogadores();
@@ -378,20 +390,6 @@ namespace onepiece
                         indexTEMP++;
 
             }
-           
-
         }
-
-        //private void picMapBackground_Paint(object sender, PaintEventArgs e)
-        //{
-        //    Graphics g = e.Graphics;
-        //    int x = mapTiles[1].Location.X + 20;
-        //    int y = mapTiles[1].Location.Y;
-        //    //pirate.draw(g, x, y);
-        //    //Pen p = new Pen(Color.Red);
-        //    SolidBrush sb = new SolidBrush(Color.Red);
-        //    //g.DrawEllipse(p, x, y, 10, 10);
-        //    g.FillEllipse(sb, x, y, 15, 15);
-        //}
     }
 }

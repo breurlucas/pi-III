@@ -115,5 +115,13 @@ namespace onepiece
             txtId.Text = teste[0];
         }
 
+        /* DEV Initializes in spectator mode */
+        private void btnAssistir_Click(object sender, EventArgs e)
+        {
+
+            GameForm novoForm;
+            novoForm = new GameForm();
+            novoForm.Show();
+        }
     }
 }

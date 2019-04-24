@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.ListBox();
+            this.btnAssistir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,11 +209,25 @@
             this.lista.TabIndex = 22;
             this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
             // 
+            // btnAssistir
+            // 
+            this.btnAssistir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAssistir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnAssistir.Location = new System.Drawing.Point(409, 590);
+            this.btnAssistir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAssistir.Name = "btnAssistir";
+            this.btnAssistir.Size = new System.Drawing.Size(257, 38);
+            this.btnAssistir.TabIndex = 23;
+            this.btnAssistir.Text = "Assistir";
+            this.btnAssistir.UseVisualStyleBackColor = true;
+            this.btnAssistir.Click += new System.EventHandler(this.btnAssistir_Click);
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 673);
+            this.Controls.Add(this.btnAssistir);
             this.Controls.Add(this.lista);
             this.Controls.Add(this.btnEntrarPartida);
             this.Controls.Add(this.label3);
@@ -249,5 +264,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.ListBox lista;
+        private System.Windows.Forms.Button btnAssistir;
     }
 }
