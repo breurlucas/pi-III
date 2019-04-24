@@ -132,14 +132,14 @@ namespace onepiece
 
             /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
                 the parent control background). */
-            double startingWidthTiles = 0.053;
-            double spacingTiles = 0.086;
+            double startingWidthTiles = 0.050;
+            double spacingTiles = 0.075;
             double widthPercentage = startingWidthTiles;
             double heightPercentage;
             for (int i = 0; i < mapTiles.Length; i++)
             {
                 tile = new PictureBox();
-                tile.Size = new Size(35, 35);
+                tile.Size = new Size(25, 25);
                 tile.BackColor = Color.Transparent;
                 picMapBackground.Controls.Add(tile);
                 tile.Tag = "tile";

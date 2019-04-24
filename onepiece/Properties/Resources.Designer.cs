@@ -113,19 +113,9 @@ namespace onepiece.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap map1 {
+        internal static System.Drawing.Bitmap Map {
             get {
-                object obj = ResourceManager.GetObject("map1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap map2 {
-            get {
-                object obj = ResourceManager.GetObject("map2", resourceCulture);
+                object obj = ResourceManager.GetObject("Map", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

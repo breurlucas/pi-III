@@ -55,12 +55,18 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnHistorico = new System.Windows.Forms.Button();
             this.tmrJogarFrente = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +91,11 @@
             this.groupBox1.Controls.Add(this.txtSenhaJogador);
             this.groupBox1.Controls.Add(this.txtCorJogador);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(16, 614);
+            this.groupBox1.Location = new System.Drawing.Point(16, 543);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(368, 224);
+            this.groupBox1.Size = new System.Drawing.Size(218, 305);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jogador";
@@ -97,7 +103,7 @@
             // btnIniciar
             // 
             this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnIniciar.Location = new System.Drawing.Point(152, 172);
+            this.btnIniciar.Location = new System.Drawing.Point(8, 264);
             this.btnIniciar.Margin = new System.Windows.Forms.Padding(4);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(200, 33);
@@ -109,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 46);
+            this.label5.Location = new System.Drawing.Point(8, 34);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(132, 25);
@@ -119,7 +125,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 123);
+            this.label7.Location = new System.Drawing.Point(3, 163);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(148, 25);
@@ -128,7 +134,7 @@
             // 
             // txtIdJogador
             // 
-            this.txtIdJogador.Location = new System.Drawing.Point(8, 74);
+            this.txtIdJogador.Location = new System.Drawing.Point(8, 63);
             this.txtIdJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtIdJogador.Name = "txtIdJogador";
             this.txtIdJogador.Size = new System.Drawing.Size(116, 30);
@@ -137,7 +143,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(165, 46);
+            this.label6.Location = new System.Drawing.Point(3, 97);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(174, 25);
@@ -146,7 +152,7 @@
             // 
             // txtSenhaJogador
             // 
-            this.txtSenhaJogador.Location = new System.Drawing.Point(171, 74);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(8, 126);
             this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaJogador.Name = "txtSenhaJogador";
             this.txtSenhaJogador.Size = new System.Drawing.Size(113, 30);
@@ -154,7 +160,7 @@
             // 
             // txtCorJogador
             // 
-            this.txtCorJogador.Location = new System.Drawing.Point(8, 174);
+            this.txtCorJogador.Location = new System.Drawing.Point(13, 192);
             this.txtCorJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtCorJogador.Name = "txtCorJogador";
             this.txtCorJogador.ReadOnly = true;
@@ -241,7 +247,7 @@
             this.groupBox2.Controls.Add(this.btnMoverFrente);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox2.Location = new System.Drawing.Point(392, 614);
+            this.groupBox2.Location = new System.Drawing.Point(243, 543);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
@@ -255,7 +261,7 @@
             this.groupBox3.Controls.Add(this.btnExibirMao);
             this.groupBox3.Controls.Add(this.txtMao);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox3.Location = new System.Drawing.Point(737, 614);
+            this.groupBox3.Location = new System.Drawing.Point(588, 543);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
@@ -291,7 +297,7 @@
             this.groupBox4.Controls.Add(this.btnVerificarVez);
             this.groupBox4.Controls.Add(this.txtVerificarVez);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox4.Location = new System.Drawing.Point(1037, 614);
+            this.groupBox4.Location = new System.Drawing.Point(887, 543);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
@@ -313,13 +319,13 @@
             // 
             // txtHistorico
             // 
-            this.txtHistorico.Location = new System.Drawing.Point(11, 50);
+            this.txtHistorico.Location = new System.Drawing.Point(0, 34);
             this.txtHistorico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
             this.txtHistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtHistorico.Size = new System.Drawing.Size(276, 390);
+            this.txtHistorico.Size = new System.Drawing.Size(432, 120);
             this.txtHistorico.TabIndex = 114;
             // 
             // groupBox5
@@ -327,18 +333,18 @@
             this.groupBox5.Controls.Add(this.btnHistorico);
             this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox5.Location = new System.Drawing.Point(1369, 330);
+            this.groupBox5.Location = new System.Drawing.Point(1207, 543);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(299, 508);
+            this.groupBox5.Size = new System.Drawing.Size(437, 224);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
             // 
             // btnHistorico
             // 
-            this.btnHistorico.Location = new System.Drawing.Point(63, 457);
+            this.btnHistorico.Location = new System.Drawing.Point(99, 174);
             this.btnHistorico.Margin = new System.Windows.Forms.Padding(4);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(187, 41);
@@ -351,15 +357,59 @@
             // 
             this.tmrJogarFrente.Tick += new System.EventHandler(this.tmrJogarFrente_Tick);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(53, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 25);
+            this.label3.TabIndex = 116;
+            this.label3.Text = "Cadeia";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(1513, 9);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(63, 25);
+            this.label4.TabIndex = 117;
+            this.label4.Text = "Barco";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 37);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(181, 453);
+            this.dataGridView1.TabIndex = 118;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(1458, 37);
+            this.dataGridView2.MultiSelect = false;
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowTemplate.Height = 24;
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(181, 453);
+            this.dataGridView2.TabIndex = 119;
+            // 
             // picMapBackground
             // 
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picMapBackground.Image = global::onepiece.Properties.Resources.map2;
-            this.picMapBackground.Location = new System.Drawing.Point(0, 0);
+            this.picMapBackground.Image = global::onepiece.Properties.Resources.Map;
+            this.picMapBackground.Location = new System.Drawing.Point(196, 19);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
-            this.picMapBackground.Size = new System.Drawing.Size(1349, 601);
+            this.picMapBackground.Size = new System.Drawing.Size(1257, 490);
             this.picMapBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
@@ -368,7 +418,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1604, 853);
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1651, 853);
+            this.Controls.Add(this.dataGridView2);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -388,8 +444,11 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -421,5 +480,9 @@
         private System.Windows.Forms.Button btnHistorico;
         private System.Windows.Forms.Timer tmrJogarFrente;
         private System.Windows.Forms.PictureBox picMapBackground;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
     }
 }
