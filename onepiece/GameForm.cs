@@ -34,6 +34,7 @@ namespace onepiece
 
         // DEV Automation variable
         int indexTEMP;
+        bool jogoIniciado = false;
 
         /****************
          * 
@@ -71,7 +72,7 @@ namespace onepiece
             // DEV Automation
             indexTEMP = 0;
             tmrJogarFrente.Enabled = true;
-            tmrJogarFrente.Interval = 4000;
+            tmrJogarFrente.Interval = 2000;
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -247,8 +248,12 @@ namespace onepiece
                 MessageBox.Show(iniciarPartida);
             }
             else {
-                definirJogadores();
-                exibirTabuleiro();
+                if(!jogoIniciado)
+                {
+                    definirJogadores();
+                    exibirTabuleiro();
+                    jogoIniciado = true;
+                }
             }
         }
 
@@ -299,7 +304,7 @@ namespace onepiece
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
-            if (!vezAtual.Contains("Erro"))
+            if (!vezAtual.Contains("Erro") && jogoIniciado)
             {
                 string[] atualVez = vezAtual.Split(',');
                 string vez = atualVez[1];
@@ -310,19 +315,17 @@ namespace onepiece
             
                 string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
                 string[] mao = carta.Split(',');
-            
-                if (vez == loginForm.idJogador && rodadaAtual < 4 )
+
+                if (vez == loginForm.idJogador && rodadaAtual < 4)
                 {
-                
+
                     string testando = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
-               
+
                 }
-                definirJogadores();
-                exibirTabuleiro();
+
                 updateBoardState();
-            
                 indexTEMP++;
-            }
+            } 
         }
     }
 }

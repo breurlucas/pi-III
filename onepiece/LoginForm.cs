@@ -28,15 +28,13 @@ namespace onepiece
             lobbyForm = form;
 
             senhaPartida = lobbyForm.senhaPartida;
-            lblIdPartida.Text = lobbyForm.idPartida;
+            idPartida = lobbyForm.idPartida;
+            lblIdPartida.Text = idPartida;
 
         }
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            string[] idPartidaAtual = lblIdPartida.Text.Split('\n');
-            lblIdPartida.Text = idPartidaAtual[0].ToString();
-            idPartida = lblIdPartida.Text;
             if (txtSenhaJogador.Text != "")
             {
                 idJogador = txtNome.Text;
@@ -72,7 +70,7 @@ namespace onepiece
             }
             else
             {
-                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(lblIdPartida.Text), txtNomeJogador.Text, senhaPartida);
+                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(idPartida), txtNomeJogador.Text, senhaPartida);
                 if (retornoEntrar.Contains("ERRO"))
                 {
                     MessageBox.Show(retornoEntrar);

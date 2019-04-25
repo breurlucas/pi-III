@@ -90,7 +90,7 @@ namespace onepiece
             }
         }
 
-        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        private void btnJogar_Click(object sender, EventArgs e)
         {
             int i = 0;
             if (Int32.TryParse(txtIdPartida.Text, out i)&& txtSenhaPartida.Text != "")

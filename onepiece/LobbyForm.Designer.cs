@@ -40,7 +40,7 @@
             this.txtListarJogadores = new System.Windows.Forms.TextBox();
             this.txtIdPartida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnEntrarPartida = new System.Windows.Forms.Button();
+            this.btnJogar = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.ListBox();
             this.btnAssistir = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -184,18 +184,18 @@
             this.label3.TabIndex = 20;
             this.label3.Text = "Id:";
             // 
-            // btnEntrarPartida
+            // btnJogar
             // 
-            this.btnEntrarPartida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEntrarPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnEntrarPartida.Location = new System.Drawing.Point(409, 530);
-            this.btnEntrarPartida.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEntrarPartida.Name = "btnEntrarPartida";
-            this.btnEntrarPartida.Size = new System.Drawing.Size(257, 38);
-            this.btnEntrarPartida.TabIndex = 19;
-            this.btnEntrarPartida.Text = "Jogar";
-            this.btnEntrarPartida.UseVisualStyleBackColor = true;
-            this.btnEntrarPartida.Click += new System.EventHandler(this.btnEntrarPartida_Click);
+            this.btnJogar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnJogar.Location = new System.Drawing.Point(409, 530);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnJogar.Name = "btnJogar";
+            this.btnJogar.Size = new System.Drawing.Size(257, 38);
+            this.btnJogar.TabIndex = 19;
+            this.btnJogar.Text = "Jogar";
+            this.btnJogar.UseVisualStyleBackColor = true;
+            this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
             // 
             // lista
             // 
@@ -229,7 +229,7 @@
             this.ClientSize = new System.Drawing.Size(715, 673);
             this.Controls.Add(this.btnAssistir);
             this.Controls.Add(this.lista);
-            this.Controls.Add(this.btnEntrarPartida);
+            this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIdPartida);
             this.Controls.Add(this.txtListarJogadores);
@@ -262,7 +262,7 @@
         private System.Windows.Forms.TextBox txtListarJogadores;
         private System.Windows.Forms.TextBox txtIdPartida;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnEntrarPartida;
+        private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.ListBox lista;
         private System.Windows.Forms.Button btnAssistir;
     }
