@@ -17,6 +17,7 @@ namespace onepiece
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
         PictureBox unit;
+        int[] myselfPosPiratas;
   
         // Keeps track of the number of pirates in each tile
         int[] occupation;
@@ -35,6 +36,7 @@ namespace onepiece
         // DEV Automation variable
         int indexTEMP;
         bool jogoIniciado = false;
+        Random random;
 
         /****************
          * 
@@ -72,6 +74,7 @@ namespace onepiece
             // DEV Automation
             indexTEMP = 0;
             tmrJogarFrente.Interval = 2000;
+            random = new Random();
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -147,8 +150,11 @@ namespace onepiece
                 The other lines define the positions of the pirates. */
             string[] estadoTabuleiro = response.Split('\r', ',');
 
-            //  Instatiates new occupation array
+            // Instatiates new occupation array
             occupation = new int[36];
+            // Instantiates new myselfPosPirata array
+            myselfPosPiratas = new int[6];
+            int index = 0;
             // DataGridView Coordinate
             int dgvY = 0;
 
@@ -167,6 +173,31 @@ namespace onepiece
                 color = colors[player];
 
                 jogador = new Jogador(color, repeat);
+
+                // Populate myselfPosPirata
+                if(player == loginForm.idJogador && position != 37)
+                {
+                    if(repeat == 1)
+                    {
+                        myselfPosPiratas[index] = position;
+                        index++;
+                    }
+                    else if(repeat == 2)
+                    {
+                        myselfPosPiratas[index] = position;
+                        index++;
+                        myselfPosPiratas[index] = position;
+                        index++;
+                    } else
+                    {
+                        myselfPosPiratas[index] = position;
+                        index++;
+                        myselfPosPiratas[index] = position;
+                        index++;
+                        myselfPosPiratas[index] = position;
+                        index++;
+                    }
+                }
                 
                 // 0 is the Jail and 37 is the boat
                 if (position == 0) {
@@ -321,21 +352,30 @@ namespace onepiece
             // Only plays if the game has started
             if (!vezAtual.Contains("ERRO") && jogoIniciado)
             {
+                updateBoardState();
                 string[] atualVez = vezAtual.Split(',');
                 string vez = atualVez[1];
 
                 string[] rodada = atualVez[2].Split('\r');
                 int rodadaAtual = Convert.ToInt32(rodada[0]);
 
-            
                 string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
                 string[] mao = carta.Split(',');
 
+
+                int positionForward = myselfPosPiratas[random.Next(0, 5)];
+                int positionBackwards = myselfPosPiratas[5];
+
                 if (vez == loginForm.idJogador && rodadaAtual < 4)
                 {
-
-                    string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
-
+                    if(mao[0] != "")
+                    {
+                        string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    }
+                    else
+                    {
+                        string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    }
                 }
 
                 updateBoardState();
