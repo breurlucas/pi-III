@@ -29,6 +29,7 @@ namespace onepiece
 
             senhaPartida = form2.senhaPartida;
             lblIdPartida.Text = form2.idPartida;
+            idPartida = form2.idPartida;
 
         }
 
@@ -72,7 +73,7 @@ namespace onepiece
             }
             else
             {
-                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(lblIdPartida.Text), txtNomeJogador.Text, senhaPartida);
+                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(idPartida), txtNomeJogador.Text, senhaPartida);
                 if (retornoEntrar.Contains("ERRO"))
                 {
                     MessageBox.Show(retornoEntrar);
