@@ -295,7 +295,7 @@ namespace onepiece
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
-            if (iniciarPartida.Contains("Erro")){
+            if (iniciarPartida.Contains("ERRO")){
                 MessageBox.Show(iniciarPartida);
             }
             else
@@ -313,7 +313,7 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            if (!txtVerificarVez.Text.Contains("Erro")) { 
+            if (!txtVerificarVez.Text.Contains("ERRO")) { 
                 definirJogadores();
                 exibirTabuleiro();
                 UpdateMap();
