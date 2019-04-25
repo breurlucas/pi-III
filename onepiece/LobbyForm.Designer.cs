@@ -38,7 +38,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnListarJogadores = new System.Windows.Forms.Button();
             this.txtListarJogadores = new System.Windows.Forms.TextBox();
-            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtIdPartida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.ListBox();
@@ -165,19 +165,19 @@
             this.txtListarJogadores.Size = new System.Drawing.Size(304, 304);
             this.txtListarJogadores.TabIndex = 18;
             // 
-            // txtId
+            // txtIdPartida
             // 
-            this.txtId.Location = new System.Drawing.Point(391, 66);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(63, 22);
-            this.txtId.TabIndex = 19;
+            this.txtIdPartida.Location = new System.Drawing.Point(391, 66);
+            this.txtIdPartida.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdPartida.Name = "txtIdPartida";
+            this.txtIdPartida.Size = new System.Drawing.Size(63, 22);
+            this.txtIdPartida.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(404, 42);
+            this.label3.Location = new System.Drawing.Point(386, 38);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 25);
@@ -231,7 +231,7 @@
             this.Controls.Add(this.lista);
             this.Controls.Add(this.btnEntrarPartida);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtId);
+            this.Controls.Add(this.txtIdPartida);
             this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.btnListarJogadores);
             this.Controls.Add(this.groupBox1);
@@ -260,7 +260,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnListarJogadores;
         private System.Windows.Forms.TextBox txtListarJogadores;
-        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtIdPartida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.ListBox lista;

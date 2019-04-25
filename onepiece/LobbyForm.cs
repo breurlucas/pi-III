@@ -67,7 +67,7 @@ namespace onepiece
                     lista.Items.Add(listaPartida[i]);
                 }
                 lista.SelectedIndex = 0;
-                txtId.Text = idNovaPartida;
+                txtIdPartida.Text = idNovaPartida;
             }
         }
 
@@ -79,10 +79,10 @@ namespace onepiece
                 int id = Convert.ToInt32(idSelected[0]);
             }
                
-            if (txtId.Text != "")
+            if (txtIdPartida.Text != "")
             {
                 //txtId.Text = id.ToString();
-                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
+                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtIdPartida.Text));
             }
             else
             {
@@ -93,10 +93,10 @@ namespace onepiece
         private void btnEntrarPartida_Click(object sender, EventArgs e)
         {
             int i = 0;
-            if (Int32.TryParse(txtId.Text, out i)&& txtSenhaPartida.Text != "")
+            if (Int32.TryParse(txtIdPartida.Text, out i)&& txtSenhaPartida.Text != "")
             {
 
-                idPartida = txtId.Text;
+                idPartida = txtIdPartida.Text;
                 senhaPartida = txtSenhaPartida.Text;
                 LoginForm dialogLogin;
                 dialogLogin = new LoginForm(this);
@@ -112,7 +112,7 @@ namespace onepiece
         private void lista_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] teste = lista.Text.Split(',');
-            txtId.Text = teste[0];
+            txtIdPartida.Text = teste[0];
         }
 
         /* DEV Initializes in spectator mode */

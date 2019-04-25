@@ -21,14 +21,14 @@ namespace onepiece
         public string corJogador;
         public string senhaPartida;
 
-        LobbyForm formDois;
-        public LoginForm(LobbyForm form2)
+        LobbyForm lobbyForm;
+        public LoginForm(LobbyForm form)
         {
             InitializeComponent();
-            formDois = form2;
+            lobbyForm = form;
 
-            senhaPartida = form2.senhaPartida;
-            lblIdPartida.Text = form2.idPartida;
+            senhaPartida = lobbyForm.senhaPartida;
+            lblIdPartida.Text = lobbyForm.idPartida;
 
         }
 

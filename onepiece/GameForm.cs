@@ -22,6 +22,13 @@ namespace onepiece
         int[] occupation;
         // Stores the colors of the players at the start of the game
         Dictionary<string, Color> colors;
+
+        // Jail and Boat pirate count
+        List<Jogador> cadeia = new List<Jogador>();
+        List<Jogador> barco = new List<Jogador>();
+        // Player object
+        Jogador jogador;
+
         // Id of the match being played
         int idPartida;
 
@@ -76,8 +83,9 @@ namespace onepiece
             MaximizeBox = false;
 
             // Id needs to be defined manually
-            idPartida = 139;
+            idPartida = 32;
             tabuleiro = new Tabuleiro();
+            definirJogadores();
             exibirTabuleiro();
         }
 
@@ -91,7 +99,7 @@ namespace onepiece
         private void definirJogadores()
         {
             string response = Jogo.ListarJogadores(idPartida);
-            Jogador.definirCores(response, colors);
+            colors = Jogador.definirCores(response);
         }
 
         // Method that constructs the game board
@@ -107,7 +115,11 @@ namespace onepiece
             tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
-        private void UpdateMap() {
+        private void updateBoardState() {
+
+            // Clear jail and boat
+            cadeia.Clear();
+            barco.Clear();
 
             //  Clear units
             IList<PictureBox> pbs = new List<PictureBox>();
@@ -137,6 +149,8 @@ namespace onepiece
 
             //  Instatiates new occupation array
             occupation = new int[36];
+            // DataGridView Coordinate
+            int dgvY = 0;
 
             //  Last input of estadoTabuleiro is empty
             for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
@@ -152,13 +166,25 @@ namespace onepiece
                 player = estadoTabuleiro[i + 1];
                 color = colors[player];
 
+                jogador = new Jogador(color, repeat);
+                
                 // 0 is the Jail and 37 is the boat
-                if (position != 0 && position < 37)
+                if (position == 0) {
+                    cadeia.Add(jogador);  
+                } else if(position == 37) {
+                    barco.Add(jogador);
+                }
+                else
                     drawUnit(position, color, repeat);
             }
-            definirJogadores();
-            exibirTabuleiro();
 
+            dgvCadeia.DataSource = null;
+            dgvCadeia.DataSource = cadeia;
+            dgvCadeia.ClearSelection();
+
+            dgvBarco.DataSource = null;
+            dgvBarco.DataSource = barco;    
+            dgvBarco.ClearSelection();    
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -235,9 +261,7 @@ namespace onepiece
         {
             txtVerificarVez.Text = Jogo.VerificarVez(idPartida);
             if (!txtVerificarVez.Text.Contains("Erro")) { 
-                definirJogadores();
-                exibirTabuleiro();
-                UpdateMap();
+                updateBoardState();
             }    
         }
 
@@ -249,7 +273,7 @@ namespace onepiece
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            UpdateMap();
+            updateBoardState();
         }
 
         private void btnMoverFrente_Click(object sender, EventArgs e)
@@ -257,13 +281,13 @@ namespace onepiece
             string comboBoxSimbolo = cboSimbolo.Text;
             string simbolo  = comboBoxSimbolo[0].ToString();
             Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
-            UpdateMap();
+            updateBoardState();
         }
 
         private void btnMoverTras_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, Convert.ToInt32(txtPosicao.Text));
-            UpdateMap();
+            updateBoardState();
         }
 
         /************
@@ -277,27 +301,27 @@ namespace onepiece
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
             if (!vezAtual.Contains("Erro"))
             {
-                        string[] atualVez = vezAtual.Split(',');
-                        string vez = atualVez[1];
+                string[] atualVez = vezAtual.Split(',');
+                string vez = atualVez[1];
 
-                        string[] rodada = atualVez[2].Split('\r');
-                        int rodadaAtual = Convert.ToInt32(rodada[0]);
+                string[] rodada = atualVez[2].Split('\r');
+                int rodadaAtual = Convert.ToInt32(rodada[0]);
 
             
-                        string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-                        string[] mao = carta.Split(',');
+                string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+                string[] mao = carta.Split(',');
             
-                        if (vez == loginForm.idJogador && rodadaAtual < 4 )
-                        {
+                if (vez == loginForm.idJogador && rodadaAtual < 4 )
+                {
                 
-                            string testando = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
+                    string testando = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
                
-                        }
-                        definirJogadores();
-                        exibirTabuleiro();
-                        UpdateMap();
+                }
+                definirJogadores();
+                exibirTabuleiro();
+                updateBoardState();
             
-                        indexTEMP++;
+                indexTEMP++;
             }
         }
     }

@@ -63,6 +63,16 @@ namespace onepiece.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _8bitsea {
+            get {
+                object obj = ResourceManager.GetObject("_8bitsea", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cardBottle {
             get {
                 object obj = ResourceManager.GetObject("cardBottle", resourceCulture);
@@ -107,6 +117,16 @@ namespace onepiece.Properties {
             get {
                 object obj = ResourceManager.GetObject("cardSkull", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon icon {
+            get {
+                object obj = ResourceManager.GetObject("icon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         

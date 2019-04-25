@@ -9,43 +9,35 @@ namespace onepiece
 {
     class Jogador
     {
-        private string _nome;
-        private string _senha;
-        private string _corJogador;
-        private string _idPartida;
-        private string _idJogador;
-        //private Color _cor;
+        // Protected and private variables
+        private Color _corARGB;
+        private int _nrPiratas;
 
-        public string nome { get { return _nome; } }
-        public string senha { get { return _senha; } }
-        public string corJogador { get { return _corJogador; } }
-        public string idPartida { get { return _idPartida; } }
-        public string idJogador { get { return _idJogador; } }
-        //private Color cor { get { return _cor } }
+        public Color corARGB { get { return _corARGB; } }
+        public int nrPiratas {  get { return _nrPiratas;  } }
 
-        //public Jogador(string id, Color cor)
-        //{
-        //    _idJogador = id;
-        //    _cor = cor;
-        //}
+        // Static variables
+        private static Dictionary<string, Color> colors;
 
-        public void EntrouPartida(string nome, string senha, string cor, string idP, string idJ)
+        /*
+         * 
+         * CONSTRUCTORS
+         */
+
+         // Parameterless constructor to prevent heritage conflicts
+         public Jogador() { }
+
+         public Jogador(Color cor, int nrPiratas)
         {
-            _nome = nome;
-            _senha = senha;
-            _corJogador = cor;
-            _idPartida = idP;
-            _idJogador = idJ;
-           
+            _corARGB = cor;
+            _nrPiratas = nrPiratas;
         }
 
-        public string novoFormPartida()
-        {
-            //return _nome + "," + _senha + "," + _idPartida;
-            return _idJogador+ "," + this.senha;
-        }
-
-        public static void definirCores(string listaJogadores, Dictionary<string, Color> colors)
+        /*
+         * 
+         * METHODS
+         */
+        public static Dictionary<string, Color> definirCores(string listaJogadores)
         {
             listaJogadores = listaJogadores.Replace("\n", "");
             string[] players = listaJogadores.Split('\r', ',');
@@ -87,6 +79,8 @@ namespace onepiece
                     { p4, Color.Blue },
                     { p5, Color.Brown },
                 };
+
+            return colors;
         }
 
         //private string ConvertColor(string color)

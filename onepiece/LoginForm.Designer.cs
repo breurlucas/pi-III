@@ -49,9 +49,9 @@
             this.groupBox1.Controls.Add(this.txtNomeJogador);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox1.Location = new System.Drawing.Point(33, 94);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(336, 188);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -70,7 +70,7 @@
             // txtNomeJogador
             // 
             this.txtNomeJogador.Location = new System.Drawing.Point(8, 66);
-            this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNomeJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtNomeJogador.Name = "txtNomeJogador";
             this.txtNomeJogador.Size = new System.Drawing.Size(256, 28);
             this.txtNomeJogador.TabIndex = 13;
@@ -83,9 +83,9 @@
             this.groupBox2.Controls.Add(this.txtNome);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox2.Location = new System.Drawing.Point(464, 98);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(336, 188);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
@@ -104,7 +104,7 @@
             // txtSenhaJogador
             // 
             this.txtSenhaJogador.Location = new System.Drawing.Point(8, 140);
-            this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(4);
             this.txtSenhaJogador.Name = "txtSenhaJogador";
             this.txtSenhaJogador.Size = new System.Drawing.Size(256, 28);
             this.txtSenhaJogador.TabIndex = 22;
@@ -122,7 +122,7 @@
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(8, 66);
-            this.txtNome.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNome.Margin = new System.Windows.Forms.Padding(4);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(256, 28);
             this.txtNome.TabIndex = 20;
@@ -153,7 +153,7 @@
             this.btnJogar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnJogar.Location = new System.Drawing.Point(292, 315);
-            this.btnJogar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(4);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(257, 38);
             this.btnJogar.TabIndex = 21;
@@ -171,7 +171,8 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LoginForm";
             this.Text = "One Piece – Login";
             this.groupBox1.ResumeLayout(false);
