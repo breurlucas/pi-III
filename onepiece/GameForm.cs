@@ -17,7 +17,7 @@ namespace onepiece
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
         PictureBox unit;
-        int[] myselfPosPiratas;
+        List<int> myselfPosPiratas;
   
         // Keeps track of the number of pirates in each tile
         int[] occupation;
@@ -74,6 +74,7 @@ namespace onepiece
             // DEV Automation
             indexTEMP = 0;
             tmrJogarFrente.Interval = 2000;
+            tmrJogarFrente.Enabled = false;
             random = new Random();
         }
 
@@ -153,7 +154,7 @@ namespace onepiece
             // Instatiates new occupation array
             occupation = new int[36];
             // Instantiates new myselfPosPirata array
-            myselfPosPiratas = new int[6];
+            myselfPosPiratas = new List<int>();
             int index = 0;
             // DataGridView Coordinate
             int dgvY = 0;
@@ -179,22 +180,22 @@ namespace onepiece
                 {
                     if(repeat == 1)
                     {
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
                     }
                     else if(repeat == 2)
                     {
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
                     } else
                     {
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
-                        myselfPosPiratas[index] = position;
+                        myselfPosPiratas.Add(position);
                         index++;
                     }
                 }
@@ -225,7 +226,7 @@ namespace onepiece
             y = mapTiles[position - 1].Location.Y;
 
             //  x and y offsets based on pic tiles size
-            switch (occupation[position])
+            switch (occupation[position-1])
             {
                 case 0:
                     x -= 15;
@@ -251,17 +252,17 @@ namespace onepiece
             //  Checks for number of pirates
             if (repeat == 2)
             {
-                occupation[position] += 1;
+                occupation[position-1] += 1;
                 drawUnit(position, color, 0);
             }
             else if (repeat == 3)
             {
-                occupation[position] += 1;
+                occupation[position-1] += 1;
                 drawUnit(position, color, 2);
             }
             else
             {
-                occupation[position] += 1;
+                occupation[position-1] += 1;
             }
         }
 
@@ -345,7 +346,7 @@ namespace onepiece
          * AUTOMATION
          * 
          ************/
-
+        
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
@@ -363,8 +364,8 @@ namespace onepiece
                 string[] mao = carta.Split(',');
 
 
-                int positionForward = myselfPosPiratas[random.Next(0, 5)];
-                int positionBackwards = myselfPosPiratas[5];
+                int positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
+                int positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
 
                 if (vez == loginForm.idJogador && rodadaAtual < 4)
                 {
