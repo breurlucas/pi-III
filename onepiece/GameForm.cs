@@ -71,7 +71,6 @@ namespace onepiece
 
             // DEV Automation
             indexTEMP = 0;
-            tmrJogarFrente.Enabled = true;
             tmrJogarFrente.Interval = 2000;
         }
 
@@ -244,7 +243,7 @@ namespace onepiece
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            if (iniciarPartida.Contains("Erro")) {
+            if (iniciarPartida.Contains("ERRO")) {
                 MessageBox.Show(iniciarPartida);
             }
             else {
@@ -253,6 +252,7 @@ namespace onepiece
                     definirJogadores();
                     exibirTabuleiro();
                     jogoIniciado = true;
+                    tmrJogarFrente.Enabled = true;
                 }
             }
         }
@@ -265,9 +265,23 @@ namespace onepiece
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
             txtVerificarVez.Text = Jogo.VerificarVez(idPartida);
-            if (!txtVerificarVez.Text.Contains("Erro")) { 
+            // If another player started the game, the game state will be set to true
+            if (!jogoIniciado)
+            {
+                jogoIniciado = true;
+                tmrJogarFrente.Enabled = true;
+                if (!txtVerificarVez.Text.Contains("ERRO"))
+                {
+                    definirJogadores();
+                    exibirTabuleiro();
+                    updateBoardState();
+                }
+            }
+            else
+            {
                 updateBoardState();
-            }    
+            }
+              
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -304,7 +318,8 @@ namespace onepiece
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
-            if (!vezAtual.Contains("Erro") && jogoIniciado)
+            // Only plays if the game has started
+            if (!vezAtual.Contains("ERRO") && jogoIniciado)
             {
                 string[] atualVez = vezAtual.Split(',');
                 string vez = atualVez[1];
@@ -319,7 +334,7 @@ namespace onepiece
                 if (vez == loginForm.idJogador && rodadaAtual < 4)
                 {
 
-                    string testando = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
+                    string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, 0, mao[0].ToString());
 
                 }
 

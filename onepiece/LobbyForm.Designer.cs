@@ -43,6 +43,8 @@
             this.btnJogar = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.ListBox();
             this.btnAssistir = new System.Windows.Forms.Button();
+            this.lblVersao = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -222,11 +224,31 @@
             this.btnAssistir.UseVisualStyleBackColor = true;
             this.btnAssistir.Click += new System.EventHandler(this.btnAssistir_Click);
             // 
+            // lblVersao
+            // 
+            this.lblVersao.AutoSize = true;
+            this.lblVersao.Location = new System.Drawing.Point(666, 647);
+            this.lblVersao.Name = "lblVersao";
+            this.lblVersao.Size = new System.Drawing.Size(0, 17);
+            this.lblVersao.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(613, 647);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 17);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "Versão";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(715, 673);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblVersao);
             this.Controls.Add(this.btnAssistir);
             this.Controls.Add(this.lista);
             this.Controls.Add(this.btnJogar);
@@ -265,5 +287,7 @@
         private System.Windows.Forms.Button btnJogar;
         private System.Windows.Forms.ListBox lista;
         private System.Windows.Forms.Button btnAssistir;
+        private System.Windows.Forms.Label lblVersao;
+        private System.Windows.Forms.Label label4;
     }
 }

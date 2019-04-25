@@ -26,6 +26,8 @@ namespace onepiece
             cmbFiltrarPartidas.Items.Add("Jogando");
             cmbFiltrarPartidas.Items.Add("Encerrada");
             cmbFiltrarPartidas.SelectedIndex = 0;
+
+            lblVersao.Text = Jogo.Versao;
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
