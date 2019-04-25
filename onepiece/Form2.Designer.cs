@@ -42,6 +42,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnEntrarPartida = new System.Windows.Forms.Button();
             this.lista = new System.Windows.Forms.ListBox();
+            this.lblVersao = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,11 +195,32 @@
             this.lista.TabIndex = 22;
             this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
             // 
+            // lblVersao
+            // 
+            this.lblVersao.AutoSize = true;
+            this.lblVersao.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblVersao.Location = new System.Drawing.Point(461, 518);
+            this.lblVersao.Name = "lblVersao";
+            this.lblVersao.Size = new System.Drawing.Size(0, 18);
+            this.lblVersao.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label4.Location = new System.Drawing.Point(396, 518);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 18);
+            this.label4.TabIndex = 24;
+            this.label4.Text = "Versão:";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 547);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblVersao);
             this.Controls.Add(this.lista);
             this.Controls.Add(this.btnEntrarPartida);
             this.Controls.Add(this.label3);
@@ -233,5 +256,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEntrarPartida;
         private System.Windows.Forms.ListBox lista;
+        private System.Windows.Forms.Label lblVersao;
+        private System.Windows.Forms.Label label4;
     }
 }

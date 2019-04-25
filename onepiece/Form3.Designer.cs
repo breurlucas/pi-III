@@ -139,7 +139,7 @@
             // txtVerificarVez
             // 
             this.txtVerificarVez.Location = new System.Drawing.Point(0, 27);
-            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
@@ -228,7 +228,7 @@
             // 
             this.picTile36.BackColor = System.Drawing.Color.Transparent;
             this.picTile36.Location = new System.Drawing.Point(962, 268);
-            this.picTile36.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile36.Margin = new System.Windows.Forms.Padding(2);
             this.picTile36.Name = "picTile36";
             this.picTile36.Size = new System.Drawing.Size(26, 28);
             this.picTile36.TabIndex = 92;
@@ -238,7 +238,7 @@
             // 
             this.picTile35.BackColor = System.Drawing.Color.Transparent;
             this.picTile35.Location = new System.Drawing.Point(932, 268);
-            this.picTile35.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile35.Margin = new System.Windows.Forms.Padding(2);
             this.picTile35.Name = "picTile35";
             this.picTile35.Size = new System.Drawing.Size(26, 28);
             this.picTile35.TabIndex = 91;
@@ -248,7 +248,7 @@
             // 
             this.picTile34.BackColor = System.Drawing.Color.Transparent;
             this.picTile34.Location = new System.Drawing.Point(901, 268);
-            this.picTile34.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile34.Margin = new System.Windows.Forms.Padding(2);
             this.picTile34.Name = "picTile34";
             this.picTile34.Size = new System.Drawing.Size(26, 28);
             this.picTile34.TabIndex = 90;
@@ -258,7 +258,7 @@
             // 
             this.picTile33.BackColor = System.Drawing.Color.Transparent;
             this.picTile33.Location = new System.Drawing.Point(870, 268);
-            this.picTile33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile33.Margin = new System.Windows.Forms.Padding(2);
             this.picTile33.Name = "picTile33";
             this.picTile33.Size = new System.Drawing.Size(26, 28);
             this.picTile33.TabIndex = 89;
@@ -268,7 +268,7 @@
             // 
             this.picTile32.BackColor = System.Drawing.Color.Transparent;
             this.picTile32.Location = new System.Drawing.Point(839, 268);
-            this.picTile32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile32.Margin = new System.Windows.Forms.Padding(2);
             this.picTile32.Name = "picTile32";
             this.picTile32.Size = new System.Drawing.Size(26, 28);
             this.picTile32.TabIndex = 88;
@@ -278,7 +278,7 @@
             // 
             this.picTile31.BackColor = System.Drawing.Color.Transparent;
             this.picTile31.Location = new System.Drawing.Point(808, 268);
-            this.picTile31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile31.Margin = new System.Windows.Forms.Padding(2);
             this.picTile31.Name = "picTile31";
             this.picTile31.Size = new System.Drawing.Size(26, 28);
             this.picTile31.TabIndex = 87;
@@ -288,7 +288,7 @@
             // 
             this.picTile30.BackColor = System.Drawing.Color.Transparent;
             this.picTile30.Location = new System.Drawing.Point(778, 268);
-            this.picTile30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile30.Margin = new System.Windows.Forms.Padding(2);
             this.picTile30.Name = "picTile30";
             this.picTile30.Size = new System.Drawing.Size(26, 28);
             this.picTile30.TabIndex = 86;
@@ -298,7 +298,7 @@
             // 
             this.picTile29.BackColor = System.Drawing.Color.Transparent;
             this.picTile29.Location = new System.Drawing.Point(747, 268);
-            this.picTile29.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile29.Margin = new System.Windows.Forms.Padding(2);
             this.picTile29.Name = "picTile29";
             this.picTile29.Size = new System.Drawing.Size(26, 28);
             this.picTile29.TabIndex = 85;
@@ -308,7 +308,7 @@
             // 
             this.picTile28.BackColor = System.Drawing.Color.Transparent;
             this.picTile28.Location = new System.Drawing.Point(716, 268);
-            this.picTile28.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile28.Margin = new System.Windows.Forms.Padding(2);
             this.picTile28.Name = "picTile28";
             this.picTile28.Size = new System.Drawing.Size(26, 28);
             this.picTile28.TabIndex = 84;
@@ -318,7 +318,7 @@
             // 
             this.picTile27.BackColor = System.Drawing.Color.Transparent;
             this.picTile27.Location = new System.Drawing.Point(686, 268);
-            this.picTile27.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile27.Margin = new System.Windows.Forms.Padding(2);
             this.picTile27.Name = "picTile27";
             this.picTile27.Size = new System.Drawing.Size(26, 28);
             this.picTile27.TabIndex = 83;
@@ -328,7 +328,7 @@
             // 
             this.picTile26.BackColor = System.Drawing.Color.Transparent;
             this.picTile26.Location = new System.Drawing.Point(655, 268);
-            this.picTile26.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile26.Margin = new System.Windows.Forms.Padding(2);
             this.picTile26.Name = "picTile26";
             this.picTile26.Size = new System.Drawing.Size(26, 28);
             this.picTile26.TabIndex = 82;
@@ -338,7 +338,7 @@
             // 
             this.picTile25.BackColor = System.Drawing.Color.Transparent;
             this.picTile25.Location = new System.Drawing.Point(624, 268);
-            this.picTile25.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile25.Margin = new System.Windows.Forms.Padding(2);
             this.picTile25.Name = "picTile25";
             this.picTile25.Size = new System.Drawing.Size(26, 28);
             this.picTile25.TabIndex = 81;
@@ -348,7 +348,7 @@
             // 
             this.picTile24.BackColor = System.Drawing.Color.Transparent;
             this.picTile24.Location = new System.Drawing.Point(962, 235);
-            this.picTile24.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile24.Margin = new System.Windows.Forms.Padding(2);
             this.picTile24.Name = "picTile24";
             this.picTile24.Size = new System.Drawing.Size(26, 28);
             this.picTile24.TabIndex = 80;
@@ -358,7 +358,7 @@
             // 
             this.picTile23.BackColor = System.Drawing.Color.Transparent;
             this.picTile23.Location = new System.Drawing.Point(932, 235);
-            this.picTile23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile23.Margin = new System.Windows.Forms.Padding(2);
             this.picTile23.Name = "picTile23";
             this.picTile23.Size = new System.Drawing.Size(26, 28);
             this.picTile23.TabIndex = 79;
@@ -368,7 +368,7 @@
             // 
             this.picTile22.BackColor = System.Drawing.Color.Transparent;
             this.picTile22.Location = new System.Drawing.Point(901, 235);
-            this.picTile22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile22.Margin = new System.Windows.Forms.Padding(2);
             this.picTile22.Name = "picTile22";
             this.picTile22.Size = new System.Drawing.Size(26, 28);
             this.picTile22.TabIndex = 78;
@@ -378,7 +378,7 @@
             // 
             this.picTile21.BackColor = System.Drawing.Color.Transparent;
             this.picTile21.Location = new System.Drawing.Point(870, 235);
-            this.picTile21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile21.Margin = new System.Windows.Forms.Padding(2);
             this.picTile21.Name = "picTile21";
             this.picTile21.Size = new System.Drawing.Size(26, 28);
             this.picTile21.TabIndex = 77;
@@ -388,7 +388,7 @@
             // 
             this.picTile20.BackColor = System.Drawing.Color.Transparent;
             this.picTile20.Location = new System.Drawing.Point(839, 235);
-            this.picTile20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile20.Margin = new System.Windows.Forms.Padding(2);
             this.picTile20.Name = "picTile20";
             this.picTile20.Size = new System.Drawing.Size(26, 28);
             this.picTile20.TabIndex = 76;
@@ -398,7 +398,7 @@
             // 
             this.picTile19.BackColor = System.Drawing.Color.Transparent;
             this.picTile19.Location = new System.Drawing.Point(808, 235);
-            this.picTile19.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile19.Margin = new System.Windows.Forms.Padding(2);
             this.picTile19.Name = "picTile19";
             this.picTile19.Size = new System.Drawing.Size(26, 28);
             this.picTile19.TabIndex = 75;
@@ -408,7 +408,7 @@
             // 
             this.picTile18.BackColor = System.Drawing.Color.Transparent;
             this.picTile18.Location = new System.Drawing.Point(778, 235);
-            this.picTile18.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile18.Margin = new System.Windows.Forms.Padding(2);
             this.picTile18.Name = "picTile18";
             this.picTile18.Size = new System.Drawing.Size(26, 28);
             this.picTile18.TabIndex = 74;
@@ -418,7 +418,7 @@
             // 
             this.picTile17.BackColor = System.Drawing.Color.Transparent;
             this.picTile17.Location = new System.Drawing.Point(747, 235);
-            this.picTile17.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile17.Margin = new System.Windows.Forms.Padding(2);
             this.picTile17.Name = "picTile17";
             this.picTile17.Size = new System.Drawing.Size(26, 28);
             this.picTile17.TabIndex = 73;
@@ -428,7 +428,7 @@
             // 
             this.picTile16.BackColor = System.Drawing.Color.Transparent;
             this.picTile16.Location = new System.Drawing.Point(716, 235);
-            this.picTile16.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile16.Margin = new System.Windows.Forms.Padding(2);
             this.picTile16.Name = "picTile16";
             this.picTile16.Size = new System.Drawing.Size(26, 28);
             this.picTile16.TabIndex = 72;
@@ -438,7 +438,7 @@
             // 
             this.picTile15.BackColor = System.Drawing.Color.Transparent;
             this.picTile15.Location = new System.Drawing.Point(686, 235);
-            this.picTile15.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile15.Margin = new System.Windows.Forms.Padding(2);
             this.picTile15.Name = "picTile15";
             this.picTile15.Size = new System.Drawing.Size(26, 28);
             this.picTile15.TabIndex = 71;
@@ -448,7 +448,7 @@
             // 
             this.picTile14.BackColor = System.Drawing.Color.Transparent;
             this.picTile14.Location = new System.Drawing.Point(655, 235);
-            this.picTile14.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile14.Margin = new System.Windows.Forms.Padding(2);
             this.picTile14.Name = "picTile14";
             this.picTile14.Size = new System.Drawing.Size(26, 28);
             this.picTile14.TabIndex = 70;
@@ -458,7 +458,7 @@
             // 
             this.picTile13.BackColor = System.Drawing.Color.Transparent;
             this.picTile13.Location = new System.Drawing.Point(624, 235);
-            this.picTile13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile13.Margin = new System.Windows.Forms.Padding(2);
             this.picTile13.Name = "picTile13";
             this.picTile13.Size = new System.Drawing.Size(26, 28);
             this.picTile13.TabIndex = 69;
@@ -468,7 +468,7 @@
             // 
             this.picTile12.BackColor = System.Drawing.Color.Transparent;
             this.picTile12.Location = new System.Drawing.Point(962, 202);
-            this.picTile12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile12.Margin = new System.Windows.Forms.Padding(2);
             this.picTile12.Name = "picTile12";
             this.picTile12.Size = new System.Drawing.Size(26, 28);
             this.picTile12.TabIndex = 68;
@@ -478,7 +478,7 @@
             // 
             this.picTile11.BackColor = System.Drawing.Color.Transparent;
             this.picTile11.Location = new System.Drawing.Point(932, 202);
-            this.picTile11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile11.Margin = new System.Windows.Forms.Padding(2);
             this.picTile11.Name = "picTile11";
             this.picTile11.Size = new System.Drawing.Size(26, 28);
             this.picTile11.TabIndex = 67;
@@ -488,7 +488,7 @@
             // 
             this.picTile10.BackColor = System.Drawing.Color.Transparent;
             this.picTile10.Location = new System.Drawing.Point(901, 202);
-            this.picTile10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile10.Margin = new System.Windows.Forms.Padding(2);
             this.picTile10.Name = "picTile10";
             this.picTile10.Size = new System.Drawing.Size(26, 28);
             this.picTile10.TabIndex = 66;
@@ -498,7 +498,7 @@
             // 
             this.picTile9.BackColor = System.Drawing.Color.Transparent;
             this.picTile9.Location = new System.Drawing.Point(870, 202);
-            this.picTile9.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile9.Margin = new System.Windows.Forms.Padding(2);
             this.picTile9.Name = "picTile9";
             this.picTile9.Size = new System.Drawing.Size(26, 28);
             this.picTile9.TabIndex = 65;
@@ -508,7 +508,7 @@
             // 
             this.picTile8.BackColor = System.Drawing.Color.Transparent;
             this.picTile8.Location = new System.Drawing.Point(839, 202);
-            this.picTile8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile8.Margin = new System.Windows.Forms.Padding(2);
             this.picTile8.Name = "picTile8";
             this.picTile8.Size = new System.Drawing.Size(26, 28);
             this.picTile8.TabIndex = 64;
@@ -518,7 +518,7 @@
             // 
             this.picTile7.BackColor = System.Drawing.Color.Transparent;
             this.picTile7.Location = new System.Drawing.Point(808, 202);
-            this.picTile7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile7.Margin = new System.Windows.Forms.Padding(2);
             this.picTile7.Name = "picTile7";
             this.picTile7.Size = new System.Drawing.Size(26, 28);
             this.picTile7.TabIndex = 63;
@@ -528,7 +528,7 @@
             // 
             this.picTile6.BackColor = System.Drawing.Color.Transparent;
             this.picTile6.Location = new System.Drawing.Point(778, 202);
-            this.picTile6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile6.Margin = new System.Windows.Forms.Padding(2);
             this.picTile6.Name = "picTile6";
             this.picTile6.Size = new System.Drawing.Size(26, 28);
             this.picTile6.TabIndex = 62;
@@ -538,7 +538,7 @@
             // 
             this.picTile5.BackColor = System.Drawing.Color.Transparent;
             this.picTile5.Location = new System.Drawing.Point(747, 202);
-            this.picTile5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile5.Margin = new System.Windows.Forms.Padding(2);
             this.picTile5.Name = "picTile5";
             this.picTile5.Size = new System.Drawing.Size(26, 28);
             this.picTile5.TabIndex = 61;
@@ -548,7 +548,7 @@
             // 
             this.picTile4.BackColor = System.Drawing.Color.Transparent;
             this.picTile4.Location = new System.Drawing.Point(716, 202);
-            this.picTile4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile4.Margin = new System.Windows.Forms.Padding(2);
             this.picTile4.Name = "picTile4";
             this.picTile4.Size = new System.Drawing.Size(26, 28);
             this.picTile4.TabIndex = 60;
@@ -558,7 +558,7 @@
             // 
             this.picTile3.BackColor = System.Drawing.Color.Transparent;
             this.picTile3.Location = new System.Drawing.Point(686, 202);
-            this.picTile3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile3.Margin = new System.Windows.Forms.Padding(2);
             this.picTile3.Name = "picTile3";
             this.picTile3.Size = new System.Drawing.Size(26, 28);
             this.picTile3.TabIndex = 59;
@@ -568,7 +568,7 @@
             // 
             this.picTile2.BackColor = System.Drawing.Color.Transparent;
             this.picTile2.Location = new System.Drawing.Point(655, 202);
-            this.picTile2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile2.Margin = new System.Windows.Forms.Padding(2);
             this.picTile2.Name = "picTile2";
             this.picTile2.Size = new System.Drawing.Size(26, 28);
             this.picTile2.TabIndex = 58;
@@ -578,7 +578,7 @@
             // 
             this.picTile1.BackColor = System.Drawing.Color.Transparent;
             this.picTile1.Location = new System.Drawing.Point(624, 202);
-            this.picTile1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.picTile1.Margin = new System.Windows.Forms.Padding(2);
             this.picTile1.Name = "picTile1";
             this.picTile1.Size = new System.Drawing.Size(26, 28);
             this.picTile1.TabIndex = 57;
@@ -589,7 +589,7 @@
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picMapBackground.Image = global::onepiece.Properties.Resources.map2;
-            this.picMapBackground.Location = new System.Drawing.Point(0, 0);
+            this.picMapBackground.Location = new System.Drawing.Point(0, 8);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
             this.picMapBackground.Size = new System.Drawing.Size(1012, 488);
@@ -702,7 +702,7 @@
             // txtMao
             // 
             this.txtMao.Location = new System.Drawing.Point(0, 25);
-            this.txtMao.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMao.Margin = new System.Windows.Forms.Padding(2);
             this.txtMao.Multiline = true;
             this.txtMao.Name = "txtMao";
             this.txtMao.ReadOnly = true;
@@ -735,7 +735,7 @@
             // txtHistorico
             // 
             this.txtHistorico.Location = new System.Drawing.Point(8, 41);
-            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
@@ -773,7 +773,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1203, 693);
+            this.ClientSize = new System.Drawing.Size(1253, 693);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -816,8 +816,9 @@
             this.Controls.Add(this.picTile2);
             this.Controls.Add(this.picTile1);
             this.Controls.Add(this.picMapBackground);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form3";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

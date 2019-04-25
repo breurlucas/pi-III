@@ -59,7 +59,7 @@ namespace onepiece
             indexTEMP = 0;
 
             tmrJogarFrente.Enabled = true;
-            tmrJogarFrente.Interval = 4000;
+            tmrJogarFrente.Interval = 2000;
 
         }
 
@@ -349,7 +349,7 @@ namespace onepiece
         private void tmrJogarFrente_Tick(object sender, EventArgs e)
         {
             string vezAtual = Jogo.VerificarVez(Convert.ToInt32(Form4.idPartida));
-            if (!vezAtual.Contains("Erro"))
+            if (!vezAtual.Contains("ERRO"))
             {
                         string[] atualVez = vezAtual.Split(',');
                         string vez = atualVez[1];
@@ -359,6 +359,7 @@ namespace onepiece
 
             
                         string carta = Jogo.ConsultarMao(Convert.ToInt32(Form4.idJogador), Form4.senhaJogador);
+                        txtMao.Text = carta;
                         string[] mao = carta.Split(',');
             
                         if (vez == Form4.idJogador && rodadaAtual < 4 )
