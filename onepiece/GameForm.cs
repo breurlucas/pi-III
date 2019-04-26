@@ -33,9 +33,10 @@ namespace onepiece
         // Id of the match being played
         int idPartida;
 
-        // DEV Automation variable
-        int indexTEMP;
+        // DEV Automation variables
         bool jogoIniciado = false;
+        int vez, rodada, positionForward, positionBackwards;
+        string[] mao;
         Random random;
 
         /****************
@@ -72,9 +73,10 @@ namespace onepiece
             cboSimbolo.Items.Add("Faca");
 
             // DEV Automation
-            indexTEMP = 0;
-            tmrJogarFrente.Interval = 2000;
-            tmrJogarFrente.Enabled = false;
+            tmrJogar.Interval = 1500;
+            tmrJogar.Enabled = false;
+            tmrVerificarVez.Enabled = false;
+            tmrVerificarMao.Enabled = false;
             random = new Random();
         }
 
@@ -155,7 +157,6 @@ namespace onepiece
             occupation = new int[36];
             // Instantiates new myselfPosPirata array
             myselfPosPiratas = new List<int>();
-            int index = 0;
             // DataGridView Coordinate
             int dgvY = 0;
 
@@ -181,22 +182,16 @@ namespace onepiece
                     if(repeat == 1)
                     {
                         myselfPosPiratas.Add(position);
-                        index++;
                     }
                     else if(repeat == 2)
                     {
                         myselfPosPiratas.Add(position);
-                        index++;
                         myselfPosPiratas.Add(position);
-                        index++;
                     } else
                     {
                         myselfPosPiratas.Add(position);
-                        index++;
                         myselfPosPiratas.Add(position);
-                        index++;
                         myselfPosPiratas.Add(position);
-                        index++;
                     }
                 }
                 
@@ -216,7 +211,19 @@ namespace onepiece
 
             dgvBarco.DataSource = null;
             dgvBarco.DataSource = barco;    
-            dgvBarco.ClearSelection();    
+            dgvBarco.ClearSelection();
+
+            /*
+             * Defines the AUTOMATION parameters
+             */
+
+            // Player id of who should play this turn
+            vez = Convert.ToInt32(estadoTabuleiro[1]);
+            // Number of the turn the player is at (1 to 3)
+            rodada = Convert.ToInt32(estadoTabuleiro[2]);
+            // Myself: Position of the pirates on the board
+            int positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
+            int positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -284,7 +291,7 @@ namespace onepiece
                     definirJogadores();
                     exibirTabuleiro();
                     jogoIniciado = true;
-                    tmrJogarFrente.Enabled = true;
+                    tmrJogar.Enabled = true;
                 }
             }
         }
@@ -301,7 +308,7 @@ namespace onepiece
             if (!jogoIniciado)
             {
                 jogoIniciado = true;
-                tmrJogarFrente.Enabled = true;
+                tmrJogar.Enabled = true;
                 if (!txtVerificarVez.Text.Contains("ERRO"))
                 {
                     definirJogadores();
@@ -324,7 +331,6 @@ namespace onepiece
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            updateBoardState();
         }
 
         private void btnMoverFrente_Click(object sender, EventArgs e)
@@ -347,41 +353,49 @@ namespace onepiece
          * 
          ************/
         
-        private void tmrJogarFrente_Tick(object sender, EventArgs e)
+        private void tmrJogar_Tick(object sender, EventArgs e)
         {
-            string vezAtual = Jogo.VerificarVez(Convert.ToInt32(loginForm.idPartida));
+            string response;
+            while (rodada < 4)
+            {
+                if (mao[0] != "")
+                {
+                    // Play forward
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    rodada++;
+                }
+                else
+                {
+                    // Play Backwards
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    rodada++;
+                }
+            }
+            tmrJogar.Enabled = false;
+            tmrVerificarVez.Enabled = true;
+        }
+
+        private void tmrVerificarMao_Tick(object sender, EventArgs e)
+        {
+            string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            mao = carta.Split(',');
+            txtMao.Text = carta;
+            tmrVerificarMao.Enabled = false;
+            tmrJogar.Enabled = true;
+        }
+
+        private void tmrVerificarVez_Tick(object sender, EventArgs e)
+        {
             // Only plays if the game has started
-            if (!vezAtual.Contains("ERRO") && jogoIniciado)
+            if (jogoIniciado)
             {
                 updateBoardState();
-                string[] atualVez = vezAtual.Split(',');
-                string vez = atualVez[1];
-
-                string[] rodada = atualVez[2].Split('\r');
-                int rodadaAtual = Convert.ToInt32(rodada[0]);
-
-                string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-                string[] mao = carta.Split(',');
-
-
-                int positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
-                int positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
-
-                if (vez == loginForm.idJogador && rodadaAtual < 4)
+                if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
-                    if(mao[0] != "")
-                    {
-                        string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
-                    }
-                    else
-                    {
-                        string response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
-                    }
+                    tmrVerificarVez.Enabled = false;
+                    tmrVerificarMao.Enabled = true;
                 }
-
-                updateBoardState();
-                indexTEMP++;
-            } 
+            }
         }
     }
 }
