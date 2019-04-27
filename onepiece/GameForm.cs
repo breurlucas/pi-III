@@ -35,7 +35,7 @@ namespace onepiece
 
         // DEV Automation variables
         bool jogoIniciado = false;
-        int vez, rodada, positionForward, positionBackwards;
+        int vez, positionForward, positionBackwards;
         string[] mao;
         Random random;
 
@@ -73,11 +73,11 @@ namespace onepiece
             cboSimbolo.Items.Add("Faca");
 
             // DEV Automation
-            tmrJogar.Interval = 1500;
-            tmrJogar.Enabled = false;
+            tmrVerificarVez.Interval = 1500;
             tmrVerificarVez.Enabled = false;
-            tmrVerificarMao.Enabled = false;
             random = new Random();
+            positionForward = 0;
+            positionBackwards = 0;
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -219,11 +219,13 @@ namespace onepiece
 
             // Player id of who should play this turn
             vez = Convert.ToInt32(estadoTabuleiro[1]);
-            // Number of the turn the player is at (1 to 3)
-            rodada = Convert.ToInt32(estadoTabuleiro[2]);
             // Myself: Position of the pirates on the board
-            int positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
-            int positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
+            positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+            // Update hand state
+            string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            mao = carta.Split(',');
+            txtMao.Text = carta;
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -291,7 +293,7 @@ namespace onepiece
                     definirJogadores();
                     exibirTabuleiro();
                     jogoIniciado = true;
-                    tmrJogar.Enabled = true;
+                    tmrVerificarVez.Enabled = true;
                 }
             }
         }
@@ -308,7 +310,7 @@ namespace onepiece
             if (!jogoIniciado)
             {
                 jogoIniciado = true;
-                tmrJogar.Enabled = true;
+                tmrVerificarVez.Enabled = true;
                 if (!txtVerificarVez.Text.Contains("ERRO"))
                 {
                     definirJogadores();
@@ -353,11 +355,13 @@ namespace onepiece
          * 
          ************/
         
-        private void tmrJogar_Tick(object sender, EventArgs e)
+        private void jogar()
         {
             string response;
+            int rodada = 1;
             while (rodada < 4)
             {
+ updateBoardState();
                 if (mao[0] != "")
                 {
                     // Play forward
@@ -370,19 +374,11 @@ namespace onepiece
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
                     rodada++;
                 }
-            }
-            tmrJogar.Enabled = false;
-            tmrVerificarVez.Enabled = true;
-        }
 
-        private void tmrVerificarMao_Tick(object sender, EventArgs e)
-        {
-            string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            mao = carta.Split(',');
-            txtMao.Text = carta;
-            tmrVerificarMao.Enabled = false;
-            tmrJogar.Enabled = true;
-        }
+                
+            }
+            tmrVerificarVez.Enabled = true;
+        }     
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
         {
@@ -393,7 +389,7 @@ namespace onepiece
                 if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
                     tmrVerificarVez.Enabled = false;
-                    tmrVerificarMao.Enabled = true;
+                    jogar();
                 }
             }
         }

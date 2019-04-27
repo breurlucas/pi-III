@@ -55,13 +55,11 @@
             this.txtHistorico = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.btnHistorico = new System.Windows.Forms.Button();
-            this.tmrJogar = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvCadeia = new System.Windows.Forms.DataGridView();
             this.dgvBarco = new System.Windows.Forms.DataGridView();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
-            this.tmrVerificarMao = new System.Windows.Forms.Timer(this.components);
             this.tmrVerificarVez = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -370,10 +368,6 @@
             this.btnHistorico.UseVisualStyleBackColor = true;
             this.btnHistorico.Click += new System.EventHandler(this.btnHistorico_Click);
             // 
-            // tmrJogar
-            // 
-            this.tmrJogar.Tick += new System.EventHandler(this.tmrJogar_Tick);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -451,10 +445,6 @@
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
             // 
-            // tmrVerificarMao
-            // 
-            this.tmrVerificarMao.Tick += new System.EventHandler(this.tmrVerificarMao_Tick);
-            // 
             // tmrVerificarVez
             // 
             this.tmrVerificarVez.Tick += new System.EventHandler(this.tmrVerificarVez_Tick);
@@ -526,13 +516,11 @@
         private System.Windows.Forms.TextBox txtHistorico;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button btnHistorico;
-        private System.Windows.Forms.Timer tmrJogar;
         private System.Windows.Forms.PictureBox picMapBackground;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dgvCadeia;
         private System.Windows.Forms.DataGridView dgvBarco;
-        private System.Windows.Forms.Timer tmrVerificarMao;
         private System.Windows.Forms.Timer tmrVerificarVez;
     }
 }

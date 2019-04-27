@@ -1749,9 +1749,6 @@
         yYwAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="tmrJogar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>283, 16</value>
-  </metadata>
   <data name="picMapBackground.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABSAAAAIACAYAAACSHsKpAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
@@ -2018,9 +2015,6 @@
         gKcRIAEAAACApxEgAQAAAIAn+cWP/x+PIjvt+ABeLQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="tmrVerificarMao.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>152, 17</value>
-  </metadata>
   <metadata name="tmrVerificarVez.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
