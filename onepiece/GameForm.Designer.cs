@@ -61,6 +61,7 @@
             this.dgvBarco = new System.Windows.Forms.DataGridView();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
             this.tmrVerificarVez = new System.Windows.Forms.Timer(this.components);
+            this.lblCurrentPlayer = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,13 +76,13 @@
             // 
             this.txtVerificarVez.BackColor = System.Drawing.Color.Wheat;
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 25);
+            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 60);
             this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
             this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtVerificarVez.Size = new System.Drawing.Size(217, 149);
+            this.txtVerificarVez.Size = new System.Drawing.Size(217, 114);
             this.txtVerificarVez.TabIndex = 95;
             // 
             // groupBox1
@@ -97,7 +98,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox1.Location = new System.Drawing.Point(12, 441);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(164, 248);
+            this.groupBox1.Size = new System.Drawing.Size(180, 248);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jogador";
@@ -218,9 +219,9 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox2.Location = new System.Drawing.Point(182, 441);
+            this.groupBox2.Location = new System.Drawing.Point(198, 441);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(253, 214);
+            this.groupBox2.Size = new System.Drawing.Size(238, 214);
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jogada";
@@ -230,7 +231,7 @@
             this.btnPularVez.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPularVez.BackgroundImage")));
             this.btnPularVez.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnPularVez.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnPularVez.Location = new System.Drawing.Point(6, 180);
+            this.btnPularVez.Location = new System.Drawing.Point(45, 166);
             this.btnPularVez.Name = "btnPularVez";
             this.btnPularVez.Size = new System.Drawing.Size(150, 28);
             this.btnPularVez.TabIndex = 109;
@@ -270,7 +271,7 @@
             this.groupBox3.Controls.Add(this.txtMao);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox3.Location = new System.Drawing.Point(440, 441);
+            this.groupBox3.Location = new System.Drawing.Point(442, 441);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(215, 214);
             this.groupBox3.TabIndex = 111;
@@ -294,22 +295,23 @@
             // 
             this.txtMao.BackColor = System.Drawing.Color.Wheat;
             this.txtMao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMao.Location = new System.Drawing.Point(0, 25);
+            this.txtMao.Location = new System.Drawing.Point(1, 60);
             this.txtMao.Margin = new System.Windows.Forms.Padding(2);
             this.txtMao.Multiline = true;
             this.txtMao.Name = "txtMao";
             this.txtMao.ReadOnly = true;
             this.txtMao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMao.Size = new System.Drawing.Size(215, 150);
+            this.txtMao.Size = new System.Drawing.Size(215, 117);
             this.txtMao.TabIndex = 112;
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.lblCurrentPlayer);
             this.groupBox4.Controls.Add(this.btnVerificarVez);
             this.groupBox4.Controls.Add(this.txtVerificarVez);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox4.Location = new System.Drawing.Point(662, 441);
+            this.groupBox4.Location = new System.Drawing.Point(663, 441);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(215, 214);
             this.groupBox4.TabIndex = 112;
@@ -339,7 +341,7 @@
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
             this.txtHistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtHistorico.Size = new System.Drawing.Size(328, 148);
+            this.txtHistorico.Size = new System.Drawing.Size(236, 148);
             this.txtHistorico.TabIndex = 114;
             // 
             // groupBox5
@@ -348,9 +350,9 @@
             this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox5.Location = new System.Drawing.Point(883, 441);
+            this.groupBox5.Location = new System.Drawing.Point(884, 441);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(328, 214);
+            this.groupBox5.Size = new System.Drawing.Size(240, 214);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
@@ -449,6 +451,14 @@
             // 
             this.tmrVerificarVez.Tick += new System.EventHandler(this.tmrVerificarVez_Tick);
             // 
+            // lblCurrentPlayer
+            // 
+            this.lblCurrentPlayer.AutoSize = true;
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(72, 25);
+            this.lblCurrentPlayer.Name = "lblCurrentPlayer";
+            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 24);
+            this.lblCurrentPlayer.TabIndex = 114;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,5 +532,6 @@
         private System.Windows.Forms.DataGridView dgvCadeia;
         private System.Windows.Forms.DataGridView dgvBarco;
         private System.Windows.Forms.Timer tmrVerificarVez;
+        private System.Windows.Forms.Label lblCurrentPlayer;
     }
 }

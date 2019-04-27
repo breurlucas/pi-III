@@ -39,6 +39,11 @@ namespace onepiece
         string[] mao;
         Random random;
 
+
+        string currentPlayer;
+        string players;
+
+
         /****************
          * 
          * INITIALIZATION
@@ -62,6 +67,8 @@ namespace onepiece
             txtIdJogador.Text = loginForm.idJogador;
             txtSenhaJogador.Text = loginForm.senhaJogador;
             txtCorJogador.Text = loginForm.corJogador;
+
+            players = Jogo.ListarJogadores(idPartida);
 
             // Setup of the icons combobox
             cboSimbolo.Items.Add("");
@@ -290,6 +297,7 @@ namespace onepiece
             else {
                 if(!jogoIniciado)
                 {
+                    players = Jogo.ListarJogadores(idPartida);
                     definirJogadores();
                     exibirTabuleiro();
                     jogoIniciado = true;
@@ -305,7 +313,7 @@ namespace onepiece
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            txtVerificarVez.Text = Jogo.VerificarVez(idPartida);
+            players = Jogo.ListarJogadores(idPartida);
             // If another player started the game, the game state will be set to true
             if (!jogoIniciado)
             {
@@ -359,9 +367,10 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            
             while (rodada < 4)
             {
- updateBoardState();
+                updateBoardState();
                 if (mao[0] != "")
                 {
                     // Play forward
@@ -385,7 +394,23 @@ namespace onepiece
             // Only plays if the game has started
             if (jogoIniciado)
             {
+
                 updateBoardState();
+
+                string verificaVez = Jogo.VerificarVez(idPartida);
+                string[] text = verificaVez.Split(',');
+                currentPlayer = text[1];
+
+                string[] textP = players.Split('\n');
+                for (int i = 0; i < textP.Length; i++)
+                {
+                    string[] teste = textP[i].Split(',');
+                    if (currentPlayer == teste[0])
+                    {
+                        lblCurrentPlayer.Text = teste[1];
+                    }
+                }
+
                 if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
                     tmrVerificarVez.Enabled = false;
