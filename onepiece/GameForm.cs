@@ -397,17 +397,18 @@ namespace onepiece
 
                 updateBoardState();
 
-                string verificaVez = Jogo.VerificarVez(idPartida);
+                /*string verificaVez = Jogo.VerificarVez(idPartida);
                 string[] text = verificaVez.Split(',');
-                currentPlayer = text[1];
+                currentPlayer = text[1];*/
 
-                string[] textP = players.Split('\n');
-                for (int i = 0; i < textP.Length; i++)
+                //Colocando nome do jogador atual no lblCurrentPlayer
+                string[] playersSplit = players.Split('\n');
+                for (int i = 0; i < playersSplit.Length; i++)
                 {
-                    string[] teste = textP[i].Split(',');
-                    if (currentPlayer == teste[0])
+                    string[] currentPlayer = playersSplit[i].Split(',');
+                    if (vez.ToString() == currentPlayer[0])
                     {
-                        lblCurrentPlayer.Text = teste[1];
+                        lblCurrentPlayer.Text = currentPlayer[1];
                     }
                 }
 
