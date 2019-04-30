@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,7 +11,65 @@ namespace onepiece
     // Class for the construction o the map using the 6 different tile images, 36 pictureboxes and the map blueprint requested from the server
     class Tabuleiro
     {
-        public void construir(PictureBox[] mapTiles, string mapBlueprint)
+        PictureBox tile;
+
+        public void construir(PictureBox picMapBackground, PictureBox[] mapTiles, string mapBlueprint)
+        {
+            /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
+               the parent control background). */
+            double startingWidthTiles = 0.050;
+            double spacingTiles = 0.075;
+            double widthPercentage = startingWidthTiles;
+            double heightPercentage;
+            for (int i = 0; i < mapTiles.Length; i++)
+            {
+                tile = new PictureBox();
+                tile.Size = new Size(25, 25);
+                tile.BackColor = Color.Transparent;
+                picMapBackground.Controls.Add(tile);
+                tile.Tag = "tile";
+                tile.BringToFront();
+                mapTiles[i] = tile;
+
+                if (i < 11)
+                    heightPercentage = 0.79;
+
+                else if (i > 11 && i < 23)
+                    heightPercentage = 0.47;
+
+                else
+                    heightPercentage = 0.15;
+
+                if (i == 11)
+                {
+                    widthPercentage = startingWidthTiles + 10 * spacingTiles;
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage),
+                        Convert.ToInt32(picMapBackground.Height * 0.63));
+
+                }
+                else if (i == 23)
+                {
+                    widthPercentage = startingWidthTiles;
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * startingWidthTiles),
+                        Convert.ToInt32(picMapBackground.Height * 0.31));
+                }
+                else
+                {
+                    mapTiles[i].Location = new Point(Convert.ToInt32(picMapBackground.Width * widthPercentage),
+                            Convert.ToInt32(picMapBackground.Height * heightPercentage));
+
+                    if (i > 11 && i < 23)
+                        //  Starts from the right
+                        widthPercentage -= spacingTiles;
+                    else
+                        widthPercentage += spacingTiles;
+                }
+            }
+
+            definirIcones(mapTiles, mapBlueprint);
+        }
+
+        private void definirIcones(PictureBox[] mapTiles, string mapBlueprint)
         {
             // Replace the 'next line' characters from the string with blanks
             mapBlueprint = mapBlueprint.Replace("\n", "");

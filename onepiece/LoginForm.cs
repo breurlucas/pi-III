@@ -12,7 +12,7 @@ using CartagenaServer;
 
 namespace onepiece
 {
-    public partial class Form4 : Form
+    public partial class LoginForm : Form
     {
 
         public string idPartida;
@@ -21,22 +21,19 @@ namespace onepiece
         public string corJogador;
         public string senhaPartida;
 
-        Form2 formDois;
-        public Form4(Form2 form2)
+        LobbyForm lobbyForm;
+        public LoginForm(LobbyForm form)
         {
             InitializeComponent();
-            formDois = form2;
-
-            senhaPartida = form2.senhaPartida;
-            lblIdPartida.Text = form2.idPartida;
+            lobbyForm = form;
+            senhaPartida = lobbyForm.senhaPartida;
+            idPartida = lobbyForm.idPartida;
+            lblIdPartida.Text = idPartida;
 
         }
 
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            string[] idPartidaAtual = lblIdPartida.Text.Split('\n');
-            lblIdPartida.Text = idPartidaAtual[0].ToString();
-            idPartida = lblIdPartida.Text;
             if (txtSenhaJogador.Text != "")
             {
                 idJogador = txtNome.Text;
@@ -64,15 +61,15 @@ namespace onepiece
                             corJogador = newArray[2];
                         }
                 }
-                Form3 novoForm;
-                novoForm = new Form3(this);
+                GameForm novoForm;
+                novoForm = new GameForm(this);
                 novoForm.Show();
                 this.Close();
                 }
             }
             else
             {
-                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(lblIdPartida.Text), txtNomeJogador.Text, senhaPartida);
+                string retornoEntrar = Jogo.EntrarPartida(Convert.ToInt32(idPartida), txtNomeJogador.Text, senhaPartida);
                 if (retornoEntrar.Contains("ERRO"))
                 {
                     MessageBox.Show(retornoEntrar);
@@ -85,8 +82,8 @@ namespace onepiece
                     senhaJogador = array[1];
                     corJogador = array[2];
 
-                    Form3 novoForm;
-                    novoForm = new Form3(this);
+                    GameForm novoForm;
+                    novoForm = new GameForm(this);
                     novoForm.Show();
                     this.Close();
                 }

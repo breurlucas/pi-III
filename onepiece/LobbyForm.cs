@@ -11,13 +11,13 @@ using CartagenaServer;
 
 namespace onepiece
 {
-    public partial class Form2 : Form
+    public partial class LobbyForm : Form
     {
 
         public string idPartida;
         public string senhaPartida;
 
-        public Form2()
+        public LobbyForm()
         {
             InitializeComponent();
 
@@ -26,6 +26,8 @@ namespace onepiece
             cmbFiltrarPartidas.Items.Add("Jogando");
             cmbFiltrarPartidas.Items.Add("Encerrada");
             cmbFiltrarPartidas.SelectedIndex = 0;
+
+            lblVersao.Text = Jogo.Versao;
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -67,7 +69,7 @@ namespace onepiece
                     lista.Items.Add(listaPartida[i]);
                 }
                 lista.SelectedIndex = 0;
-                txtId.Text = idNovaPartida;
+                txtIdPartida.Text = idNovaPartida;
             }
         }
 
@@ -79,10 +81,10 @@ namespace onepiece
                 int id = Convert.ToInt32(idSelected[0]);
             }
                
-            if (txtId.Text != "")
+            if (txtIdPartida.Text != "")
             {
                 //txtId.Text = id.ToString();
-                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtId.Text));
+                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtIdPartida.Text));
             }
             else
             {
@@ -90,16 +92,16 @@ namespace onepiece
             }
         }
 
-        private void btnEntrarPartida_Click(object sender, EventArgs e)
+        private void btnJogar_Click(object sender, EventArgs e)
         {
             int i = 0;
-            if (Int32.TryParse(txtId.Text, out i)&& txtSenhaPartida.Text != "")
+            if (Int32.TryParse(txtIdPartida.Text, out i)&& txtSenhaPartida.Text != "")
             {
 
-                idPartida = txtId.Text;
+                idPartida = txtIdPartida.Text;
                 senhaPartida = txtSenhaPartida.Text;
-                Form4 dialogLogin;
-                dialogLogin = new Form4(this);
+                LoginForm dialogLogin;
+                dialogLogin = new LoginForm(this);
                 dialogLogin.Show();
                 
             }
@@ -112,8 +114,16 @@ namespace onepiece
         private void lista_SelectedIndexChanged(object sender, EventArgs e)
         {
             string[] teste = lista.Text.Split(',');
-            txtId.Text = teste[0];
+            txtIdPartida.Text = teste[0];
         }
 
+        /* DEV Initializes in spectator mode */
+        private void btnAssistir_Click(object sender, EventArgs e)
+        {
+
+            GameForm novoForm;
+            novoForm = new GameForm();
+            novoForm.Show();
+        }
     }
 }
