@@ -28,6 +28,8 @@ namespace onepiece
             cmbFiltrarPartidas.SelectedIndex = 0;
 
             lblVersao.Text = Jogo.Versao;
+
+            dgvPartida.DataSource = Partida.Listar();
         }
 
         private void btnListarPartidas_Click(object sender, EventArgs e)
@@ -35,16 +37,7 @@ namespace onepiece
             string comboBoxFiltro = cmbFiltrarPartidas.Text;
             string filtroPartida = comboBoxFiltro[0].ToString();
 
-            string listaInteira = Jogo.ListarPartidas(filtroPartida);
-            string[] listaPartida = listaInteira.Split('\r');
-
-            //wipes the list clear before loading new games
-            lista.Items.Clear();
-            for (int i = 0; i < listaPartida.Length; i++)
-            {
-                lista.Items.Add(listaPartida[i]);
-            }
-            lista.SelectedIndex = 0;
+            dgvPartida.DataSource = Partida.Listar(filtroPartida);
         }
 
         private void btnCriarPartida_Click(object sender, EventArgs e)
@@ -59,37 +52,28 @@ namespace onepiece
                 string comboBoxFiltro = cmbFiltrarPartidas.Text;
                 string filtroPartida = comboBoxFiltro[0].ToString();
 
-                string listaInteira = Jogo.ListarPartidas(filtroPartida);
-                string[] listaPartida = listaInteira.Split('\r');
-
-                //wipes the list clear before loading new games
-                lista.Items.Clear();
-                for (int i = 0; i < listaPartida.Length; i++)
-                {
-                    lista.Items.Add(listaPartida[i]);
-                }
-                lista.SelectedIndex = 0;
+                dgvPartida.DataSource = Partida.Listar(filtroPartida);
                 txtIdPartida.Text = idNovaPartida;
             }
         }
 
         private void btnListarJogadores_Click(object sender, EventArgs e)
         {
-            string[] idSelected = lista.Text.Split(',');
-            if(idSelected[0] != "")
-            {
-                int id = Convert.ToInt32(idSelected[0]);
-            }
-               
             if (txtIdPartida.Text != "")
             {
-                //txtId.Text = id.ToString();
-                txtListarJogadores.Text = Jogo.ListarJogadores(Convert.ToInt32(txtIdPartida.Text));
+                dgvJogadores.DataSource = Jogador.Listar(txtIdPartida.Text);
             }
             else
             {
                 MessageBox.Show("Não há jogadores se não há partida");
             }
+        }
+
+        private void dgvPartida_Click(object sender, EventArgs e)
+        {
+            Partida p = (Partida)dgvPartida.SelectedRows[0].DataBoundItem;
+            dgvJogadores.DataSource = Jogador.Listar(p.id);
+            txtIdPartida.Text = p.id;
         }
 
         private void btnJogar_Click(object sender, EventArgs e)
@@ -109,12 +93,6 @@ namespace onepiece
             {
                 MessageBox.Show("Verificar se os dados estão preenchidos corretamente");
             }
-        }
-
-        private void lista_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string[] teste = lista.Text.Split(',');
-            txtIdPartida.Text = teste[0];
         }
 
         /* DEV Initializes in spectator mode */

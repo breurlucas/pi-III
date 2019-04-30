@@ -37,15 +37,17 @@
             this.btnListarPartidas = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnListarJogadores = new System.Windows.Forms.Button();
-            this.txtListarJogadores = new System.Windows.Forms.TextBox();
             this.txtIdPartida = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnJogar = new System.Windows.Forms.Button();
-            this.lista = new System.Windows.Forms.ListBox();
             this.btnAssistir = new System.Windows.Forms.Button();
             this.lblVersao = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.dgvPartida = new System.Windows.Forms.DataGridView();
+            this.dgvJogadores = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJogadores)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCriarPartida
@@ -105,7 +107,7 @@
             this.cmbFiltrarPartidas.ItemHeight = 20;
             this.cmbFiltrarPartidas.Location = new System.Drawing.Point(0, 0);
             this.cmbFiltrarPartidas.Name = "cmbFiltrarPartidas";
-            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(578, 28);
+            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(602, 28);
             this.cmbFiltrarPartidas.TabIndex = 10;
             // 
             // btnListarPartidas
@@ -131,7 +133,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnCriarPartida);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox1.Location = new System.Drawing.Point(56, 332);
+            this.groupBox1.Location = new System.Drawing.Point(63, 491);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(222, 150);
             this.groupBox1.TabIndex = 16;
@@ -144,7 +146,7 @@
             this.btnListarJogadores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarJogadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btnListarJogadores.Location = new System.Drawing.Point(344, 34);
+            this.btnListarJogadores.Location = new System.Drawing.Point(356, 34);
             this.btnListarJogadores.Name = "btnListarJogadores";
             this.btnListarJogadores.Size = new System.Drawing.Size(178, 40);
             this.btnListarJogadores.TabIndex = 17;
@@ -152,19 +154,9 @@
             this.btnListarJogadores.UseVisualStyleBackColor = false;
             this.btnListarJogadores.Click += new System.EventHandler(this.btnListarJogadores_Click);
             // 
-            // txtListarJogadores
-            // 
-            this.txtListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtListarJogadores.Location = new System.Drawing.Point(293, 166);
-            this.txtListarJogadores.Multiline = true;
-            this.txtListarJogadores.Name = "txtListarJogadores";
-            this.txtListarJogadores.ReadOnly = true;
-            this.txtListarJogadores.Size = new System.Drawing.Size(202, 144);
-            this.txtListarJogadores.TabIndex = 18;
-            // 
             // txtIdPartida
             // 
-            this.txtIdPartida.Location = new System.Drawing.Point(290, 54);
+            this.txtIdPartida.Location = new System.Drawing.Point(294, 54);
             this.txtIdPartida.Name = "txtIdPartida";
             this.txtIdPartida.Size = new System.Drawing.Size(48, 20);
             this.txtIdPartida.TabIndex = 19;
@@ -174,7 +166,7 @@
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(290, 31);
+            this.label3.Location = new System.Drawing.Point(299, 31);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 20);
             this.label3.TabIndex = 20;
@@ -186,7 +178,7 @@
             this.btnJogar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnJogar.Location = new System.Drawing.Point(293, 332);
+            this.btnJogar.Location = new System.Drawing.Point(303, 507);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(193, 31);
             this.btnJogar.TabIndex = 19;
@@ -194,24 +186,13 @@
             this.btnJogar.UseVisualStyleBackColor = false;
             this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
             // 
-            // lista
-            // 
-            this.lista.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lista.FormattingEnabled = true;
-            this.lista.ItemHeight = 20;
-            this.lista.Location = new System.Drawing.Point(72, 166);
-            this.lista.Name = "lista";
-            this.lista.Size = new System.Drawing.Size(206, 144);
-            this.lista.TabIndex = 22;
-            this.lista.SelectedIndexChanged += new System.EventHandler(this.lista_SelectedIndexChanged);
-            // 
             // btnAssistir
             // 
             this.btnAssistir.BackColor = System.Drawing.Color.Transparent;
             this.btnAssistir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAssistir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssistir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnAssistir.Location = new System.Drawing.Point(293, 380);
+            this.btnAssistir.Location = new System.Drawing.Point(303, 555);
             this.btnAssistir.Name = "btnAssistir";
             this.btnAssistir.Size = new System.Drawing.Size(193, 31);
             this.btnAssistir.TabIndex = 23;
@@ -222,7 +203,7 @@
             // lblVersao
             // 
             this.lblVersao.AutoSize = true;
-            this.lblVersao.Location = new System.Drawing.Point(486, 427);
+            this.lblVersao.Location = new System.Drawing.Point(496, 599);
             this.lblVersao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVersao.Name = "lblVersao";
             this.lblVersao.Size = new System.Drawing.Size(0, 13);
@@ -232,7 +213,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(446, 427);
+            this.label4.Location = new System.Drawing.Point(456, 599);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(40, 13);
@@ -240,29 +221,56 @@
             this.label4.Text = "Versão";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dgvPartida
+            // 
+            this.dgvPartida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvPartida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPartida.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgvPartida.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvPartida.Location = new System.Drawing.Point(63, 153);
+            this.dgvPartida.MultiSelect = false;
+            this.dgvPartida.Name = "dgvPartida";
+            this.dgvPartida.ReadOnly = true;
+            this.dgvPartida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvPartida.Size = new System.Drawing.Size(433, 163);
+            this.dgvPartida.TabIndex = 26;
+            this.dgvPartida.Click += new System.EventHandler(this.dgvPartida_Click);
+            // 
+            // dgvJogadores
+            // 
+            this.dgvJogadores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvJogadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvJogadores.Location = new System.Drawing.Point(63, 322);
+            this.dgvJogadores.Name = "dgvJogadores";
+            this.dgvJogadores.Size = new System.Drawing.Size(433, 163);
+            this.dgvJogadores.TabIndex = 27;
+            // 
             // LobbyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::onepiece.Properties.Resources.backgroundLoginForm;
-            this.ClientSize = new System.Drawing.Size(578, 595);
+            this.ClientSize = new System.Drawing.Size(602, 703);
+            this.Controls.Add(this.dgvJogadores);
+            this.Controls.Add(this.dgvPartida);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblVersao);
             this.Controls.Add(this.btnAssistir);
-            this.Controls.Add(this.lista);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtIdPartida);
-            this.Controls.Add(this.txtListarJogadores);
             this.Controls.Add(this.btnListarJogadores);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbFiltrarPartidas);
             this.Controls.Add(this.btnListarPartidas);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LobbyForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "One Piece – Lobby";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvPartida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvJogadores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,13 +287,13 @@
         private System.Windows.Forms.Button btnListarPartidas;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnListarJogadores;
-        private System.Windows.Forms.TextBox txtListarJogadores;
         private System.Windows.Forms.TextBox txtIdPartida;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnJogar;
-        private System.Windows.Forms.ListBox lista;
         private System.Windows.Forms.Button btnAssistir;
         private System.Windows.Forms.Label lblVersao;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridView dgvPartida;
+        private System.Windows.Forms.DataGridView dgvJogadores;
     }
 }

@@ -76,13 +76,13 @@
             // 
             this.txtVerificarVez.BackColor = System.Drawing.Color.Wheat;
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 60);
+            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 91);
             this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
             this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtVerificarVez.Size = new System.Drawing.Size(217, 114);
+            this.txtVerificarVez.Size = new System.Drawing.Size(218, 83);
             this.txtVerificarVez.TabIndex = 95;
             // 
             // groupBox1

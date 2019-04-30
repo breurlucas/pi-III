@@ -38,7 +38,9 @@ namespace onepiece
         int vez, positionForward, positionBackwards;
         string[] mao;
         Random random;
-
+        
+        List<string> jogadoresPartida = new List<string>();
+        string[] jogadores;
 
         string currentPlayer;
         string players;
@@ -108,10 +110,24 @@ namespace onepiece
          * 
          * *************/
 
-        // Method that builds a dictionary for the players (id and color)
-        private void definirJogadores()
+    // Method that builds a dictionary for the players (id and color)
+    private void definirJogadores()
         {
             string response = Jogo.ListarJogadores(idPartida);
+            //string replaced = response.Replace('', ' ');
+            string[] playersSplit = response.Split('\n');
+            foreach(var pl in playersSplit) {
+                if(pl != "")
+                {
+                    string[] current = pl.Split(',');
+                    string id = current[0];
+                    string nome = current[1];
+                    jogadoresPartida.Add(id);
+                    jogadoresPartida.Add(nome);
+                }
+            }
+            // You can convert it back to an array if you would like to
+            jogadores = jogadoresPartida.ToArray();
             colors = Jogador.definirCores(response);
         }
 
@@ -226,6 +242,14 @@ namespace onepiece
 
             // Player id of who should play this turn
             vez = Convert.ToInt32(estadoTabuleiro[1]);
+            //Colocando nome do jogador atual no lblCurrentPlayer
+            for (int i = 0; i < jogadores.Length; i++)
+            {
+                if (vez.ToString() == jogadores[i])
+                {
+                    lblCurrentPlayer.Text = jogadores[i + 1];
+                }
+            }
             // Myself: Position of the pirates on the board
             positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
             positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
@@ -394,24 +418,8 @@ namespace onepiece
             // Only plays if the game has started
             if (jogoIniciado)
             {
-
                 updateBoardState();
-
-                /*string verificaVez = Jogo.VerificarVez(idPartida);
-                string[] text = verificaVez.Split(',');
-                currentPlayer = text[1];*/
-
-                //Colocando nome do jogador atual no lblCurrentPlayer
-                string[] playersSplit = players.Split('\n');
-                for (int i = 0; i < playersSplit.Length; i++)
-                {
-                    string[] currentPlayer = playersSplit[i].Split(',');
-                    if (vez.ToString() == currentPlayer[0])
-                    {
-                        lblCurrentPlayer.Text = currentPlayer[1];
-                    }
-                }
-
+                
                 if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
                     tmrVerificarVez.Enabled = false;
