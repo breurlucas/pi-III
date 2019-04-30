@@ -51,6 +51,7 @@
             this.btnExibirMao = new System.Windows.Forms.Button();
             this.txtMao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lblCurrentPlayer = new System.Windows.Forms.Label();
             this.btnVerificarVez = new System.Windows.Forms.Button();
             this.txtHistorico = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -61,7 +62,6 @@
             this.dgvBarco = new System.Windows.Forms.DataGridView();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
             this.tmrVerificarVez = new System.Windows.Forms.Timer(this.components);
-            this.lblCurrentPlayer = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -318,6 +318,14 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vez";
             // 
+            // lblCurrentPlayer
+            // 
+            this.lblCurrentPlayer.AutoSize = true;
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(72, 25);
+            this.lblCurrentPlayer.Name = "lblCurrentPlayer";
+            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 24);
+            this.lblCurrentPlayer.TabIndex = 114;
+            // 
             // btnVerificarVez
             // 
             this.btnVerificarVez.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVerificarVez.BackgroundImage")));
@@ -450,14 +458,6 @@
             // tmrVerificarVez
             // 
             this.tmrVerificarVez.Tick += new System.EventHandler(this.tmrVerificarVez_Tick);
-            // 
-            // lblCurrentPlayer
-            // 
-            this.lblCurrentPlayer.AutoSize = true;
-            this.lblCurrentPlayer.Location = new System.Drawing.Point(72, 25);
-            this.lblCurrentPlayer.Name = "lblCurrentPlayer";
-            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 24);
-            this.lblCurrentPlayer.TabIndex = 114;
             // 
             // GameForm
             // 
