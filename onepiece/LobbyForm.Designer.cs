@@ -114,9 +114,9 @@
             this.btnListarPartidas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnListarPartidas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btnListarPartidas.Location = new System.Drawing.Point(12, 34);
+            this.btnListarPartidas.Location = new System.Drawing.Point(65, 34);
             this.btnListarPartidas.Name = "btnListarPartidas";
-            this.btnListarPartidas.Size = new System.Drawing.Size(250, 40);
+            this.btnListarPartidas.Size = new System.Drawing.Size(197, 40);
             this.btnListarPartidas.TabIndex = 8;
             this.btnListarPartidas.Text = "Listar Partidas";
             this.btnListarPartidas.UseVisualStyleBackColor = false;

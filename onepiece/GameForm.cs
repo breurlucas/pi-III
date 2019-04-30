@@ -362,7 +362,7 @@ namespace onepiece
          * AUTOMATION
          * 
          ************/
-        
+
         private void jogar()
         {
             string response;

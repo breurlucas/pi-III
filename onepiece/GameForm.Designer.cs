@@ -48,6 +48,18 @@
             this.btnMoverTras = new System.Windows.Forms.Button();
             this.btnMoverFrente = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExibirMao = new System.Windows.Forms.Button();
             this.txtMao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -65,6 +77,12 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadeia)).BeginInit();
@@ -76,13 +94,13 @@
             // 
             this.txtVerificarVez.BackColor = System.Drawing.Color.Wheat;
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 60);
+            this.txtVerificarVez.Location = new System.Drawing.Point(-2, 25);
             this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
             this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtVerificarVez.Size = new System.Drawing.Size(217, 114);
+            this.txtVerificarVez.Size = new System.Drawing.Size(217, 149);
             this.txtVerificarVez.TabIndex = 95;
             // 
             // groupBox1
@@ -221,7 +239,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(198, 441);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 214);
+            this.groupBox2.Size = new System.Drawing.Size(238, 248);
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jogada";
@@ -267,25 +285,141 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label11);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.pictureBox6);
+            this.groupBox3.Controls.Add(this.pictureBox5);
+            this.groupBox3.Controls.Add(this.pictureBox4);
+            this.groupBox3.Controls.Add(this.pictureBox3);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.btnExibirMao);
             this.groupBox3.Controls.Add(this.txtMao);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox3.Location = new System.Drawing.Point(442, 441);
+            this.groupBox3.Location = new System.Drawing.Point(443, 441);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(215, 214);
+            this.groupBox3.Size = new System.Drawing.Size(321, 248);
             this.groupBox3.TabIndex = 111;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(76, 98);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 24);
+            this.label11.TabIndex = 129;
+            this.label11.Text = "0";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(28, 98);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 24);
+            this.label12.TabIndex = 128;
+            this.label12.Text = "0";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(173, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(20, 24);
+            this.label9.TabIndex = 127;
+            this.label9.Text = "0";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(125, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(20, 24);
+            this.label10.TabIndex = 126;
+            this.label10.Text = "0";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(267, 98);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(20, 24);
+            this.label8.TabIndex = 125;
+            this.label8.Text = "0";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(220, 98);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(20, 24);
+            this.label13.TabIndex = 124;
+            this.label13.Text = "0";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(115, 30);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox6.TabIndex = 118;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(162, 30);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox5.TabIndex = 117;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Location = new System.Drawing.Point(209, 30);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox4.TabIndex = 116;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Location = new System.Drawing.Point(256, 30);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox3.TabIndex = 115;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(68, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox2.TabIndex = 114;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::onepiece.Properties.Resources.cardHandTricorn;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 113;
+            this.pictureBox1.TabStop = false;
             // 
             // btnExibirMao
             // 
             this.btnExibirMao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExibirMao.BackgroundImage")));
             this.btnExibirMao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnExibirMao.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnExibirMao.Location = new System.Drawing.Point(6, 180);
+            this.btnExibirMao.Location = new System.Drawing.Point(6, 214);
             this.btnExibirMao.Name = "btnExibirMao";
-            this.btnExibirMao.Size = new System.Drawing.Size(203, 28);
+            this.btnExibirMao.Size = new System.Drawing.Size(139, 28);
             this.btnExibirMao.TabIndex = 110;
             this.btnExibirMao.Text = "Exibir Mão";
             this.btnExibirMao.UseVisualStyleBackColor = true;
@@ -295,13 +429,13 @@
             // 
             this.txtMao.BackColor = System.Drawing.Color.Wheat;
             this.txtMao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMao.Location = new System.Drawing.Point(1, 60);
+            this.txtMao.Location = new System.Drawing.Point(1, 137);
             this.txtMao.Margin = new System.Windows.Forms.Padding(2);
             this.txtMao.Multiline = true;
             this.txtMao.Name = "txtMao";
             this.txtMao.ReadOnly = true;
             this.txtMao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMao.Size = new System.Drawing.Size(215, 117);
+            this.txtMao.Size = new System.Drawing.Size(144, 72);
             this.txtMao.TabIndex = 112;
             // 
             // groupBox4
@@ -311,9 +445,9 @@
             this.groupBox4.Controls.Add(this.txtVerificarVez);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox4.Location = new System.Drawing.Point(663, 441);
+            this.groupBox4.Location = new System.Drawing.Point(770, 441);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(215, 214);
+            this.groupBox4.Size = new System.Drawing.Size(215, 248);
             this.groupBox4.TabIndex = 112;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vez";
@@ -331,7 +465,7 @@
             this.btnVerificarVez.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVerificarVez.BackgroundImage")));
             this.btnVerificarVez.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnVerificarVez.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnVerificarVez.Location = new System.Drawing.Point(6, 180);
+            this.btnVerificarVez.Location = new System.Drawing.Point(12, 212);
             this.btnVerificarVez.Name = "btnVerificarVez";
             this.btnVerificarVez.Size = new System.Drawing.Size(203, 28);
             this.btnVerificarVez.TabIndex = 113;
@@ -358,9 +492,9 @@
             this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.groupBox5.Location = new System.Drawing.Point(884, 441);
+            this.groupBox5.Location = new System.Drawing.Point(991, 441);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(240, 214);
+            this.groupBox5.Size = new System.Drawing.Size(240, 248);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
@@ -370,7 +504,7 @@
             this.btnHistorico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHistorico.BackgroundImage")));
             this.btnHistorico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnHistorico.ForeColor = System.Drawing.Color.DarkBlue;
-            this.btnHistorico.Location = new System.Drawing.Point(6, 180);
+            this.btnHistorico.Location = new System.Drawing.Point(6, 212);
             this.btnHistorico.Name = "btnHistorico";
             this.btnHistorico.Size = new System.Drawing.Size(203, 28);
             this.btnHistorico.TabIndex = 114;
@@ -488,6 +622,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -533,5 +673,17 @@
         private System.Windows.Forms.DataGridView dgvBarco;
         private System.Windows.Forms.Timer tmrVerificarVez;
         private System.Windows.Forms.Label lblCurrentPlayer;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

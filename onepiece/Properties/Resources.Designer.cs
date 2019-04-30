@@ -103,6 +103,16 @@ namespace onepiece.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap cardHandTricorn {
+            get {
+                object obj = ResourceManager.GetObject("cardHandTricorn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap cardKey {
             get {
                 object obj = ResourceManager.GetObject("cardKey", resourceCulture);
