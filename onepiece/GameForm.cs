@@ -232,7 +232,8 @@ namespace onepiece
             // Update hand state
             string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
             mao = carta.Split(',');
-            txtMao.Text = carta;
+            mao[1] = carta;
+            lblBottle.Text = carta;
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -308,7 +309,11 @@ namespace onepiece
 
         private void btnExibirMao_Click(object sender, EventArgs e)
         {
-            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            mao = carta.Split(',');
+            mao[1] = carta;
+            lblBottle.Text = carta;
+            
         }
 
         private void btnVerificarVez_Click(object sender, EventArgs e)

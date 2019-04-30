@@ -48,12 +48,12 @@
             this.btnMoverTras = new System.Windows.Forms.Button();
             this.btnMoverFrente = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.lblBottle = new System.Windows.Forms.Label();
+            this.lblPistol = new System.Windows.Forms.Label();
+            this.lblKnife = new System.Windows.Forms.Label();
+            this.lblTricorn = new System.Windows.Forms.Label();
+            this.lblSkull = new System.Windows.Forms.Label();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
@@ -285,12 +285,12 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Controls.Add(this.label8);
-            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.lblKey);
+            this.groupBox3.Controls.Add(this.lblBottle);
+            this.groupBox3.Controls.Add(this.lblPistol);
+            this.groupBox3.Controls.Add(this.lblKnife);
+            this.groupBox3.Controls.Add(this.lblTricorn);
+            this.groupBox3.Controls.Add(this.lblSkull);
             this.groupBox3.Controls.Add(this.pictureBox6);
             this.groupBox3.Controls.Add(this.pictureBox5);
             this.groupBox3.Controls.Add(this.pictureBox4);
@@ -308,107 +308,117 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
             // 
-            // label11
+            // lblKey
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(76, 98);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(20, 24);
-            this.label11.TabIndex = 129;
-            this.label11.Text = "0";
+            this.lblKey.AutoSize = true;
+            this.lblKey.Location = new System.Drawing.Point(84, 96);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(20, 24);
+            this.lblKey.TabIndex = 129;
+            this.lblKey.Text = "0";
             // 
-            // label12
+            // lblBottle
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 98);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(20, 24);
-            this.label12.TabIndex = 128;
-            this.label12.Text = "0";
+            this.lblBottle.AutoSize = true;
+            this.lblBottle.Location = new System.Drawing.Point(36, 96);
+            this.lblBottle.Name = "lblBottle";
+            this.lblBottle.Size = new System.Drawing.Size(20, 24);
+            this.lblBottle.TabIndex = 128;
+            this.lblBottle.Text = "0";
             // 
-            // label9
+            // lblPistol
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(20, 24);
-            this.label9.TabIndex = 127;
-            this.label9.Text = "0";
+            this.lblPistol.AutoSize = true;
+            this.lblPistol.Location = new System.Drawing.Point(181, 96);
+            this.lblPistol.Name = "lblPistol";
+            this.lblPistol.Size = new System.Drawing.Size(20, 24);
+            this.lblPistol.TabIndex = 127;
+            this.lblPistol.Text = "0";
             // 
-            // label10
+            // lblKnife
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(125, 98);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(20, 24);
-            this.label10.TabIndex = 126;
-            this.label10.Text = "0";
+            this.lblKnife.AutoSize = true;
+            this.lblKnife.Location = new System.Drawing.Point(133, 96);
+            this.lblKnife.Name = "lblKnife";
+            this.lblKnife.Size = new System.Drawing.Size(20, 24);
+            this.lblKnife.TabIndex = 126;
+            this.lblKnife.Text = "0";
             // 
-            // label8
+            // lblTricorn
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(267, 98);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(20, 24);
-            this.label8.TabIndex = 125;
-            this.label8.Text = "0";
+            this.lblTricorn.AutoSize = true;
+            this.lblTricorn.Location = new System.Drawing.Point(275, 96);
+            this.lblTricorn.Name = "lblTricorn";
+            this.lblTricorn.Size = new System.Drawing.Size(20, 24);
+            this.lblTricorn.TabIndex = 125;
+            this.lblTricorn.Text = "0";
             // 
-            // label13
+            // lblSkull
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(220, 98);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(20, 24);
-            this.label13.TabIndex = 124;
-            this.label13.Text = "0";
+            this.lblSkull.AutoSize = true;
+            this.lblSkull.Location = new System.Drawing.Point(228, 96);
+            this.lblSkull.Name = "lblSkull";
+            this.lblSkull.Size = new System.Drawing.Size(20, 24);
+            this.lblSkull.TabIndex = 124;
+            this.lblSkull.Text = "0";
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(115, 30);
+            this.pictureBox6.Image = global::onepiece.Properties.Resources.cardHandKnife;
+            this.pictureBox6.Location = new System.Drawing.Point(115, 28);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox6.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 118;
             this.pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(162, 30);
+            this.pictureBox5.Image = global::onepiece.Properties.Resources.cardHandPistol;
+            this.pictureBox5.Location = new System.Drawing.Point(162, 28);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox5.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 117;
             this.pictureBox5.TabStop = false;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(209, 30);
+            this.pictureBox4.Image = global::onepiece.Properties.Resources.cardHandSkull;
+            this.pictureBox4.Location = new System.Drawing.Point(209, 28);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox4.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 116;
             this.pictureBox4.TabStop = false;
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(256, 30);
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(255, 28);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox3.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 115;
             this.pictureBox3.TabStop = false;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(68, 30);
+            this.pictureBox2.Image = global::onepiece.Properties.Resources.cardHandKey;
+            this.pictureBox2.Location = new System.Drawing.Point(68, 28);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(41, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 114;
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::onepiece.Properties.Resources.cardHandTricorn;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 30);
+            this.pictureBox1.Image = global::onepiece.Properties.Resources.cardHandBottle;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(50, 65);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 113;
             this.pictureBox1.TabStop = false;
             // 
@@ -673,17 +683,17 @@
         private System.Windows.Forms.DataGridView dgvBarco;
         private System.Windows.Forms.Timer tmrVerificarVez;
         private System.Windows.Forms.Label lblCurrentPlayer;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblTricorn;
+        private System.Windows.Forms.Label lblSkull;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblKey;
+        private System.Windows.Forms.Label lblBottle;
+        private System.Windows.Forms.Label lblPistol;
+        private System.Windows.Forms.Label lblKnife;
     }
 }
