@@ -231,9 +231,31 @@ namespace onepiece
             positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
             // Update hand state
             string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            mao = carta.Split(',');
-            mao[1] = carta;
-            lblBottle.Text = carta;
+            mao = carta.Split('\r',',');
+            txtMao.Text = carta;
+            
+            switch (carta.mao[0])
+            {
+                case 'E':
+                    lblSkull.Text = carta.mao[1];
+                    break;
+                case 'T':
+                    lblTricorn.Text = carta.mao[1];
+                    break;
+                case 'P':
+                    lblPistol.Text = carta.mao[1];
+                    break;
+                case 'C':
+                    lblKey.Text = carta.mao[1];
+                    break;
+                case 'G':
+                    lblBottle.Text = carta.mao[1];
+                    break;
+                case 'F':
+                    lblKnife.Text = carta.mao[1];
+                    break;
+            }
+            
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -310,10 +332,33 @@ namespace onepiece
         private void btnExibirMao_Click(object sender, EventArgs e)
         {
             string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            mao = carta.Split(',');
-            mao[1] = carta;
+            mao = carta.Split('\r', ',');
             lblBottle.Text = carta;
-            
+
+            /*
+            switch (mao.ToCharArray())
+            {
+                case 'E':
+                    lblSkull.Text = carta;
+                    break;
+                case 'T':
+                    lblTricorn.Text = carta;
+                    break;
+                case 'P':
+                    lblPistol.Text = carta;
+                    break;
+                case 'C':
+                    lblKey.Text = carta;
+                    break;
+                case 'G':
+                    lblBottle.Text = carta;
+                    break;
+                case 'F':
+                    lblKnife.Text = carta;
+                    break;
+            }
+            */
+
         }
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
