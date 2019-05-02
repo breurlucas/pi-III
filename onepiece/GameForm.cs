@@ -35,6 +35,7 @@ namespace onepiece
 
         // DEV Automation variables
         bool jogoIniciado = false;
+        bool jogoTerminado = false;
         int vez, positionForward, positionBackwards;
         string[] mao;
         Random random;
@@ -184,6 +185,7 @@ namespace onepiece
                 // Verify if the game finished
                 if(position == 37 && repeat == 6)
                 {
+                    jogoTerminado = true;
                     tmrVerificarVez.Enabled = false;
                     MessageBox.Show("O jogo terminou!");
                 }
@@ -208,10 +210,13 @@ namespace onepiece
             exibirJogadorAtual(vez);
 
             // Myself: Position of the pirates on the board
-            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
-            positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+            if(!jogoTerminado)
+            {
+                positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
+                positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+            }
 
-            drawBoardState(response, estadoTabuleiro);
+            //drawBoardState(response, estadoTabuleiro);
         }
 
         private void drawBoardState(string response, string[] estadoTabuleiro) {
@@ -469,8 +474,9 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
-            while (rodada < 4)
+            while (rodada < 4 && !jogoTerminado)
             {
+                Application.DoEvents();
                 updateMao();
                 updateBoardState();
                 if (mao[0] != "")
