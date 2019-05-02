@@ -49,7 +49,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.txtNomeJogador);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox1.Location = new System.Drawing.Point(48, 124);
+            this.groupBox1.Location = new System.Drawing.Point(69, 225);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(145, 153);
             this.groupBox1.TabIndex = 0;
@@ -81,7 +81,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txtNome);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox2.Location = new System.Drawing.Point(199, 124);
+            this.groupBox2.Location = new System.Drawing.Point(278, 225);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(148, 153);
             this.groupBox2.TabIndex = 1;
@@ -126,7 +126,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(158, 24);
+            this.label1.Location = new System.Drawing.Point(187, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 18);
             this.label1.TabIndex = 2;
@@ -136,7 +136,7 @@
             // 
             this.lblIdPartida.AutoSize = true;
             this.lblIdPartida.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblIdPartida.Location = new System.Drawing.Point(238, 24);
+            this.lblIdPartida.Location = new System.Drawing.Point(275, 193);
             this.lblIdPartida.Name = "lblIdPartida";
             this.lblIdPartida.Size = new System.Drawing.Size(0, 18);
             this.lblIdPartida.TabIndex = 3;
@@ -147,7 +147,7 @@
             this.btnJogar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnJogar.Location = new System.Drawing.Point(100, 283);
+            this.btnJogar.Location = new System.Drawing.Point(141, 416);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(193, 31);
             this.btnJogar.TabIndex = 21;
@@ -157,14 +157,12 @@
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.Wheat;
             this.BackgroundImage = global::onepiece.Properties.Resources.backgroundLoginForm;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(410, 412);
+            this.ClientSize = new System.Drawing.Size(517, 590);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblIdPartida);
             this.Controls.Add(this.label1);
