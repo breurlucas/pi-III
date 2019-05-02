@@ -207,7 +207,7 @@ namespace onepiece
             exibirJogadorAtual(vez);
 
             // Myself: Position of the pirates on the board
-            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count);];
+            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
             positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
 
             drawBoardState(response, estadoTabuleiro);
