@@ -94,13 +94,13 @@
             this.txtVerificarVez.BackColor = System.Drawing.Color.Wheat;
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtVerificarVez.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVerificarVez.Location = new System.Drawing.Point(0, 74);
-            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtVerificarVez.Location = new System.Drawing.Point(0, 60);
+            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
             this.txtVerificarVez.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtVerificarVez.Size = new System.Drawing.Size(287, 140);
+            this.txtVerificarVez.Size = new System.Drawing.Size(215, 114);
             this.txtVerificarVez.TabIndex = 95;
             // 
             // groupBox1
@@ -112,13 +112,11 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtSenhaJogador);
             this.groupBox1.Controls.Add(this.txtCorJogador);
-            this.groupBox1.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox1.Location = new System.Drawing.Point(16, 543);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Location = new System.Drawing.Point(12, 441);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(240, 305);
+            this.groupBox1.Size = new System.Drawing.Size(180, 248);
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Jogador";
@@ -127,12 +125,11 @@
             // 
             this.btnIniciar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnIniciar.BackgroundImage")));
             this.btnIniciar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnIniciar.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIniciar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIniciar.ForeColor = System.Drawing.Color.Black;
-            this.btnIniciar.Location = new System.Drawing.Point(8, 263);
-            this.btnIniciar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnIniciar.Location = new System.Drawing.Point(6, 214);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(200, 34);
+            this.btnIniciar.Size = new System.Drawing.Size(150, 28);
             this.btnIniciar.TabIndex = 97;
             this.btnIniciar.Text = "Iniciar Partida";
             this.btnIniciar.UseVisualStyleBackColor = true;
@@ -141,22 +138,20 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 43);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(6, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(177, 28);
+            this.label5.Size = new System.Drawing.Size(126, 24);
             this.label5.TabIndex = 100;
             this.label5.Text = "Id do Jogador";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(8, 181);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 147);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(196, 28);
+            this.label7.Size = new System.Drawing.Size(141, 24);
             this.label7.TabIndex = 102;
             this.label7.Text = "Cor do Jogador";
             // 
@@ -165,20 +160,18 @@
             this.txtIdJogador.BackColor = System.Drawing.Color.Wheat;
             this.txtIdJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtIdJogador.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIdJogador.Location = new System.Drawing.Point(13, 74);
-            this.txtIdJogador.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdJogador.Location = new System.Drawing.Point(10, 60);
             this.txtIdJogador.Name = "txtIdJogador";
-            this.txtIdJogador.Size = new System.Drawing.Size(139, 27);
+            this.txtIdJogador.Size = new System.Drawing.Size(104, 22);
             this.txtIdJogador.TabIndex = 97;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(8, 112);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 91);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(228, 28);
+            this.label6.Size = new System.Drawing.Size(166, 24);
             this.label6.TabIndex = 101;
             this.label6.Text = "Senha do Jogador";
             // 
@@ -187,10 +180,9 @@
             this.txtSenhaJogador.BackColor = System.Drawing.Color.Wheat;
             this.txtSenhaJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSenhaJogador.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSenhaJogador.Location = new System.Drawing.Point(13, 143);
-            this.txtSenhaJogador.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSenhaJogador.Location = new System.Drawing.Point(10, 116);
             this.txtSenhaJogador.Name = "txtSenhaJogador";
-            this.txtSenhaJogador.Size = new System.Drawing.Size(139, 27);
+            this.txtSenhaJogador.Size = new System.Drawing.Size(104, 22);
             this.txtSenhaJogador.TabIndex = 98;
             // 
             // txtCorJogador
@@ -198,11 +190,10 @@
             this.txtCorJogador.BackColor = System.Drawing.Color.Wheat;
             this.txtCorJogador.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCorJogador.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCorJogador.Location = new System.Drawing.Point(13, 212);
-            this.txtCorJogador.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCorJogador.Location = new System.Drawing.Point(10, 172);
             this.txtCorJogador.Name = "txtCorJogador";
             this.txtCorJogador.ReadOnly = true;
-            this.txtCorJogador.Size = new System.Drawing.Size(139, 27);
+            this.txtCorJogador.Size = new System.Drawing.Size(104, 22);
             this.txtCorJogador.TabIndex = 99;
             // 
             // txtPosicao
@@ -210,31 +201,28 @@
             this.txtPosicao.BackColor = System.Drawing.Color.Wheat;
             this.txtPosicao.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPosicao.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPosicao.Location = new System.Drawing.Point(8, 74);
-            this.txtPosicao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPosicao.Location = new System.Drawing.Point(6, 60);
             this.txtPosicao.Name = "txtPosicao";
-            this.txtPosicao.Size = new System.Drawing.Size(144, 27);
+            this.txtPosicao.Size = new System.Drawing.Size(108, 22);
             this.txtPosicao.TabIndex = 103;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 43);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 28);
+            this.label1.Size = new System.Drawing.Size(82, 24);
             this.label1.TabIndex = 104;
             this.label1.Text = "Posição ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(155, 43);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(116, 35);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 28);
+            this.label2.Size = new System.Drawing.Size(79, 24);
             this.label2.TabIndex = 105;
             this.label2.Text = "Símbolo";
             // 
@@ -243,10 +231,9 @@
             this.cboSimbolo.BackColor = System.Drawing.Color.Wheat;
             this.cboSimbolo.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSimbolo.FormattingEnabled = true;
-            this.cboSimbolo.Location = new System.Drawing.Point(160, 71);
-            this.cboSimbolo.Margin = new System.Windows.Forms.Padding(4);
+            this.cboSimbolo.Location = new System.Drawing.Point(120, 58);
             this.cboSimbolo.Name = "cboSimbolo";
-            this.cboSimbolo.Size = new System.Drawing.Size(144, 34);
+            this.cboSimbolo.Size = new System.Drawing.Size(109, 29);
             this.cboSimbolo.TabIndex = 106;
             // 
             // groupBox2
@@ -258,13 +245,11 @@
             this.groupBox2.Controls.Add(this.cboSimbolo);
             this.groupBox2.Controls.Add(this.btnMoverFrente);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox2.Location = new System.Drawing.Point(264, 543);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Location = new System.Drawing.Point(198, 441);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(317, 263);
+            this.groupBox2.Size = new System.Drawing.Size(238, 214);
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jogada";
@@ -273,12 +258,11 @@
             // 
             this.btnPularVez.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPularVez.BackgroundImage")));
             this.btnPularVez.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnPularVez.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPularVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPularVez.ForeColor = System.Drawing.Color.Black;
-            this.btnPularVez.Location = new System.Drawing.Point(60, 204);
-            this.btnPularVez.Margin = new System.Windows.Forms.Padding(4);
+            this.btnPularVez.Location = new System.Drawing.Point(45, 166);
             this.btnPularVez.Name = "btnPularVez";
-            this.btnPularVez.Size = new System.Drawing.Size(200, 34);
+            this.btnPularVez.Size = new System.Drawing.Size(150, 28);
             this.btnPularVez.TabIndex = 109;
             this.btnPularVez.Text = "Pular Vez";
             this.btnPularVez.UseVisualStyleBackColor = true;
@@ -288,12 +272,11 @@
             // 
             this.btnMoverTras.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMoverTras.BackgroundImage")));
             this.btnMoverTras.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMoverTras.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoverTras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoverTras.ForeColor = System.Drawing.Color.Black;
-            this.btnMoverTras.Location = new System.Drawing.Point(160, 135);
-            this.btnMoverTras.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMoverTras.Location = new System.Drawing.Point(120, 110);
             this.btnMoverTras.Name = "btnMoverTras";
-            this.btnMoverTras.Size = new System.Drawing.Size(144, 34);
+            this.btnMoverTras.Size = new System.Drawing.Size(108, 28);
             this.btnMoverTras.TabIndex = 108;
             this.btnMoverTras.Text = "Para trás";
             this.btnMoverTras.UseVisualStyleBackColor = true;
@@ -303,12 +286,11 @@
             // 
             this.btnMoverFrente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnMoverFrente.BackgroundImage")));
             this.btnMoverFrente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnMoverFrente.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMoverFrente.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoverFrente.ForeColor = System.Drawing.Color.Black;
-            this.btnMoverFrente.Location = new System.Drawing.Point(8, 135);
-            this.btnMoverFrente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnMoverFrente.Location = new System.Drawing.Point(6, 110);
             this.btnMoverFrente.Name = "btnMoverFrente";
-            this.btnMoverFrente.Size = new System.Drawing.Size(144, 34);
+            this.btnMoverFrente.Size = new System.Drawing.Size(108, 28);
             this.btnMoverFrente.TabIndex = 107;
             this.btnMoverFrente.Text = "Para frente";
             this.btnMoverFrente.UseVisualStyleBackColor = true;
@@ -329,13 +311,11 @@
             this.groupBox3.Controls.Add(this.pictureBox2);
             this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.btnExibirMao);
-            this.groupBox3.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox3.Location = new System.Drawing.Point(589, 543);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Location = new System.Drawing.Point(442, 441);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(432, 263);
+            this.groupBox3.Size = new System.Drawing.Size(324, 214);
             this.groupBox3.TabIndex = 111;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
@@ -343,63 +323,70 @@
             // lblKey
             // 
             this.lblKey.AutoSize = true;
-            this.lblKey.Location = new System.Drawing.Point(136, 139);
+            this.lblKey.Location = new System.Drawing.Point(102, 113);
+            this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKey.Name = "lblKey";
-            this.lblKey.Size = new System.Drawing.Size(27, 28);
+            this.lblKey.Size = new System.Drawing.Size(20, 24);
             this.lblKey.TabIndex = 129;
             this.lblKey.Text = "0";
             // 
             // lblBottle
             // 
             this.lblBottle.AutoSize = true;
-            this.lblBottle.Location = new System.Drawing.Point(88, 139);
+            this.lblBottle.Location = new System.Drawing.Point(66, 113);
+            this.lblBottle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBottle.Name = "lblBottle";
-            this.lblBottle.Size = new System.Drawing.Size(27, 28);
+            this.lblBottle.Size = new System.Drawing.Size(20, 24);
             this.lblBottle.TabIndex = 128;
             this.lblBottle.Text = "0";
             // 
             // lblPistol
             // 
             this.lblPistol.AutoSize = true;
-            this.lblPistol.Location = new System.Drawing.Point(233, 139);
+            this.lblPistol.Location = new System.Drawing.Point(175, 113);
+            this.lblPistol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPistol.Name = "lblPistol";
-            this.lblPistol.Size = new System.Drawing.Size(27, 28);
+            this.lblPistol.Size = new System.Drawing.Size(20, 24);
             this.lblPistol.TabIndex = 127;
             this.lblPistol.Text = "0";
             // 
             // lblKnife
             // 
             this.lblKnife.AutoSize = true;
-            this.lblKnife.Location = new System.Drawing.Point(185, 139);
+            this.lblKnife.Location = new System.Drawing.Point(139, 113);
+            this.lblKnife.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKnife.Name = "lblKnife";
-            this.lblKnife.Size = new System.Drawing.Size(27, 28);
+            this.lblKnife.Size = new System.Drawing.Size(20, 24);
             this.lblKnife.TabIndex = 126;
             this.lblKnife.Text = "0";
             // 
             // lblTricorn
             // 
             this.lblTricorn.AutoSize = true;
-            this.lblTricorn.Location = new System.Drawing.Point(327, 139);
+            this.lblTricorn.Location = new System.Drawing.Point(245, 113);
+            this.lblTricorn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTricorn.Name = "lblTricorn";
-            this.lblTricorn.Size = new System.Drawing.Size(27, 28);
+            this.lblTricorn.Size = new System.Drawing.Size(20, 24);
             this.lblTricorn.TabIndex = 125;
             this.lblTricorn.Text = "0";
             // 
             // lblSkull
             // 
             this.lblSkull.AutoSize = true;
-            this.lblSkull.Location = new System.Drawing.Point(280, 139);
+            this.lblSkull.Location = new System.Drawing.Point(210, 113);
+            this.lblSkull.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSkull.Name = "lblSkull";
-            this.lblSkull.Size = new System.Drawing.Size(27, 28);
+            this.lblSkull.Size = new System.Drawing.Size(20, 24);
             this.lblSkull.TabIndex = 124;
             this.lblSkull.Text = "0";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::onepiece.Properties.Resources.cardHandKnife;
-            this.pictureBox6.Location = new System.Drawing.Point(167, 71);
+            this.pictureBox6.Location = new System.Drawing.Point(125, 58);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox6.Size = new System.Drawing.Size(37, 53);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 118;
             this.pictureBox6.TabStop = false;
@@ -407,9 +394,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::onepiece.Properties.Resources.cardHandPistol;
-            this.pictureBox5.Location = new System.Drawing.Point(214, 71);
+            this.pictureBox5.Location = new System.Drawing.Point(160, 58);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox5.Size = new System.Drawing.Size(37, 53);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 117;
             this.pictureBox5.TabStop = false;
@@ -417,9 +405,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::onepiece.Properties.Resources.cardHandSkull;
-            this.pictureBox4.Location = new System.Drawing.Point(261, 71);
+            this.pictureBox4.Location = new System.Drawing.Point(196, 58);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox4.Size = new System.Drawing.Size(37, 53);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 116;
             this.pictureBox4.TabStop = false;
@@ -427,9 +416,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::onepiece.Properties.Resources.cardHandTricorn;
-            this.pictureBox3.Location = new System.Drawing.Point(307, 71);
+            this.pictureBox3.Location = new System.Drawing.Point(230, 58);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox3.Size = new System.Drawing.Size(37, 53);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 115;
             this.pictureBox3.TabStop = false;
@@ -437,9 +427,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::onepiece.Properties.Resources.cardHandKey;
-            this.pictureBox2.Location = new System.Drawing.Point(120, 71);
+            this.pictureBox2.Location = new System.Drawing.Point(90, 58);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox2.Size = new System.Drawing.Size(37, 53);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 114;
             this.pictureBox2.TabStop = false;
@@ -448,9 +439,10 @@
             // 
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = global::onepiece.Properties.Resources.cardHandBottle;
-            this.pictureBox1.Location = new System.Drawing.Point(72, 71);
+            this.pictureBox1.Location = new System.Drawing.Point(54, 58);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 65);
+            this.pictureBox1.Size = new System.Drawing.Size(38, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 113;
             this.pictureBox1.TabStop = false;
@@ -459,12 +451,11 @@
             // 
             this.btnExibirMao.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExibirMao.BackgroundImage")));
             this.btnExibirMao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnExibirMao.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExibirMao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExibirMao.ForeColor = System.Drawing.Color.Black;
-            this.btnExibirMao.Location = new System.Drawing.Point(72, 212);
-            this.btnExibirMao.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExibirMao.Location = new System.Drawing.Point(54, 172);
             this.btnExibirMao.Name = "btnExibirMao";
-            this.btnExibirMao.Size = new System.Drawing.Size(271, 34);
+            this.btnExibirMao.Size = new System.Drawing.Size(203, 28);
             this.btnExibirMao.TabIndex = 110;
             this.btnExibirMao.Text = "Exibir Mão";
             this.btnExibirMao.UseVisualStyleBackColor = true;
@@ -475,13 +466,11 @@
             this.groupBox4.Controls.Add(this.lblCurrentPlayer);
             this.groupBox4.Controls.Add(this.btnVerificarVez);
             this.groupBox4.Controls.Add(this.txtVerificarVez);
-            this.groupBox4.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox4.Location = new System.Drawing.Point(1029, 543);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Location = new System.Drawing.Point(772, 441);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox4.Size = new System.Drawing.Size(287, 263);
+            this.groupBox4.Size = new System.Drawing.Size(215, 214);
             this.groupBox4.TabIndex = 112;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vez";
@@ -489,22 +478,20 @@
             // lblCurrentPlayer
             // 
             this.lblCurrentPlayer.AutoSize = true;
-            this.lblCurrentPlayer.Location = new System.Drawing.Point(96, 31);
-            this.lblCurrentPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCurrentPlayer.Location = new System.Drawing.Point(72, 25);
             this.lblCurrentPlayer.Name = "lblCurrentPlayer";
-            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 28);
+            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 24);
             this.lblCurrentPlayer.TabIndex = 114;
             // 
             // btnVerificarVez
             // 
             this.btnVerificarVez.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnVerificarVez.BackgroundImage")));
             this.btnVerificarVez.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnVerificarVez.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerificarVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerificarVez.ForeColor = System.Drawing.Color.Black;
-            this.btnVerificarVez.Location = new System.Drawing.Point(8, 222);
-            this.btnVerificarVez.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVerificarVez.Location = new System.Drawing.Point(6, 180);
             this.btnVerificarVez.Name = "btnVerificarVez";
-            this.btnVerificarVez.Size = new System.Drawing.Size(271, 34);
+            this.btnVerificarVez.Size = new System.Drawing.Size(203, 28);
             this.btnVerificarVez.TabIndex = 113;
             this.btnVerificarVez.Text = "Verificar Vez";
             this.btnVerificarVez.UseVisualStyleBackColor = true;
@@ -515,26 +502,24 @@
             this.txtHistorico.BackColor = System.Drawing.Color.Wheat;
             this.txtHistorico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtHistorico.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHistorico.Location = new System.Drawing.Point(0, 31);
-            this.txtHistorico.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtHistorico.Location = new System.Drawing.Point(0, 25);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
             this.txtHistorico.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtHistorico.Size = new System.Drawing.Size(320, 182);
+            this.txtHistorico.Size = new System.Drawing.Size(240, 148);
             this.txtHistorico.TabIndex = 114;
             // 
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.btnHistorico);
             this.groupBox5.Controls.Add(this.txtHistorico);
-            this.groupBox5.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox5.Location = new System.Drawing.Point(1324, 543);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox5.Location = new System.Drawing.Point(993, 441);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox5.Size = new System.Drawing.Size(320, 263);
+            this.groupBox5.Size = new System.Drawing.Size(240, 214);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
@@ -543,12 +528,11 @@
             // 
             this.btnHistorico.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnHistorico.BackgroundImage")));
             this.btnHistorico.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnHistorico.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHistorico.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHistorico.ForeColor = System.Drawing.Color.Black;
-            this.btnHistorico.Location = new System.Drawing.Point(8, 222);
-            this.btnHistorico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnHistorico.Location = new System.Drawing.Point(6, 180);
             this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(271, 34);
+            this.btnHistorico.Size = new System.Drawing.Size(203, 28);
             this.btnHistorico.TabIndex = 114;
             this.btnHistorico.Text = "Exibir Histórico";
             this.btnHistorico.UseVisualStyleBackColor = true;
@@ -557,22 +541,24 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label3.Location = new System.Drawing.Point(11, 4);
+            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 28);
+            this.label3.Size = new System.Drawing.Size(69, 24);
             this.label3.TabIndex = 116;
             this.label3.Text = "Cadeia";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label4.Location = new System.Drawing.Point(1459, 4);
+            this.label4.Location = new System.Drawing.Point(1094, 3);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 28);
+            this.label4.Size = new System.Drawing.Size(59, 24);
             this.label4.TabIndex = 117;
             this.label4.Text = "Barco";
             // 
@@ -584,8 +570,8 @@
             this.dgvCadeia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCadeia.ColumnHeadersVisible = false;
             this.dgvCadeia.Enabled = false;
-            this.dgvCadeia.Location = new System.Drawing.Point(-1, 34);
-            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvCadeia.Location = new System.Drawing.Point(-1, 28);
+            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvCadeia.MultiSelect = false;
             this.dgvCadeia.Name = "dgvCadeia";
             this.dgvCadeia.ReadOnly = true;
@@ -593,7 +579,7 @@
             this.dgvCadeia.RowTemplate.Height = 24;
             this.dgvCadeia.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvCadeia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCadeia.Size = new System.Drawing.Size(197, 455);
+            this.dgvCadeia.Size = new System.Drawing.Size(148, 370);
             this.dgvCadeia.TabIndex = 118;
             // 
             // dgvBarco
@@ -604,8 +590,8 @@
             this.dgvBarco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBarco.ColumnHeadersVisible = false;
             this.dgvBarco.Enabled = false;
-            this.dgvBarco.Location = new System.Drawing.Point(1459, 34);
-            this.dgvBarco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvBarco.Location = new System.Drawing.Point(1094, 28);
+            this.dgvBarco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvBarco.MultiSelect = false;
             this.dgvBarco.Name = "dgvBarco";
             this.dgvBarco.ReadOnly = true;
@@ -613,7 +599,7 @@
             this.dgvBarco.RowTemplate.Height = 24;
             this.dgvBarco.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dgvBarco.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBarco.Size = new System.Drawing.Size(197, 455);
+            this.dgvBarco.Size = new System.Drawing.Size(148, 370);
             this.dgvBarco.TabIndex = 120;
             // 
             // picMapBackground
@@ -621,10 +607,10 @@
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picMapBackground.Image = ((System.Drawing.Image)(resources.GetObject("picMapBackground.Image")));
-            this.picMapBackground.Location = new System.Drawing.Point(199, 0);
+            this.picMapBackground.Location = new System.Drawing.Point(149, 0);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
-            this.picMapBackground.Size = new System.Drawing.Size(1257, 490);
+            this.picMapBackground.Size = new System.Drawing.Size(943, 398);
             this.picMapBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
@@ -635,13 +621,13 @@
             // 
             // GameForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1657, 853);
+            this.ClientSize = new System.Drawing.Size(1215, 693);
             this.Controls.Add(this.dgvBarco);
             this.Controls.Add(this.dgvCadeia);
             this.Controls.Add(this.label4);
@@ -655,7 +641,7 @@
             this.ForeColor = System.Drawing.Color.Goldenrod;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "GameForm";
             this.Text = "One Piece – Game";
             this.groupBox1.ResumeLayout(false);
