@@ -114,6 +114,10 @@ namespace onepiece
     private void definirJogadores()
         {
             string response = Jogo.ListarJogadores(idPartida);
+
+            // *BRANCH: mudancas* Defining players using the 'Jogador' object
+            players = response;
+
             //string replaced = response.Replace('', ' ');
             string[] playersSplit = response.Split('\n');
             foreach(var pl in playersSplit) {
@@ -165,7 +169,7 @@ namespace onepiece
             }
 
             string response = Jogo.VerificarVez(idPartida);
-            //txtVerificarVez.Text = response;
+            txtVerificarVez.Text = response;
 
             //  Replace the 'next line' characters from the string with blanks
             response = response.Replace("\n", "");
@@ -242,6 +246,7 @@ namespace onepiece
 
             // Player id of who should play this turn
             vez = Convert.ToInt32(estadoTabuleiro[1]);
+            jogadorAtual(vez);
             
             //// Myself: Position of the pirates on the board
             positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
@@ -299,20 +304,16 @@ namespace onepiece
             }
         }
 
-        private void jogadorAtual()
+        private void jogadorAtual(int vez)
         {
-            string teste = Jogo.VerificarVez(idPartida);
-            string[] testanio = teste.Split(',');
-            txtVerificarVez.Text = teste;
-            //Colocando nome do jogador atual no lblCurrentPlayer
+            // Colocando nome do jogador atual no lblCurrentPlayer
             for (int i = 0; i < jogadores.Length; i++)
             {
-                if (testanio[1] == jogadores[i])
+                if (vez.ToString() == jogadores[i])
                 {
                     lblCurrentPlayer.Text = jogadores[i + 1];
                 }
             }
-            
         }
 
         /******************
@@ -331,7 +332,6 @@ namespace onepiece
             else {
                 if(!jogoIniciado)
                 {
-                    players = Jogo.ListarJogadores(idPartida);
                     definirJogadores();
                     exibirTabuleiro();
                     jogoIniciado = true;
@@ -347,7 +347,6 @@ namespace onepiece
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
         {
-            players = Jogo.ListarJogadores(idPartida);
             // If another player started the game, the game state will be set to true
             if (!jogoIniciado)
             {
@@ -401,7 +400,6 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
-            jogadorAtual();
             while (rodada < 4)
             {
                 updateBoardState();
@@ -425,12 +423,9 @@ namespace onepiece
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
         {
-            // lblCurrentPlayer.Text = vez.ToString();
-            
             // Only plays if the game has started
             if (jogoIniciado)
             {
-                jogadorAtual();
                 updateBoardState();
                 
                 if (vez == Convert.ToInt32(loginForm.idJogador))
