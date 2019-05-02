@@ -184,6 +184,7 @@ namespace onepiece
                 // Verify if the game finished
                 if(position == 37 && repeat == 6)
                 {
+                    tmrVerificarVez.Enabled = false;
                     MessageBox.Show("O jogo terminou!");
                 }
 
