@@ -64,6 +64,8 @@ namespace onepiece
 
             // New map object instantiation
             tabuleiro = new Tabuleiro();
+            // Instantiates new myselfPosPirata array
+            myselfPosPiratas = new List<int>();
 
             idPartida = Convert.ToInt32(loginForm.idPartida);
             txtIdJogador.Text = loginForm.idJogador;
@@ -148,7 +150,83 @@ namespace onepiece
             tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
-        private void updateBoardState() {
+        private void updateBoardState()
+        {
+            string response = Jogo.VerificarVez(idPartida);
+
+            // Updates the textbox with the current board state
+            txtVerificarVez.Text = response;
+
+            //  Replace the 'next line' characters from the string with blanks
+            response = response.Replace("\n", "");
+
+            /*  Split the string at the '\r' and ',' characters so that we're left with an array of strings
+                Every three items make up a line POSITION / PLAYER / NR PIRATES
+                The first line defines whose turn it is and how many plays he has left.
+                The other lines define the positions of the pirates. */
+            string[] estadoTabuleiro = response.Split('\r', ',');
+
+            // Clear the myselfPosPiratas array
+            myselfPosPiratas.Clear();
+
+            //  Last input of estadoTabuleiro is empty
+            for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
+            {
+                int position, repeat;
+                string player;
+               
+                position = Convert.ToInt32(estadoTabuleiro[i]);
+
+                repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
+
+                player = estadoTabuleiro[i + 1];
+
+                // Populate myselfPosPirata
+                if (player == loginForm.idJogador && position != 37)
+                {
+                    if (repeat == 1)
+                    {
+                        myselfPosPiratas.Add(position);
+                    }
+                    else if (repeat == 2)
+                    {
+                        myselfPosPiratas.Add(position);
+                        myselfPosPiratas.Add(position);
+                    }
+                    else if (repeat == 3)
+                    {
+                        myselfPosPiratas.Add(position);
+                        myselfPosPiratas.Add(position);
+                        myselfPosPiratas.Add(position);
+                    }
+                    else
+                    {
+                        int j = 0;
+                        while(j < 6) {
+                            myselfPosPiratas.Add(position);
+                            j++;
+                        }
+                    }
+                }
+            }
+
+            /*
+             * Defines the AUTOMATION parameters
+             */
+
+            // Player id of who should play this turn
+            vez = Convert.ToInt32(estadoTabuleiro[1]);
+            exibirJogadorAtual(vez);
+
+            // Myself: Position of the pirates on the board
+            int ok = random.Next(0, myselfPosPiratas.Count);
+            positionForward = myselfPosPiratas[ok];
+            positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+
+            drawBoardState(response, estadoTabuleiro);
+        }
+
+        private void drawBoardState(string response, string[] estadoTabuleiro) {
 
             // Clear jail and boat
             cadeia.Clear();
@@ -168,22 +246,9 @@ namespace onepiece
                 picMapBackground.Controls.Remove(pbs[i]);
             }
 
-            string response = Jogo.VerificarVez(idPartida);
-            txtVerificarVez.Text = response;
-
-            //  Replace the 'next line' characters from the string with blanks
-            response = response.Replace("\n", "");
-
-            /*  Split the string at the '\r' and ',' characters so that we're left with an array of strings
-                Every three items make up a line POSITION / PLAYER / NR PIRATES
-                The first line defines whose turn it is and how many plays he has left.
-                The other lines define the positions of the pirates. */
-            string[] estadoTabuleiro = response.Split('\r', ',');
-
             // Instatiates new occupation array
             occupation = new int[36];
-            // Instantiates new myselfPosPirata array
-            myselfPosPiratas = new List<int>();
+            
             // DataGridView Coordinate
             int dgvY = 0;
 
@@ -202,25 +267,6 @@ namespace onepiece
                 color = colors[player];
 
                 jogador = new Jogador(color, repeat);
-
-                // Populate myselfPosPirata
-                if(player == loginForm.idJogador && position != 37)
-                {
-                    if(repeat == 1)
-                    {
-                        myselfPosPiratas.Add(position);
-                    }
-                    else if(repeat == 2)
-                    {
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                    } else
-                    {
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                    }
-                }
                 
                 // 0 is the Jail and 37 is the boat
                 if (position == 0) {
@@ -239,18 +285,6 @@ namespace onepiece
             dgvBarco.DataSource = null;
             dgvBarco.DataSource = barco;    
             dgvBarco.ClearSelection();
-
-            /*
-             * Defines the AUTOMATION parameters
-             */
-
-            // Player id of who should play this turn
-            vez = Convert.ToInt32(estadoTabuleiro[1]);
-            exibirJogadorAtual(vez);
-            
-            // Myself: Position of the pirates on the board
-            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
-            positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
         }
 
         private void drawUnit(int position, Color color, int repeat)
