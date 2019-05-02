@@ -157,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::onepiece.Properties.Resources.backgroundLobbyForm;
-            this.ClientSize = new System.Drawing.Size(595, 397);
+            this.ClientSize = new System.Drawing.Size(589, 394);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblIdPartida);
             this.Controls.Add(this.label1);
@@ -165,6 +165,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "LoginForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "One Piece – Login";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
