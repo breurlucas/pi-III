@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Jogador.cs" />
     <Compile Include="Myself.cs" />
+    <Compile Include="Partida.cs" />
     <Compile Include="Pirate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

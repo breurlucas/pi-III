@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CartagenaServer;
 
 namespace onepiece
 {
@@ -101,5 +102,47 @@ namespace onepiece
         //            return "Pink";
         //    }
         //}
+
+
+        public string id { get; set; }
+        public string nome { get; set; }
+        public string cor { get; set; }
+
+        public static List<Jogador> Listar(string idPartida)
+        {
+            string retorno = Jogo.ListarJogadores(Convert.ToInt32(idPartida));
+
+            List<Jogador> jogadores = new List<Jogador>();
+
+            if (!retorno.Contains("ERRO")){
+
+                string[] jogadoresSplit = retorno.Split('\r');
+
+                for (int i = 0; i < jogadoresSplit.Length; i++)
+                {
+                    string jogadoresReal = jogadoresSplit[i].Replace("\n", "");
+
+                    string[] props = jogadoresReal.Split(',');
+
+                    Jogador p = new Jogador();
+
+                    if (props.Length > 1)
+                    {
+                        p.id = props[0];
+                        p.nome = props[1];
+                        p.cor = props[2];
+
+                        jogadores.Add(p);
+
+                    }
+                }
+            }
+            return jogadores;
+        }
+
+      
     }
+
+
 }
+
