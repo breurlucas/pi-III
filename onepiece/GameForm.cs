@@ -190,29 +190,11 @@ namespace onepiece
                 // Populate myselfPosPirata
                 if (player == loginForm.idJogador && position != 37)
                 {
-                    if (repeat == 1)
-                    {
+                    int j = 0;
+                    while(j < repeat) {
                         myselfPosPiratas.Add(position);
-                    }
-                    else if (repeat == 2)
-                    {
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                    }
-                    else if (repeat == 3)
-                    {
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                        myselfPosPiratas.Add(position);
-                    }
-                    else
-                    {
-                        int j = 0;
-                        while(j < 6) {
-                            myselfPosPiratas.Add(position);
-                            j++;
-                        }
-                    }
+                        j++;
+                    } 
                 }
             }
 
@@ -299,7 +281,7 @@ namespace onepiece
             y = mapTiles[position - 1].Location.Y;
 
             //  x and y offsets based on pic tiles size
-            switch (occupation[position-1])
+            switch (occupation[position - 1])
             {
                 case 0:
                     x -= 15;
@@ -325,17 +307,17 @@ namespace onepiece
             //  Checks for number of pirates
             if (repeat == 2)
             {
-                occupation[position-1] += 1;
+                occupation[position - 1] += 1;
                 drawUnit(position, color, 0);
             }
             else if (repeat == 3)
             {
-                occupation[position-1] += 1;
+                occupation[position - 1] += 1;
                 drawUnit(position, color, 2);
             }
             else
             {
-                occupation[position-1] += 1;
+                occupation[position - 1] += 1;
             }
         }
 
@@ -500,6 +482,11 @@ namespace onepiece
                 {
                     // Play Backwards
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    // Skips the turn if playing backwards fails
+                    if(response.Contains("ERRO"))
+                    {
+                        Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+                    }
                     rodada++;
                 }
 
