@@ -181,6 +181,12 @@ namespace onepiece
 
                 player = estadoTabuleiro[i + 1];
 
+                // Verify if the game finished
+                if(position == 37 && repeat == 6)
+                {
+                    MessageBox.Show("O jogo terminou!");
+                }
+
                 // Populate myselfPosPirata
                 if (player == loginForm.idJogador && position != 37)
                 {
@@ -219,8 +225,7 @@ namespace onepiece
             exibirJogadorAtual(vez);
 
             // Myself: Position of the pirates on the board
-            int ok = random.Next(0, myselfPosPiratas.Count);
-            positionForward = myselfPosPiratas[ok];
+            positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count);];
             positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
 
             drawBoardState(response, estadoTabuleiro);
