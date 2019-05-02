@@ -26,7 +26,6 @@ namespace onepiece
         {
             InitializeComponent();
             lobbyForm = form;
-
             senhaPartida = lobbyForm.senhaPartida;
             idPartida = lobbyForm.idPartida;
             lblIdPartida.Text = idPartida;

@@ -33,7 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CartagenaServer">
+    <Reference Include="CartagenaServer, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\CartagenaServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -69,6 +70,7 @@
     </Compile>
     <Compile Include="Jogador.cs" />
     <Compile Include="Myself.cs" />
+    <Compile Include="Partida.cs" />
     <Compile Include="Pirate.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -109,9 +111,6 @@
     <None Include="Resources\Map.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\8bitsea.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\icon.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -131,6 +130,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\cardHandTricorn.png" />
+    <None Include="Resources\scroll-texture.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
