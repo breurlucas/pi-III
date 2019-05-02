@@ -48,8 +48,19 @@
             this.btnMoverTras = new System.Windows.Forms.Button();
             this.btnMoverFrente = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblKey = new System.Windows.Forms.Label();
+            this.lblBottle = new System.Windows.Forms.Label();
+            this.lblPistol = new System.Windows.Forms.Label();
+            this.lblKnife = new System.Windows.Forms.Label();
+            this.lblTricorn = new System.Windows.Forms.Label();
+            this.lblSkull = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnExibirMao = new System.Windows.Forms.Button();
-            this.txtMao = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblCurrentPlayer = new System.Windows.Forms.Label();
             this.btnVerificarVez = new System.Windows.Forms.Button();
@@ -65,6 +76,12 @@
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadeia)).BeginInit();
@@ -128,7 +145,7 @@
             this.label5.Location = new System.Drawing.Point(8, 43);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 27);
+            this.label5.Size = new System.Drawing.Size(177, 28);
             this.label5.TabIndex = 100;
             this.label5.Text = "Id do Jogador";
             // 
@@ -139,7 +156,7 @@
             this.label7.Location = new System.Drawing.Point(8, 181);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(184, 27);
+            this.label7.Size = new System.Drawing.Size(196, 28);
             this.label7.TabIndex = 102;
             this.label7.Text = "Cor do Jogador";
             // 
@@ -161,7 +178,7 @@
             this.label6.Location = new System.Drawing.Point(8, 112);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(214, 27);
+            this.label6.Size = new System.Drawing.Size(228, 28);
             this.label6.TabIndex = 101;
             this.label6.Text = "Senha do Jogador";
             // 
@@ -206,7 +223,7 @@
             this.label1.Location = new System.Drawing.Point(8, 43);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 27);
+            this.label1.Size = new System.Drawing.Size(114, 28);
             this.label1.TabIndex = 104;
             this.label1.Text = "Posição ";
             // 
@@ -217,7 +234,7 @@
             this.label2.Location = new System.Drawing.Point(155, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(107, 27);
+            this.label2.Size = new System.Drawing.Size(111, 28);
             this.label2.TabIndex = 105;
             this.label2.Text = "Símbolo";
             // 
@@ -299,18 +316,144 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.lblKey);
+            this.groupBox3.Controls.Add(this.lblBottle);
+            this.groupBox3.Controls.Add(this.lblPistol);
+            this.groupBox3.Controls.Add(this.lblKnife);
+            this.groupBox3.Controls.Add(this.lblTricorn);
+            this.groupBox3.Controls.Add(this.lblSkull);
+            this.groupBox3.Controls.Add(this.pictureBox6);
+            this.groupBox3.Controls.Add(this.pictureBox5);
+            this.groupBox3.Controls.Add(this.pictureBox4);
+            this.groupBox3.Controls.Add(this.pictureBox3);
+            this.groupBox3.Controls.Add(this.pictureBox2);
+            this.groupBox3.Controls.Add(this.pictureBox1);
             this.groupBox3.Controls.Add(this.btnExibirMao);
-            this.groupBox3.Controls.Add(this.txtMao);
             this.groupBox3.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.groupBox3.Location = new System.Drawing.Point(589, 543);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox3.Size = new System.Drawing.Size(287, 263);
+            this.groupBox3.Size = new System.Drawing.Size(432, 263);
             this.groupBox3.TabIndex = 111;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
+            // 
+            // lblKey
+            // 
+            this.lblKey.AutoSize = true;
+            this.lblKey.Location = new System.Drawing.Point(136, 139);
+            this.lblKey.Name = "lblKey";
+            this.lblKey.Size = new System.Drawing.Size(27, 28);
+            this.lblKey.TabIndex = 129;
+            this.lblKey.Text = "0";
+            // 
+            // lblBottle
+            // 
+            this.lblBottle.AutoSize = true;
+            this.lblBottle.Location = new System.Drawing.Point(88, 139);
+            this.lblBottle.Name = "lblBottle";
+            this.lblBottle.Size = new System.Drawing.Size(27, 28);
+            this.lblBottle.TabIndex = 128;
+            this.lblBottle.Text = "0";
+            // 
+            // lblPistol
+            // 
+            this.lblPistol.AutoSize = true;
+            this.lblPistol.Location = new System.Drawing.Point(233, 139);
+            this.lblPistol.Name = "lblPistol";
+            this.lblPistol.Size = new System.Drawing.Size(27, 28);
+            this.lblPistol.TabIndex = 127;
+            this.lblPistol.Text = "0";
+            // 
+            // lblKnife
+            // 
+            this.lblKnife.AutoSize = true;
+            this.lblKnife.Location = new System.Drawing.Point(185, 139);
+            this.lblKnife.Name = "lblKnife";
+            this.lblKnife.Size = new System.Drawing.Size(27, 28);
+            this.lblKnife.TabIndex = 126;
+            this.lblKnife.Text = "0";
+            // 
+            // lblTricorn
+            // 
+            this.lblTricorn.AutoSize = true;
+            this.lblTricorn.Location = new System.Drawing.Point(327, 139);
+            this.lblTricorn.Name = "lblTricorn";
+            this.lblTricorn.Size = new System.Drawing.Size(27, 28);
+            this.lblTricorn.TabIndex = 125;
+            this.lblTricorn.Text = "0";
+            // 
+            // lblSkull
+            // 
+            this.lblSkull.AutoSize = true;
+            this.lblSkull.Location = new System.Drawing.Point(280, 139);
+            this.lblSkull.Name = "lblSkull";
+            this.lblSkull.Size = new System.Drawing.Size(27, 28);
+            this.lblSkull.TabIndex = 124;
+            this.lblSkull.Text = "0";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = global::onepiece.Properties.Resources.cardHandKnife;
+            this.pictureBox6.Location = new System.Drawing.Point(167, 71);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 118;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::onepiece.Properties.Resources.cardHandPistol;
+            this.pictureBox5.Location = new System.Drawing.Point(214, 71);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox5.TabIndex = 117;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::onepiece.Properties.Resources.cardHandSkull;
+            this.pictureBox4.Location = new System.Drawing.Point(261, 71);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 116;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::onepiece.Properties.Resources.cardHandTricorn;
+            this.pictureBox3.Location = new System.Drawing.Point(307, 71);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 115;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::onepiece.Properties.Resources.cardHandKey;
+            this.pictureBox2.Location = new System.Drawing.Point(120, 71);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(49, 65);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 114;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = global::onepiece.Properties.Resources.cardHandBottle;
+            this.pictureBox1.Location = new System.Drawing.Point(72, 71);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 65);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 113;
+            this.pictureBox1.TabStop = false;
             // 
             // btnExibirMao
             // 
@@ -318,7 +461,7 @@
             this.btnExibirMao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnExibirMao.Font = new System.Drawing.Font("Primitive", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExibirMao.ForeColor = System.Drawing.Color.Black;
-            this.btnExibirMao.Location = new System.Drawing.Point(8, 222);
+            this.btnExibirMao.Location = new System.Drawing.Point(72, 212);
             this.btnExibirMao.Margin = new System.Windows.Forms.Padding(4);
             this.btnExibirMao.Name = "btnExibirMao";
             this.btnExibirMao.Size = new System.Drawing.Size(271, 34);
@@ -327,20 +470,6 @@
             this.btnExibirMao.UseVisualStyleBackColor = true;
             this.btnExibirMao.Click += new System.EventHandler(this.btnExibirMao_Click);
             // 
-            // txtMao
-            // 
-            this.txtMao.BackColor = System.Drawing.Color.Wheat;
-            this.txtMao.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMao.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMao.Location = new System.Drawing.Point(1, 74);
-            this.txtMao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtMao.Multiline = true;
-            this.txtMao.Name = "txtMao";
-            this.txtMao.ReadOnly = true;
-            this.txtMao.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtMao.Size = new System.Drawing.Size(286, 144);
-            this.txtMao.TabIndex = 112;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblCurrentPlayer);
@@ -348,7 +477,7 @@
             this.groupBox4.Controls.Add(this.txtVerificarVez);
             this.groupBox4.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox4.Location = new System.Drawing.Point(884, 543);
+            this.groupBox4.Location = new System.Drawing.Point(1029, 543);
             this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
@@ -363,7 +492,7 @@
             this.lblCurrentPlayer.Location = new System.Drawing.Point(96, 31);
             this.lblCurrentPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCurrentPlayer.Name = "lblCurrentPlayer";
-            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 27);
+            this.lblCurrentPlayer.Size = new System.Drawing.Size(0, 28);
             this.lblCurrentPlayer.TabIndex = 114;
             // 
             // btnVerificarVez
@@ -401,7 +530,7 @@
             this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Primitive", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox5.Location = new System.Drawing.Point(1179, 543);
+            this.groupBox5.Location = new System.Drawing.Point(1324, 543);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(4);
@@ -432,7 +561,7 @@
             this.label3.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label3.Location = new System.Drawing.Point(11, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 27);
+            this.label3.Size = new System.Drawing.Size(93, 28);
             this.label3.TabIndex = 116;
             this.label3.Text = "Cadeia";
             // 
@@ -443,7 +572,7 @@
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.label4.Location = new System.Drawing.Point(1459, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(80, 27);
+            this.label4.Size = new System.Drawing.Size(85, 28);
             this.label4.TabIndex = 117;
             this.label4.Text = "Barco";
             // 
@@ -535,6 +664,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -567,7 +702,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnExibirMao;
-        private System.Windows.Forms.TextBox txtMao;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnVerificarVez;
         private System.Windows.Forms.TextBox txtHistorico;
@@ -580,5 +714,17 @@
         private System.Windows.Forms.DataGridView dgvBarco;
         private System.Windows.Forms.Timer tmrVerificarVez;
         private System.Windows.Forms.Label lblCurrentPlayer;
+        private System.Windows.Forms.Label lblTricorn;
+        private System.Windows.Forms.Label lblSkull;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblKey;
+        private System.Windows.Forms.Label lblBottle;
+        private System.Windows.Forms.Label lblPistol;
+        private System.Windows.Forms.Label lblKnife;
     }
 }

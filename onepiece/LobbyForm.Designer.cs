@@ -211,7 +211,7 @@
             // lblVersao
             // 
             this.lblVersao.AutoSize = true;
-            this.lblVersao.Location = new System.Drawing.Point(931, 540);
+            this.lblVersao.Location = new System.Drawing.Point(923, 554);
             this.lblVersao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVersao.Name = "lblVersao";
             this.lblVersao.Size = new System.Drawing.Size(0, 17);
@@ -221,7 +221,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Location = new System.Drawing.Point(891, 540);
+            this.label4.Location = new System.Drawing.Point(866, 554);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 17);

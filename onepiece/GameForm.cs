@@ -246,15 +246,11 @@ namespace onepiece
 
             // Player id of who should play this turn
             vez = Convert.ToInt32(estadoTabuleiro[1]);
-            jogadorAtual(vez);
+            exibirJogadorAtual(vez);
             
-            //// Myself: Position of the pirates on the board
+            // Myself: Position of the pirates on the board
             positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count - 1)];
             positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
-            // Update hand state
-            string carta = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            mao = carta.Split(',');
-            txtMao.Text = carta;
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -304,7 +300,7 @@ namespace onepiece
             }
         }
 
-        private void jogadorAtual(int vez)
+        private void exibirJogadorAtual(int vez)
         {
             // Colocando nome do jogador atual no lblCurrentPlayer
             for (int i = 0; i < jogadores.Length; i++)
@@ -315,6 +311,55 @@ namespace onepiece
                 }
             }
         }
+
+        private void updateMao()
+        {
+            // Update cards in hand
+            string cartas = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            cartas = cartas.Replace("\n", "");
+            mao = cartas.Split('\r',',');
+        
+            lblSkull.Text = "0";
+            lblTricorn.Text = "0";
+            lblPistol.Text = "0";
+            lblKey.Text = "0";
+            lblBottle.Text = "0";
+            lblKnife.Text = "0";
+
+            for (int i = 0; i < mao.Length - 1; i += 2)
+            {
+                switch (mao[i])
+                {
+                    case "E":
+                        lblSkull.Text = mao[i + 1];
+                        break;
+                    case "T":
+                        lblTricorn.Text = mao[i + 1];
+                        break;
+                    case "P":
+                        lblPistol.Text = mao[i + 1];
+                        break;
+                    case "C":
+                        lblKey.Text = mao[i + 1];
+                        break;
+                    case "G":
+                        lblBottle.Text = mao[i + 1];
+                        break;
+                    case "F":
+                        lblKnife.Text = mao[i + 1];
+                        break;
+                    default:
+                        lblSkull.Text = "0";
+                        lblTricorn.Text = "0";
+                        lblPistol.Text = "0";
+                        lblKey.Text = "0";
+                        lblBottle.Text = "0";
+                        lblKnife.Text = "0";
+                        break;
+                }
+            }
+        }
+        
 
         /******************
          * 
@@ -334,6 +379,7 @@ namespace onepiece
                 {
                     definirJogadores();
                     exibirTabuleiro();
+                    updateMao();
                     jogoIniciado = true;
                     tmrVerificarVez.Enabled = true;
                 }
@@ -342,7 +388,7 @@ namespace onepiece
 
         private void btnExibirMao_Click(object sender, EventArgs e)
         {
-            txtMao.Text = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            updateMao();
         }
 
         private void btnVerificarVez_Click(object sender, EventArgs e)
@@ -356,6 +402,7 @@ namespace onepiece
                 {
                     definirJogadores();
                     exibirTabuleiro();
+                    updateMao();
                     updateBoardState();
                 }
             }
@@ -395,13 +442,14 @@ namespace onepiece
          * AUTOMATION
          * 
          ************/
-        
+
         private void jogar()
         {
             string response;
             int rodada = 1;
             while (rodada < 4)
             {
+                updateMao();
                 updateBoardState();
                 if (mao[0] != "")
                 {
