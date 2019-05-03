@@ -17,7 +17,7 @@ namespace onepiece
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
         PictureBox unit;
-        List<int> myselfPosPiratas;
+        List<int> myPos;
   
         // Keeps track of the number of pirates in each tile
         int[] occupation;
@@ -66,7 +66,7 @@ namespace onepiece
             // New map object instantiation
             tabuleiro = new Tabuleiro();
             // Instantiates new myselfPosPirata array
-            myselfPosPiratas = new List<int>();
+            myPos = new List<int>();
 
             idPartida = Convert.ToInt32(loginForm.idPartida);
             txtIdJogador.Text = loginForm.idJogador;
@@ -168,7 +168,7 @@ namespace onepiece
             string[] estadoTabuleiro = response.Split('\r', ',');
 
             // Clear the myselfPosPiratas array
-            myselfPosPiratas.Clear();
+            myPos.Clear();
 
             //  Last input of estadoTabuleiro is empty
             for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
@@ -195,7 +195,7 @@ namespace onepiece
                 {
                     int j = 0;
                     while(j < repeat) {
-                        myselfPosPiratas.Add(position);
+                        myPos.Add(position);
                         j++;
                     } 
                 }
@@ -212,8 +212,8 @@ namespace onepiece
             // Myself: Position of the pirates on the board
             if(!jogoTerminado)
             {
-                positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
-                positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+                positionForward = myPos[random.Next(0, myPos.Count)];
+                positionBackwards = myPos[myPos.Count - 1];
             }
 
             //drawBoardState(response, estadoTabuleiro);
@@ -516,5 +516,32 @@ namespace onepiece
                 }
             }
         }
+
+        /************
+         * 
+         * STRATEGY
+         * 
+         ************/
+
+        private void lookBack()
+        {
+            int steps = 1;
+            int first = myPos[myPos.Count - 1];
+            int second = myPos[myPos.Count - 2];
+            int third = myPos[myPos.Count - 3];
+            int[] top = { first, second, third };
+
+            for (int j = 0; j < myPos.Count; j++)
+            {
+                while(steps <= 10 && (top[j] - steps) > 0)
+                {
+                    if (occupation[first - steps] == 2)
+                    {
+                        // Should play backwards with this pirate
+                    }
+                }
+            }
+        }
+
     }
 }
