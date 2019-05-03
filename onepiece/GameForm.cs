@@ -216,7 +216,7 @@ namespace onepiece
                 positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
             }
 
-            //drawBoardState(response, estadoTabuleiro);
+            drawBoardState(response, estadoTabuleiro);
         }
 
         private void drawBoardState(string response, string[] estadoTabuleiro) {
