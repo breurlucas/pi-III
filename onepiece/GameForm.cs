@@ -37,6 +37,7 @@ namespace onepiece
         bool jogoIniciado = false;
         bool jogoTerminado = false;
         int vez, positionForward, positionBackwards;
+        List<int> backwards = new List<int>();
         string[] mao;
         Random random;
         
@@ -474,10 +475,10 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            updateMao();
             while (rodada < 4 && !jogoTerminado)
             {
                 Application.DoEvents();
-                updateMao();
                 updateBoardState();
                 if (mao[0] != "")
                 {
@@ -487,8 +488,9 @@ namespace onepiece
                 }
                 else
                 {
+                    lookBack();
                     // Play Backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards[backwards.Count - 1]);
                     // Skips the turn if playing backwards fails
                     if(response.Contains("ERRO"))
                     {
@@ -497,7 +499,9 @@ namespace onepiece
                     rodada++;
                 }
 
-                
+                updateMao();
+
+
             }
             tmrVerificarVez.Enabled = true;
         }     
@@ -517,29 +521,40 @@ namespace onepiece
             }
         }
 
-        /************
+        /***********
          * 
          * STRATEGY
          * 
-         ************/
+         ***********/
 
         private void lookBack()
         {
-            int steps = 1;
-            int first = myPos[myPos.Count - 1];
-            int second = myPos[myPos.Count - 2];
-            int third = myPos[myPos.Count - 3];
-            int[] top = { first, second, third };
+            backwards.Clear();
 
-            for (int j = 0; j < myPos.Count; j++)
+            for (int i = myPos.Count; i < 0; i++)
             {
-                while(steps <= 10 && (top[j] - steps) > 0)
+                int step = 1;
+
+                while (step <= 10 && (myPos[i] - step) > 0)
                 {
-                    if (occupation[first - steps] == 2)
+                    if (occupation[myPos[i] - step] == 1)
                     {
-                        // Should play backwards with this pirate
+                        break;
+                    }
+                    else if (occupation[myPos[i] - step] == 2)
+                    {
+                        backwards.Add(myPos[i]);
+                    }
+                    else
+                    {
+                        step++;
                     }
                 }
+            }
+
+            if(backwards.Count == 0)
+            {
+                backwards.Add(myPos[myPos.Count - 1]);
             }
         }
 
