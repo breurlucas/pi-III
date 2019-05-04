@@ -190,6 +190,7 @@ namespace onepiece
                 {
                     jogoTerminado = true;
                     tmrVerificarVez.Enabled = false;
+
                     MessageBox.Show("O jogo terminou!");
                 }
 
@@ -509,7 +510,7 @@ namespace onepiece
 
                 //Tabuleiro t = new Tabuleiro();
                 
-                if (maoFinal.Count > 2 || positionBackwards == positionForward)
+                if (maoFinal.Count > 2 || (positionBackwards == positionForward && maoFinal.Count > 0))
                 {
                     // Play forward
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, defineCarta());
@@ -520,9 +521,12 @@ namespace onepiece
                     // Play Backwards
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
                     // Skips the turn if playing backwards fails
-                    if(response.Contains("ERRO"))
+                    if(response.Contains("ERRO") )
                     {
-                        Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+                        if (maoFinal.Count > 0)
+                            response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, defineCarta());
+                        else
+                            Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
                     }
                     rodada++;
                 }
@@ -535,9 +539,10 @@ namespace onepiece
         private string defineCarta()
         {
             mapChar = Tabuleiro.mapinha;
-            int teste = positionForward;
             //occupation;
-            int fowardPosition = occupation[teste + 1];
+            int fowardPosition = positionBackwards;
+            if (positionForward < 35)
+                fowardPosition = occupation[positionForward + 1];
             //VERIFICAR ESSA CACETA CASO TODAS FOREM IGUAIS
             int rand = random.Next(0, maoFinal.Count);
             
@@ -545,7 +550,7 @@ namespace onepiece
             {
                 return maoFinal[rand];
             }
-            else if(maoFinal[0] == maoFinal[1])
+            else if(maoFinal.Count > 1 && maoFinal[0] == maoFinal[1])
             {
                 return maoFinal[rand];
             }
