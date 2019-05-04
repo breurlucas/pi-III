@@ -137,7 +137,7 @@
             this.groupBox1.Controls.Add(this.btnCriarPartida);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox1.Location = new System.Drawing.Point(221, 305);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(231, 131);
             this.groupBox1.TabIndex = 16;
@@ -151,7 +151,7 @@
             this.btnListarJogadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarJogadores.Location = new System.Drawing.Point(532, 134);
-            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(2);
             this.btnListarJogadores.Name = "btnListarJogadores";
             this.btnListarJogadores.Size = new System.Drawing.Size(154, 31);
             this.btnListarJogadores.TabIndex = 17;
@@ -163,7 +163,7 @@
             // 
             this.txtIdPartida.BackColor = System.Drawing.Color.Wheat;
             this.txtIdPartida.Location = new System.Drawing.Point(459, 145);
-            this.txtIdPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdPartida.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdPartida.Name = "txtIdPartida";
             this.txtIdPartida.Size = new System.Drawing.Size(48, 20);
             this.txtIdPartida.TabIndex = 19;
@@ -187,7 +187,7 @@
             this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnJogar.Location = new System.Drawing.Point(456, 314);
-            this.btnJogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(230, 31);
             this.btnJogar.TabIndex = 19;
@@ -202,7 +202,7 @@
             this.btnAssistir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssistir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAssistir.Location = new System.Drawing.Point(456, 366);
-            this.btnAssistir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssistir.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssistir.Name = "btnAssistir";
             this.btnAssistir.Size = new System.Drawing.Size(230, 31);
             this.btnAssistir.TabIndex = 23;
@@ -239,7 +239,7 @@
             this.dgvPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPartida.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPartida.Location = new System.Drawing.Point(221, 169);
-            this.dgvPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPartida.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPartida.MultiSelect = false;
             this.dgvPartida.Name = "dgvPartida";
             this.dgvPartida.ReadOnly = true;
@@ -256,7 +256,7 @@
             this.dgvJogadores.BackgroundColor = System.Drawing.Color.Wheat;
             this.dgvJogadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvJogadores.Location = new System.Drawing.Point(459, 169);
-            this.dgvJogadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvJogadores.Margin = new System.Windows.Forms.Padding(2);
             this.dgvJogadores.MultiSelect = false;
             this.dgvJogadores.Name = "dgvJogadores";
             this.dgvJogadores.ReadOnly = true;

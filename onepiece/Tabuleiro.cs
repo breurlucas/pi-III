@@ -12,6 +12,7 @@ namespace onepiece
     class Tabuleiro
     {
         PictureBox tile;
+        public static List<char> mapinha = new List<char>();
 
         public void construir(PictureBox picMapBackground, PictureBox[] mapTiles, string mapBlueprint)
         {
@@ -85,6 +86,8 @@ namespace onepiece
                     tile = mapTilesCode[i][2];
                 else
                     tile = mapTilesCode[i][3];
+
+                mapinha.Add(tile);
 
                 // A case-statement determines which one of the 6 images should be assigned to each tile based on the blueprint
                 switch (tile)

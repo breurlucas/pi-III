@@ -38,7 +38,10 @@ namespace onepiece
         bool jogoTerminado = false;
         int vez, positionForward, positionBackwards;
         string[] mao;
+        List<string> maoFinal = new List<string>();
         Random random;
+
+        List<char> mapChar = new List<char>();
         
         List<string> jogadoresPartida = new List<string>();
         string[] jogadores;
@@ -212,7 +215,16 @@ namespace onepiece
             // Myself: Position of the pirates on the board
             if(!jogoTerminado)
             {
-                positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
+                //string pos = myselfPosPiratas[0].ToString();
+                //if (pos != "")
+                //{
+                positionForward = myselfPosPiratas[0];
+                //}
+                //else
+                //{
+                //    positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
+                //}
+                
                 positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
             }
 
@@ -352,9 +364,11 @@ namespace onepiece
             lblKey.Text = "0";
             lblBottle.Text = "0";
             lblKnife.Text = "0";
+            maoFinal.Clear();
 
             for (int i = 0; i < mao.Length - 1; i += 2)
             {
+                
                 switch (mao[i])
                 {
                     case "E":
@@ -384,6 +398,19 @@ namespace onepiece
                         lblKnife.Text = "0";
                         break;
                 }
+                if(Convert.ToInt32(mao[i+1]) > 1)
+                {
+                    for(int j = 0; j < Convert.ToInt32(mao[i + 1]); j++)
+                    {
+                        maoFinal.Add(mao[i]);
+                    }
+                }
+                else
+                {
+                    maoFinal.Add(mao[i]);
+                }
+                
+                
             }
         }
         
@@ -474,15 +501,18 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            updateMao();
             while (rodada < 4 && !jogoTerminado)
             {
                 Application.DoEvents();
-                updateMao();
                 updateBoardState();
-                if (mao[0] != "")
+
+                //Tabuleiro t = new Tabuleiro();
+                
+                if (maoFinal.Count > 2 || positionBackwards == positionForward)
                 {
                     // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, defineCarta());
                     rodada++;
                 }
                 else
@@ -496,11 +526,37 @@ namespace onepiece
                     }
                     rodada++;
                 }
+                updateMao();
 
-                
             }
             tmrVerificarVez.Enabled = true;
         }     
+
+        private string defineCarta()
+        {
+            mapChar = Tabuleiro.mapinha;
+            int teste = positionForward;
+            //occupation;
+            int fowardPosition = occupation[teste + 1];
+            //VERIFICAR ESSA CACETA CASO TODAS FOREM IGUAIS
+            int rand = random.Next(0, maoFinal.Count);
+            
+            if (mapChar[fowardPosition].ToString() != maoFinal[rand])
+            {
+                return maoFinal[rand];
+            }
+            else if(maoFinal[0] == maoFinal[1])
+            {
+                return maoFinal[rand];
+            }
+            else
+            {
+                defineCarta();
+            }
+           
+            return "";
+            
+        }
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
         {
