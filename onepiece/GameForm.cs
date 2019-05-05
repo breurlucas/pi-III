@@ -538,19 +538,22 @@ namespace onepiece
 
         private string defineCarta()
         {
+            //mapChar recebe lista de posicoes dos icones
             mapChar = Tabuleiro.mapinha;
-            //occupation;
-            int fowardPosition = positionBackwards;
+            //cria fowardPosition como uma variavel temp para nao alterar o player que ira jogar
+            int fowardPosition = positionForward;
+
+            int rand = 0;
+            //Se ele tiver abaixo da penultima posicao, positionForward recebe o numero da proxima casa
             if (positionForward < 35)
                 fowardPosition = occupation[positionForward + 1];
-            //VERIFICAR ESSA CACETA CASO TODAS FOREM IGUAIS
-            int rand = random.Next(0, maoFinal.Count);
-            
-            if (mapChar[fowardPosition].ToString() != maoFinal[rand])
-            {
-                return maoFinal[rand];
-            }
-            else if(maoFinal.Count > 1 && maoFinal[0] == maoFinal[1])
+
+            if(maoFinal.Count > 1)
+                 rand = random.Next(0, maoFinal.Count);
+
+            //Se a proxima casa for diferente da carta que ele quer jogar ou ele tenha mais cartas e as cartas que tem sao iguais ele joga
+            //Senão faz uma função recursiva para resortear a carta
+            if ((mapChar[fowardPosition + 1].ToString() != maoFinal[rand]) || (maoFinal.Count > 1 && maoFinal[0] == maoFinal[1]))
             {
                 return maoFinal[rand];
             }
