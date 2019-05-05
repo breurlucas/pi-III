@@ -213,11 +213,12 @@ namespace onepiece
             // Myself: Position of the pirates on the board
             if(!jogoTerminado)
             {
-                positionForward = myPos[random.Next(0, myPos.Count)];
-                positionBackwards = myPos[myPos.Count - 1];
+                //positionForward = myPos[random.Next(0, myPos.Count)];
+                positionForward = myPos.First();
+                positionBackwards = myPos.Last();
             }
 
-            //drawBoardState(response, estadoTabuleiro);
+            drawBoardState(response, estadoTabuleiro);
         }
 
         private void drawBoardState(string response, string[] estadoTabuleiro) {
@@ -226,7 +227,7 @@ namespace onepiece
             cadeia.Clear();
             barco.Clear();
             
-            //  Clear units
+            // Clear units
             IList<PictureBox> pbs = new List<PictureBox>();
 
             foreach (var pb in picMapBackground.Controls.OfType<PictureBox>())
@@ -479,8 +480,13 @@ namespace onepiece
             while (rodada < 4 && !jogoTerminado)
             {
                 Application.DoEvents();
+
                 updateBoardState();
-                if (mao[0] != "")
+
+                /* Look back and check for good plays backwards */
+                lookBack();
+
+                if (mao[0] != "" && mao.Length >= 4)
                 {
                     // Play forward
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
@@ -488,9 +494,13 @@ namespace onepiece
                 }
                 else
                 {
-                    lookBack();
+                    // If there are no good options, move the first pirate backwards
+                    if (!backwards.Any())
+                    {
+                        backwards.Add(myPos.Last());
+                    }
                     // Play Backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards[backwards.Count - 1]);
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards.First());
                     // Skips the turn if playing backwards fails
                     if(response.Contains("ERRO"))
                     {
@@ -531,30 +541,31 @@ namespace onepiece
         {
             backwards.Clear();
 
-            for (int i = myPos.Count; i < 0; i++)
+            for (int i = myPos.Count - 1; i > 0; i--)
             {
                 int step = 1;
+                int range = 3;
+                int pos = myPos[i] - 1;
 
-                while (step <= 10 && (myPos[i] - step) > 0)
+                while (step <= range && pos >= 1)
                 {
-                    if (occupation[myPos[i] - step] == 1)
+
+                    // pos minus one to account for the index 0 of the occupation vector
+                    if (occupation[pos - 1] == 1)
                     {
                         break;
                     }
-                    else if (occupation[myPos[i] - step] == 2)
+                    else if (occupation[pos - 1] == 2)
                     {
                         backwards.Add(myPos[i]);
+                        break;
                     }
                     else
                     {
+                        pos -= 1;
                         step++;
                     }
                 }
-            }
-
-            if(backwards.Count == 0)
-            {
-                backwards.Add(myPos[myPos.Count - 1]);
             }
         }
 
