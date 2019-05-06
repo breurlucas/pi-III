@@ -469,7 +469,8 @@ namespace onepiece
          * AUTOMATION
          * 
          ************/
-
+        
+        //Estratégia 2: O acumulador
         private void jogar()
         {
             string response;
@@ -479,7 +480,7 @@ namespace onepiece
                 Application.DoEvents();
                 updateMao();
                 updateBoardState();
-                if (mao[0] != "")
+                if (mao[0] != "" && Convert.ToInt32(mao[0]) <= 1)
                 {
                     // Play forward
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
