@@ -486,7 +486,13 @@ namespace onepiece
                 /* Look back and check for good plays backwards */
                 lookBack();
 
-                if (mao[0] != "" && mao.Length >= 4)
+                if (mao[0] != "" && !backwards.Any())
+                {
+                    // Play forward
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    rodada++;
+                }
+                else if (mao.Length > 6)
                 {
                     // Play forward
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
