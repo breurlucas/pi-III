@@ -157,8 +157,11 @@ namespace onepiece
             //  Requests the server the blueprint of the map
             string mapBlueprint = Jogo.ExibirTabuleiro(idPartida);
 
-            //  Builds the map using tiles based on the blueprint requested from the server
-            tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
+            /*  Builds the map using tiles based on the blueprint requested from the server.
+                Returns a char list of all the symbols and their order in the map. Stores it in the blueprint list
+                to be used in the strategy section. */
+
+            blueprint = tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
         private void updateBoardState()
@@ -376,9 +379,6 @@ namespace onepiece
                     cartas.Add(mao[i]);
                 }
 
-                // Populate the list of available symbols to play
-                cartasNoRep.Add(mao[i]);
-
                 switch (mao[i])
                 {
                     case "E":
@@ -505,15 +505,20 @@ namespace onepiece
 
                 updateBoardState();
 
-                /* Choose a card to play */
-                strategize();
-                
                 /* Look back and check for good plays backwards */
                 lookBack();
 
-                if (!cartas.Any() && cartas.Count >= 4)
+                if (cartas.Any() && !backwards.Any())
                 {
                     // Play forward
+                    strategize();
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
+                    rodada++;
+                } 
+                else if (mao.Length > 6)
+                {
+                    // Play forward
+                    strategize();
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 }
@@ -569,7 +574,7 @@ namespace onepiece
             for (int i = myPos.Count - 1; i > 0; i--)
             {
                 int step = 1;
-                int range = 3;
+                int range = 4;
                 int pos = myPos[i] - 1;
 
                 while (step <= range && pos >= 1)
@@ -594,77 +599,67 @@ namespace onepiece
             }
         }
 
-        private void skipDuplicate(int repeat)
+        private string checkFarthestPlay()
         {
-            blueprint = Tabuleiro.symbols;
-
-            for (int i = myPos.Count - 1; i > 0; i--)
-            {   
-                if(myPos[i] != 0 && myPos[i] != 37)
-                {
-                    char current = blueprint[myPos[i] - 1];
-                    char first = blueprint[myPos[i]];
-                    char second = blueprint[myPos[i] + 1];
-
-                    for (int j = 6; j <= occupation.Length; j += 6)
-                    {
-                        if(myPos[i] == occupation[j - 1])
-                        {
-                            // Check the first two tiles after the unit
-                            checkNext(blueprint, myPos[i]);
-                            checkNext(blueprint, myPos[i] + 1);
-                        } 
-                    }
-                }
-            }
-
-            if(!blacklist.Any())
+            // List with the vacated tiles
+            List<char> options = new List<char>();
+            List<char> symbols = new List<char>{ 'T','P','C','E','G','F' };
+            // Position of the pirate that is going to be played + 1
+            int pos = myPos.First() + 1;
+            
+            for(int i = pos; i < occupation.Length; i++)
             {
-                // Compare blacklist with available symbols
-                for(int i = 0; i < cartasNoRep.Count; i++)
+                if(occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
                 {
-                    // Only the first blacklisted symbol is checked
-                    if(blacklist[0] == cartasNoRep[i] && repeat == 1)
-                    {
-                        cartasNoRep.RemoveAt(i);
-
-                    }
-                    // The first and second blacklisted symbols are checked
-                    else if(blacklist[0] == cartasNoRep[i] || blacklist[1] == cartasNoRep[i] && repeat == 2)
-                    {
-                        cartasNoRep.RemoveAt(i);
-                    }
+                    options.Add(blueprint[i - 1]);
+                    symbols.Remove(blueprint[i - 1]);
                 }
             }
+
+            /* Check if there are entries left in the symbols vector, if so, add them at the end of the options vector, 
+            these symbols lead directly to the boat */
+            if (symbols.Any())
+            {
+                for (int i = 0; i < symbols.Count; i++)
+                {
+                    options.Add(symbols[i]);
+                    symbols.RemoveAt(i);
+                }
+            }          
+
+            for (int i = options.Count - 1; i > 0; i--)
+            {
+                for(int j = 0; j < cartas.Count; j++)
+                {
+                    if(options[i].ToString() == cartas[j])
+                    {
+                        return cartas[j];
+                    }
+                } 
+            }
+
+            return cartas.First();
+
         }
 
-        private void checkNext(List<char> blueprint, int pos)
+        private bool isFirstAppearance(List<char> symbols, char symbol)
         {
-            char current = blueprint[pos - 1];
-            char next = blueprint[pos];
-
-            if (current == next)
+            for(int i = 0; i < symbols.Count; i++)
             {
-                blacklist.Add(current.ToString());
+                if(symbol == symbols[i])
+                {
+                    return true;
+                }
             }
+            return false;
         }
 
         private void strategize()
         {
-            /* SKIP DUPLICATE SYMBOL STRAT */
-
-            if(cartasNoRep.Count > 2)
-            {
-                // We can blacklist two symbols for the next play
-                skipDuplicate(2);
-            } else if(cartasNoRep.Count > 1)
-            {
-                // We can blacklist one symbol for the next play
-                skipDuplicate(1);
-            }
-
-            // Plays the first card of the options left
-            play = cartasNoRep.First();
+            if (cartas.Count > 1)
+                play = checkFarthestPlay();
+            else
+                play = cartas.First();
         }
 
     }

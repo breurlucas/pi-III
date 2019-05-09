@@ -15,7 +15,7 @@ namespace onepiece
 
         public static List<char> symbols = new List<char>();
 
-        public void construir(PictureBox picMapBackground, PictureBox[] mapTiles, string mapBlueprint)
+        public List<char> construir(PictureBox picMapBackground, PictureBox[] mapTiles, string mapBlueprint)
         {
             /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
                the parent control background). */
@@ -69,6 +69,7 @@ namespace onepiece
             }
 
             definirIcones(mapTiles, mapBlueprint);
+            return symbols;
         }
 
         private void definirIcones(PictureBox[] mapTiles, string mapBlueprint)
