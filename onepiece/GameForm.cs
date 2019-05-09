@@ -38,7 +38,16 @@ namespace onepiece
         bool jogoTerminado = false;
         int vez, positionForward, positionBackwards;
         List<int> backwards = new List<int>();
+        List<char> blueprint = new List<char>();
         string[] mao;
+        // All cards in hand
+        List<string> cartas = new List<string>();
+        // Different types of cards
+        List<string> cartasNoRep = new List<string>();
+        // Symbols not to be played
+        List<string> blacklist = new List<string>();
+        // The card that is going to be played
+        string play;
         Random random;
         
         List<string> jogadoresPartida = new List<string>();
@@ -343,10 +352,14 @@ namespace onepiece
 
         private void updateMao()
         {
+            // Clear cards
+            cartas.Clear();
+            blacklist.Clear();
+
             // Update cards in hand
-            string cartas = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            cartas = cartas.Replace("\n", "");
-            mao = cartas.Split('\r',',');
+            string response = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            response = response.Replace("\n", "");
+            mao = response.Split('\r',',');
         
             lblSkull.Text = "0";
             lblTricorn.Text = "0";
@@ -357,6 +370,15 @@ namespace onepiece
 
             for (int i = 0; i < mao.Length - 1; i += 2)
             {
+                // Populate the cards list
+                 for (int j = 0; j < Convert.ToInt32(mao[i + 1]); j++)
+                {
+                    cartas.Add(mao[i]);
+                }
+
+                // Populate the list of available symbols to play
+                cartasNoRep.Add(mao[i]);
+
                 switch (mao[i])
                 {
                     case "E":
@@ -483,13 +505,16 @@ namespace onepiece
 
                 updateBoardState();
 
+                /* Choose a card to play */
+                strategize();
+                
                 /* Look back and check for good plays backwards */
                 lookBack();
 
-                if (mao[0] != "" && mao.Length >= 4)
+                if (!cartas.Any() && cartas.Count >= 4)
                 {
                     // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 }
                 else
@@ -567,6 +592,79 @@ namespace onepiece
                     }
                 }
             }
+        }
+
+        private void skipDuplicate(int repeat)
+        {
+            blueprint = Tabuleiro.symbols;
+
+            for (int i = myPos.Count - 1; i > 0; i--)
+            {   
+                if(myPos[i] != 0 && myPos[i] != 37)
+                {
+                    char current = blueprint[myPos[i] - 1];
+                    char first = blueprint[myPos[i]];
+                    char second = blueprint[myPos[i] + 1];
+
+                    for (int j = 6; j <= occupation.Length; j += 6)
+                    {
+                        if(myPos[i] == occupation[j - 1])
+                        {
+                            // Check the first two tiles after the unit
+                            checkNext(blueprint, myPos[i]);
+                            checkNext(blueprint, myPos[i] + 1);
+                        } 
+                    }
+                }
+            }
+
+            if(!blacklist.Any())
+            {
+                // Compare blacklist with available symbols
+                for(int i = 0; i < cartasNoRep.Count; i++)
+                {
+                    // Only the first blacklisted symbol is checked
+                    if(blacklist[0] == cartasNoRep[i] && repeat == 1)
+                    {
+                        cartasNoRep.RemoveAt(i);
+
+                    }
+                    // The first and second blacklisted symbols are checked
+                    else if(blacklist[0] == cartasNoRep[i] || blacklist[1] == cartasNoRep[i] && repeat == 2)
+                    {
+                        cartasNoRep.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
+        private void checkNext(List<char> blueprint, int pos)
+        {
+            char current = blueprint[pos - 1];
+            char next = blueprint[pos];
+
+            if (current == next)
+            {
+                blacklist.Add(current.ToString());
+            }
+        }
+
+        private void strategize()
+        {
+            /* SKIP DUPLICATE SYMBOL STRAT */
+
+            if(cartasNoRep.Count > 2)
+            {
+                // We can blacklist two symbols for the next play
+                skipDuplicate(2);
+            } else if(cartasNoRep.Count > 1)
+            {
+                // We can blacklist one symbol for the next play
+                skipDuplicate(1);
+            }
+
+            // Plays the first card of the options left
+            play = cartasNoRep.First();
         }
 
     }

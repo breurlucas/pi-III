@@ -13,6 +13,8 @@ namespace onepiece
     {
         PictureBox tile;
 
+        public static List<char> symbols = new List<char>();
+
         public void construir(PictureBox picMapBackground, PictureBox[] mapTiles, string mapBlueprint)
         {
             /*  Tile placement as children from the Map Background. Tile background also turns transparent using this method (instead of inheriting
@@ -85,6 +87,9 @@ namespace onepiece
                     tile = mapTilesCode[i][2];
                 else
                     tile = mapTilesCode[i][3];
+
+                // Populate the simbols list
+                symbols.Add(tile);
 
                 // A case-statement determines which one of the 6 images should be assigned to each tile based on the blueprint
                 switch (tile)
