@@ -37,6 +37,7 @@ namespace onepiece
         bool jogoIniciado = false;
         bool jogoTerminado = false;
         int vez, positionForward, positionBackwards;
+        List<int> backwards = new List<int>();
         string[] mao;
         List<string> maoFinal = new List<string>();
         Random random;
@@ -509,8 +510,10 @@ namespace onepiece
                 updateBoardState();
 
                 //Tabuleiro t = new Tabuleiro();
-                
-                if (maoFinal.Count > 2 || (positionBackwards == positionForward && maoFinal.Count > 0))
+                /* Look back and check for good plays backwards */
+                lookBack();
+
+                if (maoFinal.Count > 2 || (positionBackwards == positionForward && maoFinal.Count > 0) && !backwards.Any())
                 {
                     // Play forward
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, defineCarta());
@@ -518,8 +521,12 @@ namespace onepiece
                 }
                 else
                 {
+                    if (!backwards.Any())
+                    {
+                        backwards.Add(myselfPosPiratas.Last());
+                    }
                     // Play Backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards.First());
                     // Skips the turn if playing backwards fails
                     if(response.Contains("ERRO") )
                     {
@@ -553,7 +560,8 @@ namespace onepiece
 
             //Se a proxima casa for diferente da carta que ele quer jogar ou ele tenha mais cartas e as cartas que tem sao iguais ele joga
             //Senão faz uma função recursiva para resortear a carta
-            if ((mapChar[fowardPosition + 1].ToString() != maoFinal[rand]) || (maoFinal.Count > 1 && maoFinal[0] == maoFinal[1]))
+            // + 2 porque o array é -1 a posicao dele, ai vem +1, e +1 para ver a proxima
+            if ((mapChar[fowardPosition + 2].ToString() != maoFinal[rand]) || (maoFinal.Count > 1 && maoFinal[0] == maoFinal[1]))
             {
                 return maoFinal[rand];
             }
@@ -564,6 +572,38 @@ namespace onepiece
            
             return "";
             
+        }
+
+        private void lookBack()
+        {
+            backwards.Clear();
+
+            for (int i = myselfPosPiratas.Count - 1; i > 0; i--)
+            {
+                int step = 1;
+                int range = 3;
+                int pos = myselfPosPiratas[i] - 1;
+
+                while (step <= range && pos >= 1)
+                {
+
+                    // pos minus one to account for the index 0 of the occupation vector
+                    if (occupation[pos - 1] == 1)
+                    {
+                        break;
+                    }
+                    else if (occupation[pos - 1] == 2)
+                    {
+                        backwards.Add(myselfPosPiratas[i]);
+                        break;
+                    }
+                    else
+                    {
+                        pos -= 1;
+                        step++;
+                    }
+                }
+            }
         }
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
