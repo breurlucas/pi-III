@@ -73,6 +73,10 @@ namespace onepiece
         {
             Partida p = (Partida)dgvPartida.SelectedRows[0].DataBoundItem;
             dgvJogadores.DataSource = Jogador.Listar(p.id);
+            dgvJogadores.Columns[0].Visible = false;
+            dgvJogadores.Columns[1].Visible = false;
+            dgvJogadores.Columns[2].Visible = false;
+            dgvJogadores.Columns[3].HeaderText = "Nome";
             txtIdPartida.Text = p.id;
         }
 
