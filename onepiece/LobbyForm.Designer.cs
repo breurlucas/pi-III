@@ -69,7 +69,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 18);
+            this.label2.Size = new System.Drawing.Size(127, 24);
             this.label2.TabIndex = 14;
             this.label2.Text = "Senha Partida";
             // 
@@ -78,7 +78,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 18);
+            this.label1.Size = new System.Drawing.Size(124, 24);
             this.label1.TabIndex = 13;
             this.label1.Text = "Nome Partida";
             // 
@@ -87,7 +87,7 @@
             this.txtSenhaPartida.BackColor = System.Drawing.Color.Wheat;
             this.txtSenhaPartida.Location = new System.Drawing.Point(16, 97);
             this.txtSenhaPartida.Name = "txtSenhaPartida";
-            this.txtSenhaPartida.Size = new System.Drawing.Size(112, 24);
+            this.txtSenhaPartida.Size = new System.Drawing.Size(112, 28);
             this.txtSenhaPartida.TabIndex = 12;
             // 
             // txtNomePartida
@@ -95,7 +95,7 @@
             this.txtNomePartida.BackColor = System.Drawing.Color.Wheat;
             this.txtNomePartida.Location = new System.Drawing.Point(16, 46);
             this.txtNomePartida.Name = "txtNomePartida";
-            this.txtNomePartida.Size = new System.Drawing.Size(178, 24);
+            this.txtNomePartida.Size = new System.Drawing.Size(178, 28);
             this.txtNomePartida.TabIndex = 11;
             // 
             // cmbFiltrarPartidas
@@ -107,10 +107,10 @@
             this.cmbFiltrarPartidas.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.cmbFiltrarPartidas.ForeColor = System.Drawing.SystemColors.WindowText;
             this.cmbFiltrarPartidas.FormattingEnabled = true;
-            this.cmbFiltrarPartidas.ItemHeight = 20;
+            this.cmbFiltrarPartidas.ItemHeight = 26;
             this.cmbFiltrarPartidas.Location = new System.Drawing.Point(0, 0);
             this.cmbFiltrarPartidas.Name = "cmbFiltrarPartidas";
-            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(839, 28);
+            this.cmbFiltrarPartidas.Size = new System.Drawing.Size(839, 34);
             this.cmbFiltrarPartidas.TabIndex = 10;
             // 
             // btnListarPartidas
@@ -137,7 +137,7 @@
             this.groupBox1.Controls.Add(this.btnCriarPartida);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.groupBox1.Location = new System.Drawing.Point(221, 305);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(231, 131);
             this.groupBox1.TabIndex = 16;
@@ -151,7 +151,7 @@
             this.btnListarJogadores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnListarJogadores.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.btnListarJogadores.Location = new System.Drawing.Point(532, 134);
-            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnListarJogadores.Margin = new System.Windows.Forms.Padding(2);
             this.btnListarJogadores.Name = "btnListarJogadores";
             this.btnListarJogadores.Size = new System.Drawing.Size(154, 31);
             this.btnListarJogadores.TabIndex = 17;
@@ -163,9 +163,9 @@
             // 
             this.txtIdPartida.BackColor = System.Drawing.Color.Wheat;
             this.txtIdPartida.Location = new System.Drawing.Point(459, 145);
-            this.txtIdPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIdPartida.Margin = new System.Windows.Forms.Padding(2);
             this.txtIdPartida.Name = "txtIdPartida";
-            this.txtIdPartida.Size = new System.Drawing.Size(48, 20);
+            this.txtIdPartida.Size = new System.Drawing.Size(48, 22);
             this.txtIdPartida.TabIndex = 19;
             // 
             // label3
@@ -176,7 +176,7 @@
             this.label3.Location = new System.Drawing.Point(469, 123);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 20);
+            this.label3.Size = new System.Drawing.Size(34, 25);
             this.label3.TabIndex = 20;
             this.label3.Text = "Id:";
             // 
@@ -187,7 +187,7 @@
             this.btnJogar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJogar.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnJogar.Location = new System.Drawing.Point(456, 314);
-            this.btnJogar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJogar.Margin = new System.Windows.Forms.Padding(2);
             this.btnJogar.Name = "btnJogar";
             this.btnJogar.Size = new System.Drawing.Size(230, 31);
             this.btnJogar.TabIndex = 19;
@@ -202,7 +202,7 @@
             this.btnAssistir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssistir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnAssistir.Location = new System.Drawing.Point(456, 366);
-            this.btnAssistir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAssistir.Margin = new System.Windows.Forms.Padding(2);
             this.btnAssistir.Name = "btnAssistir";
             this.btnAssistir.Size = new System.Drawing.Size(230, 31);
             this.btnAssistir.TabIndex = 23;
@@ -216,7 +216,7 @@
             this.lblVersao.Location = new System.Drawing.Point(649, 435);
             this.lblVersao.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVersao.Name = "lblVersao";
-            this.lblVersao.Size = new System.Drawing.Size(0, 13);
+            this.lblVersao.Size = new System.Drawing.Size(0, 17);
             this.lblVersao.TabIndex = 24;
             // 
             // label4
@@ -226,7 +226,7 @@
             this.label4.Location = new System.Drawing.Point(607, 435);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.Size = new System.Drawing.Size(53, 17);
             this.label4.TabIndex = 25;
             this.label4.Text = "Versão";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -239,7 +239,7 @@
             this.dgvPartida.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dgvPartida.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvPartida.Location = new System.Drawing.Point(221, 169);
-            this.dgvPartida.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPartida.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPartida.MultiSelect = false;
             this.dgvPartida.Name = "dgvPartida";
             this.dgvPartida.ReadOnly = true;
@@ -256,7 +256,7 @@
             this.dgvJogadores.BackgroundColor = System.Drawing.Color.Wheat;
             this.dgvJogadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvJogadores.Location = new System.Drawing.Point(459, 169);
-            this.dgvJogadores.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvJogadores.Margin = new System.Windows.Forms.Padding(2);
             this.dgvJogadores.MultiSelect = false;
             this.dgvJogadores.Name = "dgvJogadores";
             this.dgvJogadores.ReadOnly = true;

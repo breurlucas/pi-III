@@ -17,7 +17,7 @@ namespace onepiece
         Tabuleiro tabuleiro;
         PictureBox[] mapTiles;
         PictureBox unit;
-        List<int> myselfPosPiratas;
+        List<int> myPos;
   
         // Keeps track of the number of pirates in each tile
         int[] occupation;
@@ -36,8 +36,18 @@ namespace onepiece
         // DEV Automation variables
         bool jogoIniciado = false;
         bool jogoTerminado = false;
-        int vez, positionForward, positionBackwards;
+        int vez, positionForward;
+        List<int> backwards = new List<int>();
+        List<char> blueprint = new List<char>();
         string[] mao;
+        // All cards in hand
+        List<string> cartas = new List<string>();
+        // Different types of cards
+        List<string> cartasNoRep = new List<string>();
+        // Symbols not to be played
+        List<string> blacklist = new List<string>();
+        // The card that is going to be played
+        string play;
         Random random;
         
         List<string> jogadoresPartida = new List<string>();
@@ -66,7 +76,7 @@ namespace onepiece
             // New map object instantiation
             tabuleiro = new Tabuleiro();
             // Instantiates new myselfPosPirata array
-            myselfPosPiratas = new List<int>();
+            myPos = new List<int>();
 
             idPartida = Convert.ToInt32(loginForm.idPartida);
             txtIdJogador.Text = loginForm.idJogador;
@@ -89,7 +99,8 @@ namespace onepiece
             tmrVerificarVez.Enabled = false;
             random = new Random();
             positionForward = 0;
-            positionBackwards = 0;
+            // Clears the blueprint when a new game starts
+            blueprint.Clear();
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -147,8 +158,11 @@ namespace onepiece
             //  Requests the server the blueprint of the map
             string mapBlueprint = Jogo.ExibirTabuleiro(idPartida);
 
-            //  Builds the map using tiles based on the blueprint requested from the server
-            tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
+            /*  Builds the map using tiles based on the blueprint requested from the server.
+                Returns a char list of all the symbols and their order in the map. Stores it in the blueprint list
+                to be used in the strategy section. */
+
+            blueprint = tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
         private void updateBoardState()
@@ -168,7 +182,7 @@ namespace onepiece
             string[] estadoTabuleiro = response.Split('\r', ',');
 
             // Clear the myselfPosPiratas array
-            myselfPosPiratas.Clear();
+            myPos.Clear();
 
             //  Last input of estadoTabuleiro is empty
             for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
@@ -195,7 +209,7 @@ namespace onepiece
                 {
                     int j = 0;
                     while(j < repeat) {
-                        myselfPosPiratas.Add(position);
+                        myPos.Add(position);
                         j++;
                     } 
                 }
@@ -212,8 +226,7 @@ namespace onepiece
             // Myself: Position of the pirates on the board
             if(!jogoTerminado)
             {
-                positionForward = myselfPosPiratas[random.Next(0, myselfPosPiratas.Count)];
-                positionBackwards = myselfPosPiratas[myselfPosPiratas.Count - 1];
+                positionForward = myPos.First();
             }
 
             drawBoardState(response, estadoTabuleiro);
@@ -225,7 +238,7 @@ namespace onepiece
             cadeia.Clear();
             barco.Clear();
             
-            //  Clear units
+            // Clear units
             IList<PictureBox> pbs = new List<PictureBox>();
 
             foreach (var pb in picMapBackground.Controls.OfType<PictureBox>())
@@ -341,10 +354,14 @@ namespace onepiece
 
         private void updateMao()
         {
+            // Clear cards
+            cartas.Clear();
+            blacklist.Clear();
+
             // Update cards in hand
-            string cartas = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            cartas = cartas.Replace("\n", "");
-            mao = cartas.Split('\r',',');
+            string response = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
+            response = response.Replace("\n", "");
+            mao = response.Split('\r',',');
         
             lblSkull.Text = "0";
             lblTricorn.Text = "0";
@@ -355,6 +372,12 @@ namespace onepiece
 
             for (int i = 0; i < mao.Length - 1; i += 2)
             {
+                // Populate the cards list
+                 for (int j = 0; j < Convert.ToInt32(mao[i + 1]); j++)
+                {
+                    cartas.Add(mao[i]);
+                }
+
                 switch (mao[i])
                 {
                     case "E":
@@ -474,21 +497,38 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            updateMao();
             while (rodada < 4 && !jogoTerminado)
             {
-                Application.DoEvents();
-                updateMao();
                 updateBoardState();
-                if (mao[0] != "")
+                Application.DoEvents();
+
+                /* Look back and check for good plays backwards */
+                lookBack();
+
+                if (cartas.Any() && !backwards.Any())
                 {
                     // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, mao[0].ToString());
+                    strategize();
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
+                    rodada++;
+                } 
+                else if (cartas.Count >= 6)
+                {
+                    // Play forward
+                    strategize();
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 }
                 else
                 {
+                    // If there are no good options, move the first pirate backwards
+                    if (!backwards.Any())
+                    {
+                        backwards.Add(myPos.Last());
+                    }
                     // Play Backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionBackwards);
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards.First());
                     // Skips the turn if playing backwards fails
                     if(response.Contains("ERRO"))
                     {
@@ -497,7 +537,9 @@ namespace onepiece
                     rodada++;
                 }
 
-                
+                updateMao();
+
+
             }
             tmrVerificarVez.Enabled = true;
         }     
@@ -516,5 +558,109 @@ namespace onepiece
                 }
             }
         }
+
+        /***********
+         * 
+         * STRATEGY
+         * 
+         ***********/
+
+        private void lookBack()
+        {
+            backwards.Clear();
+
+            for (int i = myPos.Count - 1; i > 0; i--)
+            {
+                int step = 1;
+                int range = 4;
+                int pos = myPos[i] - 1;
+
+                while (step <= range && pos >= 1)
+                {
+
+                    // pos minus one to account for the index 0 of the occupation vector
+                    if (occupation[pos - 1] == 1)
+                    {
+                        break;
+                    }
+                    else if (occupation[pos - 1] == 2)
+                    {
+                        backwards.Add(myPos[i]);
+                        break;
+                    }
+                    else
+                    {
+                        pos -= 1;
+                        step++;
+                    }
+                }
+            }
+        }
+
+        private string checkFarthestPlay()
+        {
+            // List with the vacated tiles
+            List<char> options = new List<char>();
+            List<char> symbols = new List<char>{ 'T','P','C','E','G','F' };
+            // Position of the pirate that is going to be played + 1
+            int pos = myPos.First() + 1;
+            
+            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes
+            for(int i = pos; i <= occupation.Length; i++)
+            {
+                if(occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
+                {
+                    options.Add(blueprint[i - 1]);
+                    symbols.Remove(blueprint[i - 1]);
+                }
+            }
+
+            /* Check if there are entries left in the symbols vector, if so, add them at the end of the options vector, 
+            these symbols lead directly to the boat */
+            if (symbols.Any())
+            {
+                // Needs to be inverted to make up for the remove action
+                for (int i = symbols.Count - 1; i >= 0; i--)
+                {
+                    options.Add(symbols[i]);
+                    symbols.RemoveAt(i);
+                }
+            }          
+
+            for (int i = options.Count - 1; i > 0; i--)
+            {
+                for(int j = 0; j < cartas.Count; j++)
+                {
+                    if(options[i].ToString() == cartas[j])
+                    {
+                        return cartas[j];
+                    }
+                } 
+            }
+
+            return cartas.First();
+
+        }
+
+        private bool isFirstAppearance(List<char> symbols, char symbol)
+        {
+            for(int i = 0; i < symbols.Count; i++)
+            {
+                if(symbol == symbols[i])
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void strategize()
+        {
+            if (cartas.Count > 1)
+                play = checkFarthestPlay();
+            else
+                play = cartas.First();
+        }
+
     }
 }
