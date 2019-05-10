@@ -36,7 +36,7 @@ namespace onepiece
         // DEV Automation variables
         bool jogoIniciado = false;
         bool jogoTerminado = false;
-        int vez, positionForward, positionBackwards;
+        int vez, positionForward;
         List<int> backwards = new List<int>();
         List<char> blueprint = new List<char>();
         string[] mao;
@@ -99,7 +99,8 @@ namespace onepiece
             tmrVerificarVez.Enabled = false;
             random = new Random();
             positionForward = 0;
-            positionBackwards = 0;
+            // Clears the blueprint when a new game starts
+            blueprint.Clear();
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
