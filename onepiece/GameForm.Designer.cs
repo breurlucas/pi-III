@@ -95,7 +95,7 @@
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtVerificarVez.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerificarVez.Location = new System.Drawing.Point(0, 60);
-            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
@@ -384,7 +384,7 @@
             // 
             this.pictureBox6.Image = global::onepiece.Properties.Resources.cardHandKnife;
             this.pictureBox6.Location = new System.Drawing.Point(125, 58);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(37, 53);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -395,7 +395,7 @@
             // 
             this.pictureBox5.Image = global::onepiece.Properties.Resources.cardHandPistol;
             this.pictureBox5.Location = new System.Drawing.Point(160, 58);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(37, 53);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -406,7 +406,7 @@
             // 
             this.pictureBox4.Image = global::onepiece.Properties.Resources.cardHandSkull;
             this.pictureBox4.Location = new System.Drawing.Point(196, 58);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(37, 53);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -417,7 +417,7 @@
             // 
             this.pictureBox3.Image = global::onepiece.Properties.Resources.cardHandTricorn;
             this.pictureBox3.Location = new System.Drawing.Point(230, 58);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(37, 53);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -428,7 +428,7 @@
             // 
             this.pictureBox2.Image = global::onepiece.Properties.Resources.cardHandKey;
             this.pictureBox2.Location = new System.Drawing.Point(90, 58);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(37, 53);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -440,7 +440,7 @@
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = global::onepiece.Properties.Resources.cardHandBottle;
             this.pictureBox1.Location = new System.Drawing.Point(54, 58);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(38, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -503,7 +503,7 @@
             this.txtHistorico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtHistorico.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHistorico.Location = new System.Drawing.Point(0, 25);
-            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
@@ -571,7 +571,7 @@
             this.dgvCadeia.ColumnHeadersVisible = false;
             this.dgvCadeia.Enabled = false;
             this.dgvCadeia.Location = new System.Drawing.Point(-1, 28);
-            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCadeia.MultiSelect = false;
             this.dgvCadeia.Name = "dgvCadeia";
             this.dgvCadeia.ReadOnly = true;
@@ -591,7 +591,7 @@
             this.dgvBarco.ColumnHeadersVisible = false;
             this.dgvBarco.Enabled = false;
             this.dgvBarco.Location = new System.Drawing.Point(1094, 28);
-            this.dgvBarco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBarco.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBarco.MultiSelect = false;
             this.dgvBarco.Name = "dgvBarco";
             this.dgvBarco.ReadOnly = true;
@@ -606,7 +606,7 @@
             // 
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picMapBackground.Image = ((System.Drawing.Image)(resources.GetObject("picMapBackground.Image")));
+            this.picMapBackground.Image = global::onepiece.Properties.Resources.Map;
             this.picMapBackground.Location = new System.Drawing.Point(149, 0);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
@@ -641,7 +641,7 @@
             this.ForeColor = System.Drawing.Color.Goldenrod;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameForm";
             this.Text = "One Piece – Game";
             this.groupBox1.ResumeLayout(false);
