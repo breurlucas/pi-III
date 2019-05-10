@@ -225,9 +225,7 @@ namespace onepiece
             // Myself: Position of the pirates on the board
             if(!jogoTerminado)
             {
-                //positionForward = myPos[random.Next(0, myPos.Count)];
                 positionForward = myPos.First();
-                positionBackwards = myPos.Last();
             }
 
             drawBoardState(response, estadoTabuleiro);
@@ -501,9 +499,8 @@ namespace onepiece
             updateMao();
             while (rodada < 4 && !jogoTerminado)
             {
-                Application.DoEvents();
-
                 updateBoardState();
+                Application.DoEvents();
 
                 /* Look back and check for good plays backwards */
                 lookBack();
@@ -515,7 +512,7 @@ namespace onepiece
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 } 
-                else if (mao.Length > 6)
+                else if (cartas.Count >= 6)
                 {
                     // Play forward
                     strategize();
@@ -607,7 +604,8 @@ namespace onepiece
             // Position of the pirate that is going to be played + 1
             int pos = myPos.First() + 1;
             
-            for(int i = pos; i < occupation.Length; i++)
+            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes
+            for(int i = pos; i <= occupation.Length; i++)
             {
                 if(occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
                 {
@@ -620,7 +618,8 @@ namespace onepiece
             these symbols lead directly to the boat */
             if (symbols.Any())
             {
-                for (int i = 0; i < symbols.Count; i++)
+                // Needs to be inverted to make up for the remove action
+                for (int i = symbols.Count - 1; i >= 0; i--)
                 {
                     options.Add(symbols[i]);
                     symbols.RemoveAt(i);
