@@ -42,12 +42,16 @@ namespace onepiece
         string[] mao;
         // All cards in hand
         List<string> cartas = new List<string>();
+        // Double symbols list
+        List<string> cartasDouble = new List<string>();
         // Different types of cards
         List<string> cartasNoRep = new List<string>();
         // Symbols not to be played
         List<string> blacklist = new List<string>();
         // The card that is going to be played
         string play;
+        string doublePlay;
+
         Random random;
         
         List<string> jogadoresPartida = new List<string>();
@@ -101,6 +105,7 @@ namespace onepiece
             positionForward = 0;
             // Clears the blueprint when a new game starts
             blueprint.Clear();
+            doublePlay = "wait";
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -129,7 +134,7 @@ namespace onepiece
         {
             string response = Jogo.ListarJogadores(idPartida);
 
-            // *BRANCH: mudancas* Defining players using the 'Jogador' object
+            // Defining players using the 'Jogador' object
             players = response;
 
             //string replaced = response.Replace('', ' ');
@@ -356,6 +361,7 @@ namespace onepiece
         {
             // Clear cards
             cartas.Clear();
+            cartasDouble.Clear();
             blacklist.Clear();
 
             // Update cards in hand
@@ -408,14 +414,37 @@ namespace onepiece
                         break;
                 }
             }
+
+            // Populate double symbol list
+            for (int i = 0; i < cartas.Count - 1; i++)
+            {
+                if (cartas[i] == cartas[i + 1])
+                {                 
+                    if (!cartasDouble.Any())
+                    {
+                        cartasDouble.Add(cartas[i]);
+                    }
+                    else
+                    {
+                        for (int j = 0; j < cartasDouble.Count; j++)
+                        {
+                            if (cartasDouble[j] != cartas[i])
+                            {
+                                cartasDouble.Add(cartas[i]);
+                            }
+                        }
+                    }
+                    
+                }
+            }
         }
-        
+
 
         /******************
          * 
          * USER INTERACTION
          * 
-         ******************/ 
+         ******************/
 
 
         private void btnIniciar_Click(object sender, EventArgs e)
@@ -497,26 +526,50 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            int skipAllChecks = 0;
+
             updateMao();
             while (rodada < 4 && !jogoTerminado)
             {
                 updateBoardState();
                 Application.DoEvents();
 
-                /* Look back and check for good plays backwards */
-                lookBack();
+                // Reset skipAllChecks
+                if (skipAllChecks == 2)
+                    skipAllChecks = 0;
 
-                if (cartas.Any() && !backwards.Any())
+                if (skipAllChecks == 0)
+                {
+                    /* Look back and check for good plays backwards */
+                    lookBack();
+                    if(cartas.Any())
+                    {
+                        strategize();
+                    }         
+                }
+
+                if(rodada != 3  && skipAllChecks == 0)
+                {
+                    if (play == "wait" && doublePlay != "wait")
+                    {
+                        play = doublePlay;
+                        skipAllChecks++;
+                    }
+                }
+                else if(skipAllChecks == 1)
+                {
+                    skipAllChecks++;
+                }
+               
+                if (cartas.Any() && !backwards.Any() && play != "wait")
                 {
                     // Play forward
-                    strategize();
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 } 
-                else if (cartas.Count >= 6)
+                else if (cartas.Count >= 6 && play != "wait")
                 {
                     // Play forward
-                    strategize();
                     response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
                     rodada++;
                 }
@@ -604,13 +657,23 @@ namespace onepiece
             List<char> symbols = new List<char>{ 'T','P','C','E','G','F' };
             // Position of the pirate that is going to be played + 1
             int pos = myPos.First() + 1;
-            
-            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes
+            bool canDoublePlay;
+            doublePlay = "wait";
+
+            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes        
             for(int i = pos; i <= occupation.Length; i++)
             {
                 if(occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
                 {
-                    options.Add(blueprint[i - 1]);
+                    if(i <= 30)
+                    {
+                        options.Add(blueprint[i - 1]);
+                    }
+                    else
+                    {
+                        canDoublePlay = checkForDoublePlay(blueprint[i - 1]);
+                    }
+
                     symbols.Remove(blueprint[i - 1]);
                 }
             }
@@ -627,19 +690,21 @@ namespace onepiece
                 }
             }          
 
-            for (int i = options.Count - 1; i > 0; i--)
+            if(options.Any())
             {
-                for(int j = 0; j < cartas.Count; j++)
+                for (int i = options.Count - 1; i > 0; i--)
                 {
-                    if(options[i].ToString() == cartas[j])
+                    for (int j = 0; j < cartas.Count; j++)
                     {
-                        return cartas[j];
+                        if (options[i].ToString() == cartas[j])
+                        {
+                            return cartas[j];
+                        }
                     }
-                } 
+                }
             }
 
-            return cartas.First();
-
+            return "wait";
         }
 
         private bool isFirstAppearance(List<char> symbols, char symbol)
@@ -662,5 +727,21 @@ namespace onepiece
                 play = cartas.First();
         }
 
+        private bool checkForDoublePlay(char symbol)
+        {
+            if (cartasDouble.Any())
+            {
+                for(int i = 0; i < cartasDouble.Count; i++)
+                {
+                    if(cartasDouble[i] == symbol.ToString())
+                    {
+                        doublePlay = cartasDouble[i];
+                        return true;
+                    }
+                }
+            } 
+            
+            return false; 
+        }
     }
 }
