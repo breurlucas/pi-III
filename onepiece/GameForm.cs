@@ -1,11 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CartagenaServer;
 
@@ -15,57 +11,40 @@ namespace onepiece
     {
         LoginForm loginForm;
         Tabuleiro tabuleiro;
+        Strategy strategy;
+        Jogador jogador;
         PictureBox[] mapTiles;
         PictureBox unit;
-        List<int> myPos;
-  
-        // Keeps track of the number of pirates in each tile
+
+        // Keeps track of the number of pirates on each tile
         int[] occupation;
         // Stores the colors of the players at the start of the game
         Dictionary<string, Color> colors;
-
         // Jail and Boat pirate count
         List<Jogador> cadeia = new List<Jogador>();
         List<Jogador> barco = new List<Jogador>();
-        // Player object
-        Jogador jogador;
 
         // Id of the match being played
         int idPartida;
+        // All cards in hand, strings
+        string[] mao;
 
         // DEV Automation variables
         bool jogoIniciado = false;
         bool jogoTerminado = false;
-        int vez, positionForward;
-        List<int> backwards = new List<int>();
-        List<char> blueprint = new List<char>();
-        string[] mao;
-        // All cards in hand
-        List<string> cartas = new List<string>();
-        // Double symbols list
-        List<string> cartasDouble = new List<string>();
-        // Different types of cards
-        List<string> cartasNoRep = new List<string>();
-        // Symbols not to be played
-        List<string> blacklist = new List<string>();
-        // The card that is going to be played
-        string play;
-        string doublePlay;
-
-        Random random;
-        
+        int vez;
+    
         List<string> jogadoresPartida = new List<string>();
         string[] jogadores;
-
         string currentPlayer;
         string players;
 
 
-        /****************
+        /************************************************************************************************
          * 
-         * INITIALIZATION
+         *                                      INITIALIZATION 
          * 
-         ****************/
+         * **********************************************************************************************/
 
         public GameForm(LoginForm form)
         {
@@ -79,8 +58,7 @@ namespace onepiece
 
             // New map object instantiation
             tabuleiro = new Tabuleiro();
-            // Instantiates new myselfPosPirata array
-            myPos = new List<int>();
+            
 
             idPartida = Convert.ToInt32(loginForm.idPartida);
             txtIdJogador.Text = loginForm.idJogador;
@@ -98,14 +76,19 @@ namespace onepiece
             cboSimbolo.Items.Add("Tricórnio");
             cboSimbolo.Items.Add("Faca");
 
-            // DEV Automation
+            /* 
+             * Automation 
+             */
+
             tmrVerificarVez.Interval = 1500;
             tmrVerificarVez.Enabled = false;
-            random = new Random();
-            positionForward = 0;
-            // Clears the blueprint when a new game starts
-            blueprint.Clear();
-            doublePlay = "wait";
+
+            /* 
+             * Strategy 
+             */
+
+            strategy = new Strategy(); 
+
         }
 
         /* DEVELOPMENT Initializes in spectator mode */
@@ -123,14 +106,14 @@ namespace onepiece
             exibirTabuleiro();
         }
 
-        /***************
+        /************************************************************************************************
          * 
-         * SETUP 
+         *                                      SETUP 
          * 
-         * *************/
+         * **********************************************************************************************/
 
-    // Method that builds a dictionary for the players (id and color)
-    private void definirJogadores()
+        // Method that builds a dictionary for the players (id and color)
+        private void definirJogadores()
         {
             string response = Jogo.ListarJogadores(idPartida);
 
@@ -139,8 +122,9 @@ namespace onepiece
 
             //string replaced = response.Replace('', ' ');
             string[] playersSplit = response.Split('\n');
-            foreach(var pl in playersSplit) {
-                if(pl != "")
+            foreach (var pl in playersSplit)
+            {
+                if (pl != "")
                 {
                     string[] current = pl.Split(',');
                     string id = current[0];
@@ -167,7 +151,7 @@ namespace onepiece
                 Returns a char list of all the symbols and their order in the map. Stores it in the blueprint list
                 to be used in the strategy section. */
 
-            blueprint = tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
+           strategy.blueprint = tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
         private void updateBoardState()
@@ -187,14 +171,14 @@ namespace onepiece
             string[] estadoTabuleiro = response.Split('\r', ',');
 
             // Clear the myselfPosPiratas array
-            myPos.Clear();
+            strategy.myPos.Clear();
 
             //  Last input of estadoTabuleiro is empty
             for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
             {
                 int position, repeat;
                 string player;
-               
+
                 position = Convert.ToInt32(estadoTabuleiro[i]);
 
                 repeat = Convert.ToInt32(estadoTabuleiro[i + 2]);
@@ -202,47 +186,40 @@ namespace onepiece
                 player = estadoTabuleiro[i + 1];
 
                 // Verify if the game finished
-                if(position == 37 && repeat == 6)
+                if (position == 37 && repeat == 6)
                 {
                     jogoTerminado = true;
                     tmrVerificarVez.Enabled = false;
                     MessageBox.Show("O jogo terminou!");
                 }
 
-                // Populate myselfPosPirata
+                // Populate myPos
                 if (player == loginForm.idJogador && position != 37)
                 {
                     int j = 0;
-                    while(j < repeat) {
-                        myPos.Add(position);
+                    while (j < repeat)
+                    {
+                        strategy.myPos.Add(position);
                         j++;
-                    } 
+                    }
                 }
             }
-
-            /*
-             * Defines the AUTOMATION parameters
-             */
 
             // Player id of who should play this turn
             vez = Convert.ToInt32(estadoTabuleiro[1]);
             exibirJogadorAtual(vez);
-
-            // Myself: Position of the pirates on the board
-            if(!jogoTerminado)
-            {
-                positionForward = myPos.First();
-            }
-
+            
+            // Draws board state
             drawBoardState(response, estadoTabuleiro);
         }
 
-        private void drawBoardState(string response, string[] estadoTabuleiro) {
+        private void drawBoardState(string response, string[] estadoTabuleiro)
+        {
 
             // Clear jail and boat
             cadeia.Clear();
             barco.Clear();
-            
+
             // Clear units
             IList<PictureBox> pbs = new List<PictureBox>();
 
@@ -259,9 +236,6 @@ namespace onepiece
 
             // Instatiates new occupation array
             occupation = new int[36];
-            
-            // DataGridView Coordinate
-            int dgvY = 0;
 
             //  Last input of estadoTabuleiro is empty
             for (int i = 3; i < estadoTabuleiro.Length - 1; i += 3)
@@ -278,11 +252,14 @@ namespace onepiece
                 color = colors[player];
 
                 jogador = new Jogador(color, repeat);
-                
+
                 // 0 is the Jail and 37 is the boat
-                if (position == 0) {
-                    cadeia.Add(jogador);  
-                } else if(position == 37) {
+                if (position == 0)
+                {
+                    cadeia.Add(jogador);
+                }
+                else if (position == 37)
+                {
                     barco.Add(jogador);
                 }
                 else
@@ -294,8 +271,11 @@ namespace onepiece
             dgvCadeia.ClearSelection();
 
             dgvBarco.DataSource = null;
-            dgvBarco.DataSource = barco;    
+            dgvBarco.DataSource = barco;
             dgvBarco.ClearSelection();
+
+            // Fill in the strategy occupation vector
+            strategy.occupation = occupation;
         }
 
         private void drawUnit(int position, Color color, int repeat)
@@ -360,15 +340,13 @@ namespace onepiece
         private void updateMao()
         {
             // Clear cards
-            cartas.Clear();
-            cartasDouble.Clear();
-            blacklist.Clear();
+            strategy.cartas.Clear();
 
             // Update cards in hand
             string response = Jogo.ConsultarMao(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
             response = response.Replace("\n", "");
-            mao = response.Split('\r',',');
-        
+            mao = response.Split('\r', ',');
+
             lblSkull.Text = "0";
             lblTricorn.Text = "0";
             lblPistol.Text = "0";
@@ -379,9 +357,9 @@ namespace onepiece
             for (int i = 0; i < mao.Length - 1; i += 2)
             {
                 // Populate the cards list
-                 for (int j = 0; j < Convert.ToInt32(mao[i + 1]); j++)
+                for (int j = 0; j < Convert.ToInt32(mao[i + 1]); j++)
                 {
-                    cartas.Add(mao[i]);
+                    strategy.cartas.Add(mao[i]);
                 }
 
                 switch (mao[i])
@@ -414,47 +392,26 @@ namespace onepiece
                         break;
                 }
             }
-
-            // Populate double symbol list
-            for (int i = 0; i < cartas.Count - 1; i++)
-            {
-                if (cartas[i] == cartas[i + 1])
-                {                 
-                    if (!cartasDouble.Any())
-                    {
-                        cartasDouble.Add(cartas[i]);
-                    }
-                    else
-                    {
-                        for (int j = 0; j < cartasDouble.Count; j++)
-                        {
-                            if (cartasDouble[j] != cartas[i])
-                            {
-                                cartasDouble.Add(cartas[i]);
-                            }
-                        }
-                    }
-                    
-                }
-            }
         }
 
 
-        /******************
+        /************************************************************************************************
          * 
-         * USER INTERACTION
+         *                                      USER INTERACTION 
          * 
-         ******************/
+         * **********************************************************************************************/
 
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             string iniciarPartida = Jogo.IniciarPartida(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
-            if (iniciarPartida.Contains("ERRO")) {
+            if (iniciarPartida.Contains("ERRO"))
+            {
                 MessageBox.Show(iniciarPartida);
             }
-            else {
-                if(!jogoIniciado)
+            else
+            {
+                if (!jogoIniciado)
                 {
                     definirJogadores();
                     exibirTabuleiro();
@@ -489,7 +446,7 @@ namespace onepiece
             {
                 updateBoardState();
             }
-              
+
         }
 
         private void btnHistorico_Click(object sender, EventArgs e)
@@ -505,7 +462,7 @@ namespace onepiece
         private void btnMoverFrente_Click(object sender, EventArgs e)
         {
             string comboBoxSimbolo = cboSimbolo.Text;
-            string simbolo  = comboBoxSimbolo[0].ToString();
+            string simbolo = comboBoxSimbolo[0].ToString();
             Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, Convert.ToInt32(txtPosicao.Text), simbolo);
             updateBoardState();
         }
@@ -516,86 +473,48 @@ namespace onepiece
             updateBoardState();
         }
 
-        /************
+        /************************************************************************************************
          * 
-         * AUTOMATION
+         *                                      AUTOMATION 
          * 
-         ************/
+         * **********************************************************************************************/
 
         private void jogar()
         {
             string response;
             int rodada = 1;
-            int skipAllChecks = 0;
 
             updateMao();
+
             while (rodada < 4 && !jogoTerminado)
             {
                 updateBoardState();
                 Application.DoEvents();
 
-                // Reset skipAllChecks
-                if (skipAllChecks == 2)
-                    skipAllChecks = 0;
-
-                if (skipAllChecks == 0)
-                {
-                    /* Look back and check for good plays backwards */
-                    lookBack();
-                    if(cartas.Any())
-                    {
-                        strategize();
-                    }         
-                }
-
-                if(rodada != 3  && skipAllChecks == 0)
-                {
-                    if (play == "wait" && doublePlay != "wait")
-                    {
-                        play = doublePlay;
-                        skipAllChecks++;
-                    }
-                }
-                else if(skipAllChecks == 1)
-                {
-                    skipAllChecks++;
-                }
-               
-                if (cartas.Any() && !backwards.Any() && play != "wait")
+                strategy.definePlay();
+                if (strategy.forward)
                 {
                     // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
-                    rodada++;
-                } 
-                else if (cartas.Count >= 6 && play != "wait")
-                {
-                    // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, positionForward, play);
-                    rodada++;
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, strategy.myPos.First(), strategy.play);
+                    rodada++;                
                 }
-                else
-                {
-                    // If there are no good options, move the first pirate backwards
-                    if (!backwards.Any())
+                else {
+                    // Play backwards
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, strategy.backwards.First());
+                   
+                    if (response.Contains("ERRO"))
                     {
-                        backwards.Add(myPos.Last());
-                    }
-                    // Play Backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, backwards.First());
-                    // Skips the turn if playing backwards fails
-                    if(response.Contains("ERRO"))
-                    {
+                        // Skip turn
                         Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador);
                     }
                     rodada++;
                 }
 
                 updateMao();
-
-
             }
+
             tmrVerificarVez.Enabled = true;
-        }     
+        }
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
         {
@@ -603,7 +522,7 @@ namespace onepiece
             if (jogoIniciado)
             {
                 updateBoardState();
-                
+
                 if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
                     tmrVerificarVez.Enabled = false;
@@ -612,136 +531,7 @@ namespace onepiece
             }
         }
 
-        /***********
-         * 
-         * STRATEGY
-         * 
-         ***********/
-
-        private void lookBack()
-        {
-            backwards.Clear();
-
-            for (int i = myPos.Count - 1; i > 0; i--)
-            {
-                int step = 1;
-                int range = 4;
-                int pos = myPos[i] - 1;
-
-                while (step <= range && pos >= 1)
-                {
-
-                    // pos minus one to account for the index 0 of the occupation vector
-                    if (occupation[pos - 1] == 1)
-                    {
-                        break;
-                    }
-                    else if (occupation[pos - 1] == 2)
-                    {
-                        backwards.Add(myPos[i]);
-                        break;
-                    }
-                    else
-                    {
-                        pos -= 1;
-                        step++;
-                    }
-                }
-            }
-        }
-
-        private string checkFarthestPlay()
-        {
-            // List with the vacated tiles
-            List<char> options = new List<char>();
-            List<char> symbols = new List<char>{ 'T','P','C','E','G','F' };
-            // Position of the pirate that is going to be played + 1
-            int pos = myPos.First() + 1;
-            bool canDoublePlay;
-            doublePlay = "wait";
-
-            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes        
-            for(int i = pos; i <= occupation.Length; i++)
-            {
-                if(occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
-                {
-                    if(i <= 30)
-                    {
-                        options.Add(blueprint[i - 1]);
-                    }
-                    else
-                    {
-                        canDoublePlay = checkForDoublePlay(blueprint[i - 1]);
-                    }
-
-                    symbols.Remove(blueprint[i - 1]);
-                }
-            }
-
-            /* Check if there are entries left in the symbols vector, if so, add them at the end of the options vector, 
-            these symbols lead directly to the boat */
-            if (symbols.Any())
-            {
-                // Needs to be inverted to make up for the remove action
-                for (int i = symbols.Count - 1; i >= 0; i--)
-                {
-                    options.Add(symbols[i]);
-                    symbols.RemoveAt(i);
-                }
-            }          
-
-            if(options.Any())
-            {
-                for (int i = options.Count - 1; i > 0; i--)
-                {
-                    for (int j = 0; j < cartas.Count; j++)
-                    {
-                        if (options[i].ToString() == cartas[j])
-                        {
-                            return cartas[j];
-                        }
-                    }
-                }
-            }
-
-            return "wait";
-        }
-
-        private bool isFirstAppearance(List<char> symbols, char symbol)
-        {
-            for(int i = 0; i < symbols.Count; i++)
-            {
-                if(symbol == symbols[i])
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        private void strategize()
-        {
-            if (cartas.Count > 1)
-                play = checkFarthestPlay();
-            else
-                play = cartas.First();
-        }
-
-        private bool checkForDoublePlay(char symbol)
-        {
-            if (cartasDouble.Any())
-            {
-                for(int i = 0; i < cartasDouble.Count; i++)
-                {
-                    if(cartasDouble[i] == symbol.ToString())
-                    {
-                        doublePlay = cartasDouble[i];
-                        return true;
-                    }
-                }
-            } 
-            
-            return false; 
-        }
     }
 }
+
+        

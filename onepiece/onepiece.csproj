@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Strategy.cs" />
     <Compile Include="Tabuleiro.cs" />
     <EmbeddedResource Include="LobbyForm.resx">
       <DependentUpon>LobbyForm.cs</DependentUpon>
