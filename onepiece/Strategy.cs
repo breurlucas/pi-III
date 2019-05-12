@@ -23,8 +23,18 @@ namespace onepiece
         // The card that is going to be played
         public string play;
         public bool forward;
+        public int twoTurnPlay = 0;
 
-        public void definePlay()
+        public string firstCard = "";
+        public string secondCard = "";
+        public int posNextPlay = 0;
+
+        // List with the vacated tiles chars in the last six
+        List<char> jump = new List<char>();
+        // List with the vacated tiles numbers in the last six
+        List<int> jumpPos = new List<int>();
+
+        public void definePlay(int rodada)
         {
             /* Look back and check for good plays backwards */
             lookBack();
@@ -32,9 +42,14 @@ namespace onepiece
             if (cartas.Any())
             {
                 if (cartas.Count > 1)
-                    play = checkFarthestPlay();
+                    play = checkFarthestPlay(rodada);
                 else
                     play = cartas.First();
+            }
+
+            if (play == "Pulo do gato!")
+            {
+                twoTurnPlay++;
             }
 
             if (cartas.Any() && !backwards.Any() && play != "wait")
@@ -90,10 +105,15 @@ namespace onepiece
             }
         }
 
-        private string checkFarthestPlay()
+        private string checkFarthestPlay(int rodada)
         {
             // List with the vacated tiles
             List<char> options = new List<char>();
+            List<char> boat = new List<char>();
+            jump.Clear();
+            jumpPos.Clear();
+            firstCard = "";
+            secondCard = "";
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
             // Position of the pirate that is going to be played + 1
             int pos = myPos.First() + 1;
@@ -106,22 +126,46 @@ namespace onepiece
                     if (i <= 30)
                     {
                         options.Add(blueprint[i - 1]);
+                    } else
+                    {
+                        jump.Add(blueprint[i - 1]);
+                        jumpPos.Add(i);
                     }
 
                     symbols.Remove(blueprint[i - 1]);
                 }
             }
 
-            /* Check if there are entries left in the symbols vector, if so, add them at the end of the options vector, 
-            these symbols lead directly to the boat */
+            /* Check if there are entries left in the symbols vector, if so, add them to the boat vector */
             if (symbols.Any())
             {
                 // Needs to be inverted to make up for the remove action
                 for (int i = symbols.Count - 1; i >= 0; i--)
                 {
-                    options.Add(symbols[i]);
+                    boat.Add(symbols[i]);
                     symbols.RemoveAt(i);
                 }
+            }
+
+            // Check if there are options leading to the boat
+            if(boat.Any())
+            {
+                for (int i = boat.Count - 1; i >= 0; i--)
+                {
+                    for (int j = 0; j < cartas.Count; j++)
+                    {
+                        if (boat[i].ToString() == cartas[j])
+                        {
+                            return cartas[j];
+                        }
+                    }
+                }
+            }
+
+            if (cartas.Count >= 2 && rodada != 3)
+            {
+                if (canPuloDoGato())
+                    return "Pulo do gato!";
             }
 
             if (options.Any())
@@ -153,55 +197,62 @@ namespace onepiece
             return false;
         }
 
-        private string puloDoGato()
+        private bool canPuloDoGato() 
         {
-            // List with the vacated tiles
-            List<char> options = new List<char>();
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
-            // Position of the pirate that is going to be played + 1
-            int pos = myPos.First() + 1;
-
-            // Needs to be '<=' to account for the (-1) of the occupation and blueprint indexes        
-            for (int i = pos; i <= occupation.Length; i++)
+            List<string> available = cartas;
+            int index = 0;
+            // Check which cards would be eligible for the next play
+            for (int i = 0; i < jump.Count; i++) 
             {
-                if (occupation[i - 1] == 0 && isFirstAppearance(symbols, blueprint[i - 1]))
+                for (int j = available.Count - 1; j >= 0; j--)
                 {
-                    if (i <= 30)
+                    if (jump[i].ToString() == available[j])
                     {
-                        options.Add(blueprint[i - 1]);
+                        posNextPlay = jumpPos[i];
+                        firstCard = available[j];
+                        available.RemoveAt(j);
+                        index = i;
+                        break;
                     }
-
-                    symbols.Remove(blueprint[i - 1]);
                 }
             }
 
-            /* Check if there are entries left in the symbols vector, if so, add them at the end of the options vector, 
-            these symbols lead directly to the boat */
-            if (symbols.Any())
+            if (firstCard != "")
             {
-                // Needs to be inverted to make up for the remove action
-                for (int i = symbols.Count - 1; i >= 0; i--)
+                // If there are no more empty tiles after this index, all cards can be played
+                if (index == jump.Count - 1)
                 {
-                    options.Add(symbols[i]);
-                    symbols.RemoveAt(i);
+                    secondCard = available.First();
+                    return true;
                 }
-            }
-
-            if (options.Any())
-            {
-                for (int i = options.Count - 1; i > 0; i--)
+                else
                 {
-                    for (int j = 0; j < cartas.Count; j++)
+                    for (int i = index + 1; i < jump.Count; i++)
                     {
-                        if (options[i].ToString() == cartas[j])
+                        for (int j = available.Count - 1; j >= 0; j--)
                         {
-                            return cartas[j];
+                            if (jump[i].ToString() == available[j])
+                            {
+                                available.RemoveAt(j);
+                            }
                         }
                     }
+
+                    if(available.Any())
+                    {
+                        secondCard = available.First();
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+
                 }
             }
 
-            return "wait";
+            return false;
         }
 
         private void checkForDoubles()

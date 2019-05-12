@@ -483,6 +483,7 @@ namespace onepiece
         {
             string response;
             int rodada = 1;
+            int pos = 0;
 
             updateMao();
 
@@ -491,11 +492,31 @@ namespace onepiece
                 updateBoardState();
                 Application.DoEvents();
 
-                strategy.definePlay();
+                if(strategy.twoTurnPlay > 2)
+                    strategy.twoTurnPlay = 0;
+
+                if (strategy.twoTurnPlay == 0)
+                {
+                    strategy.definePlay(rodada);
+                    pos = strategy.myPos.First();
+                }
+                else if(strategy.twoTurnPlay == 1)
+                {
+                    strategy.play = strategy.firstCard;
+                    pos = strategy.myPos.First();
+                    strategy.twoTurnPlay++;
+                }
+                else
+                {
+                    strategy.play = strategy.secondCard;
+                    pos = strategy.posNextPlay;
+                    strategy.twoTurnPlay++;
+                }
+
                 if (strategy.forward)
                 {
                     // Play forward
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, strategy.myPos.First(), strategy.play);
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, pos, strategy.play);
                     rodada++;                
                 }
                 else {
