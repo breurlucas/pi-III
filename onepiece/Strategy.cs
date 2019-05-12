@@ -29,9 +29,9 @@ namespace onepiece
         public string secondCard = "";
         public int posNextPlay = 0;
 
-        // List with the vacated tiles chars in the last six
+        // List with the vacated tiles that can be jumped to (char)
         List<char> jump = new List<char>();
-        // List with the vacated tiles numbers in the last six
+        // List with the vacated tiles that can be jumped to (int)
         List<int> jumpPos = new List<int>();
 
         public void definePlay(int rodada)
@@ -57,6 +57,10 @@ namespace onepiece
                 forward = true;
             }
             else if (cartas.Count >= 6 && play != "wait")
+            {
+                forward = true;
+            }
+            else if (play == "Pulo do gato!")
             {
                 forward = true;
             }
@@ -112,8 +116,6 @@ namespace onepiece
             List<char> boat = new List<char>();
             jump.Clear();
             jumpPos.Clear();
-            firstCard = "";
-            secondCard = "";
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
             // Position of the pirate that is going to be played + 1
             int pos = myPos.First() + 1;
@@ -133,7 +135,7 @@ namespace onepiece
                     }
 
                     symbols.Remove(blueprint[i - 1]);
-                }
+                } 
             }
 
             /* Check if there are entries left in the symbols vector, if so, add them to the boat vector */
@@ -200,10 +202,12 @@ namespace onepiece
         private bool canPuloDoGato() 
         {
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
+            firstCard = "";
+            secondCard = "";
             List<string> available = cartas;
-            int index = 0;
+  
             // Check which cards would be eligible for the next play
-            for (int i = 0; i < jump.Count; i++) 
+            for (int i = jump.Count - 1; i >= 0; i--) 
             {
                 for (int j = available.Count - 1; j >= 0; j--)
                 {
@@ -212,43 +216,37 @@ namespace onepiece
                         posNextPlay = jumpPos[i];
                         firstCard = available[j];
                         available.RemoveAt(j);
-                        index = i;
-                        break;
+                        goto FoundCard;
                     }
+                   
                 }
             }
 
+            FoundCard:
             if (firstCard != "")
             {
-                // If there are no more empty tiles after this index, all cards can be played
-                if (index == jump.Count - 1)
+                /* No 'PosNextPlay - 1'  is needed to compensate for the '0' index of the occupation array 
+                   because it should start at the next tile anyway. Because of this, 'occupation[i + 1]' in
+                   the loop should also be avoided. */
+                for (int i = posNextPlay; i < occupation.Length; i++)
+                {
+                    for (int j = available.Count - 1; j >= 0; j--)
+                    {
+                        if (occupation[i] == 0 && (blueprint[i].ToString() == available[j]))
+                        {
+                            available.RemoveAt(j);
+                        }
+                    }
+                }
+
+                if(available.Any())
                 {
                     secondCard = available.First();
                     return true;
                 }
                 else
                 {
-                    for (int i = index + 1; i < jump.Count; i++)
-                    {
-                        for (int j = available.Count - 1; j >= 0; j--)
-                        {
-                            if (jump[i].ToString() == available[j])
-                            {
-                                available.RemoveAt(j);
-                            }
-                        }
-                    }
-
-                    if(available.Any())
-                    {
-                        secondCard = available.First();
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-
+                    return false;
                 }
             }
 
