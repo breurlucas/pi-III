@@ -41,7 +41,8 @@ namespace onepiece
 
             if (cartas.Any())
             {
-                if (cartas.Count > 1)
+                // If we have more than 1 pirate or more than one card
+                if (myPos.Count > 1 || cartas.Count > 1)
                     play = checkFarthestPlay(rodada);
                 else
                     play = cartas.First();
