@@ -521,7 +521,7 @@ namespace onepiece
                 }
                 else {
                     // Play backwards
-                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, strategy.backwards.First());
+                    response = Jogo.Jogar(Convert.ToInt32(loginForm.idJogador), loginForm.senhaJogador, strategy.backwardsPlay);
                    
                     if (response.Contains("ERRO"))
                     {

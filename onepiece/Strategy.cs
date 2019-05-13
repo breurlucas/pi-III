@@ -9,7 +9,8 @@ namespace onepiece
     class Strategy
     {
         // Plays backwards available
-        public List<int> backwards = new List<int>();
+        private int backSingle;
+        private List<int> backDouble = new List<int>();
         // All symbols on the map, in order
         public List<char> blueprint = new List<char>();
         // Keeps track of the number of pirates on each tile
@@ -23,6 +24,7 @@ namespace onepiece
         // The card that is going to be played
         public string play;
         public bool forward;
+        public int backwardsPlay;
         public int twoTurnPlay = 0;
 
         public string firstCard = "";
@@ -30,9 +32,9 @@ namespace onepiece
         public int posNextPlay = 0;
 
         // List with the vacated tiles that can be jumped to (char)
-        List<char> jump = new List<char>();
+        private List<char> jump = new List<char>();
         // List with the vacated tiles that can be jumped to (int)
-        List<int> jumpPos = new List<int>();
+        private List<int> jumpPos = new List<int>();
 
         public void definePlay(int rodada)
         {
@@ -53,7 +55,7 @@ namespace onepiece
                 twoTurnPlay++;
             }
 
-            if (cartas.Any() && !backwards.Any() && play != "wait")
+            if (cartas.Any() && !backDouble.Any() && play != "wait")
             {
                 forward = true;
             }
@@ -67,20 +69,22 @@ namespace onepiece
             }
             else
             {
-                // If there are no good options, move the first pirate backwards
-                if (!backwards.Any())
-                {
-                    backwards.Add(myPos.Last());
-                }
-
+                if (backDouble.Any())
+                    backwardsPlay = backDouble.First();
+                else
+                    backwardsPlay = backSingle;
                 forward = false;
-               
             }
         }
 
         private void lookBack()
         {
-            backwards.Clear();
+            backDouble.Clear();
+            backSingle = 0;
+            // List that keeps track of the distance of myPos to the first tile occupied by one unit
+            List<int> steps = new List<int>();
+            // List of the myPos entries tracked by the list above
+            List<int> myPosOneCard = new List<int>();
 
             for (int i = myPos.Count - 1; i > 0; i--)
             {
@@ -94,11 +98,13 @@ namespace onepiece
                     // pos minus one to account for the index 0 of the occupation vector
                     if (occupation[pos - 1] == 1)
                     {
+                        steps.Add(step);
+                        myPosOneCard.Add(myPos[i]);
                         break;
                     }
                     else if (occupation[pos - 1] == 2)
                     {
-                        backwards.Add(myPos[i]);
+                        backDouble.Add(myPos[i]);
                         break;
                     }
                     else
@@ -106,6 +112,17 @@ namespace onepiece
                         pos -= 1;
                         step++;
                     }
+                }
+            }
+
+            if(!backDouble.Any() && steps.Any())
+            {
+                if(steps.Min() < 6)
+                {
+                    // Index of the lowest entry
+                    int index = steps.IndexOf(steps.Min());
+                    // Position with the smallest number of steps backwards
+                    backSingle = myPosOneCard.ElementAt(index);
                 }
             }
         }
