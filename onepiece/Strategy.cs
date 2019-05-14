@@ -10,7 +10,7 @@ namespace onepiece
     {
         // Plays backwards available
         private int backSingle;
-        private List<int> backDouble = new List<int>();
+        private int backDouble;
         // All symbols on the map, in order
         public List<char> blueprint = new List<char>();
         // Keeps track of the number of pirates on each tile
@@ -36,6 +36,9 @@ namespace onepiece
         // List with the vacated tiles that can be jumped to (int)
         private List<int> jumpPos = new List<int>();
 
+        // Tweakable variables
+        public int maxRangeBackwards = 4;
+
         public void definePlay(int rodada)
         {
             /* Look back and check for good plays backwards */
@@ -50,12 +53,12 @@ namespace onepiece
                     play = cartas.First();
             }
 
-            if (play == "Pulo do gato!")
+            if (play == "doublejump")
             {
                 twoTurnPlay++;
             }
 
-            if (cartas.Any() && !backDouble.Any() && play != "wait")
+            if (cartas.Any() && backDouble == 0 && play != "wait")
             {
                 forward = true;
             }
@@ -63,14 +66,14 @@ namespace onepiece
             {
                 forward = true;
             }
-            else if (play == "Pulo do gato!")
+            else if (play == "doublejump")
             {
                 forward = true;
             }
             else
             {
-                if (backDouble.Any())
-                    backwardsPlay = backDouble.First();
+                if (backDouble != 0)
+                    backwardsPlay = backDouble;
                 else
                     backwardsPlay = backSingle;
                 forward = false;
@@ -79,17 +82,22 @@ namespace onepiece
 
         private void lookBack()
         {
-            backDouble.Clear();
+            backDouble = 0;
             backSingle = 0;
             // List that keeps track of the distance of myPos to the first tile occupied by one unit
-            List<int> steps = new List<int>();
+            List<int> stepsSingle = new List<int>();
             // List of the myPos entries tracked by the list above
             List<int> myPosOneCard = new List<int>();
+
+            // List that keeps track of the distance of myPos to the first tile occupied by two units
+            List<int> stepsDouble = new List<int>();
+            // List of the myPos entries tracked by the list above
+            List<int> myPosTwoCards = new List<int>();
 
             for (int i = myPos.Count - 1; i > 0; i--)
             {
                 int step = 1;
-                int range = 4;
+                int range = maxRangeBackwards;
                 int pos = myPos[i] - 1;
 
                 while (step <= range && pos >= 1)
@@ -98,13 +106,14 @@ namespace onepiece
                     // pos minus one to account for the index 0 of the occupation vector
                     if (occupation[pos - 1] == 1)
                     {
-                        steps.Add(step);
+                        stepsSingle.Add(step);
                         myPosOneCard.Add(myPos[i]);
                         break;
                     }
                     else if (occupation[pos - 1] == 2)
                     {
-                        backDouble.Add(myPos[i]);
+                        stepsDouble.Add(step);
+                        myPosTwoCards.Add(myPos[i]);
                         break;
                     }
                     else
@@ -115,15 +124,19 @@ namespace onepiece
                 }
             }
 
-            if(!backDouble.Any() && steps.Any())
+            if(myPosTwoCards.Any())
             {
-                if(steps.Min() < 6)
-                {
-                    // Index of the lowest entry
-                    int index = steps.IndexOf(steps.Min());
-                    // Position with the smallest number of steps backwards
-                    backSingle = myPosOneCard.ElementAt(index);
-                }
+                // Index of the lowest entry
+                int index = stepsDouble.IndexOf(stepsDouble.Min());
+                // Position with the smallest number of steps backwards
+                backDouble = myPosTwoCards.ElementAt(index);
+                
+            } else if(myPosOneCard.Any())
+            {
+                // Index of the lowest entry
+                int index = stepsSingle.IndexOf(stepsSingle.Min());
+                // Position with the smallest number of steps backwards
+                backSingle = myPosOneCard.ElementAt(index);
             }
         }
 
@@ -184,8 +197,8 @@ namespace onepiece
 
             if (cartas.Count >= 2 && rodada != 3)
             {
-                if (canPuloDoGato())
-                    return "Pulo do gato!";
+                if (canDoubleJump())
+                    return "doublejump";
             }
 
             if (options.Any())
@@ -217,7 +230,7 @@ namespace onepiece
             return false;
         }
 
-        private bool canPuloDoGato() 
+        private bool canDoubleJump() 
         {
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
             firstCard = "";
@@ -271,33 +284,33 @@ namespace onepiece
             return false;
         }
 
-        private void checkForDoubles()
-        {
-            cartasDouble.Clear();
+        //private void checkForDoubles()
+        //{
+        //    cartasDouble.Clear();
 
-            // Populate double symbol list
-            for (int i = 0; i < cartas.Count - 1; i++)
-            {
-                if (cartas[i] == cartas[i + 1])
-                {
-                    if (!cartasDouble.Any())
-                    {
-                        cartasDouble.Add(cartas[i]);
-                    }
-                    else
-                    {
-                        for (int j = 0; j < cartasDouble.Count; j++)
-                        {
-                            if (cartasDouble[j] != cartas[i])
-                            {
-                                cartasDouble.Add(cartas[i]);
-                            }
-                        }
-                    }
+        //    // Populate double symbol list
+        //    for (int i = 0; i < cartas.Count - 1; i++)
+        //    {
+        //        if (cartas[i] == cartas[i + 1])
+        //        {
+        //            if (!cartasDouble.Any())
+        //            {
+        //                cartasDouble.Add(cartas[i]);
+        //            }
+        //            else
+        //            {
+        //                for (int j = 0; j < cartasDouble.Count; j++)
+        //                {
+        //                    if (cartasDouble[j] != cartas[i])
+        //                    {
+        //                        cartasDouble.Add(cartas[i]);
+        //                    }
+        //                }
+        //            }
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
 
         //private bool checkForDoublePlay(char symbol)
         //{
