@@ -47,10 +47,12 @@ namespace onepiece
             if (cartas.Any())
             {
                 // If we have more than 1 pirate or more than one card
-                if (myPos.Count > 1 || cartas.Count > 1)
+                if (cartas.Count > 2)
                     play = checkFarthestPlay(rodada);
-                else
+                else if (myPos.Count < 3 && cartas.Count == 1)
                     play = cartas.First();
+                else
+                    play = "wait";
             }
 
             if (play == "doublejump")
@@ -235,18 +237,18 @@ namespace onepiece
             List<char> symbols = new List<char> { 'T', 'P', 'C', 'E', 'G', 'F' };
             firstCard = "";
             secondCard = "";
-            List<string> available = cartas;
+            List<int> blacklist = new List<int>();
   
             // Check which cards would be eligible for the next play
             for (int i = jump.Count - 1; i >= 0; i--) 
             {
-                for (int j = available.Count - 1; j >= 0; j--)
+                for (int j = cartas.Count - 1; j >= 0; j--)
                 {
-                    if (jump[i].ToString() == available[j])
+                    if (jump[i].ToString() == cartas[j])
                     {
                         posNextPlay = jumpPos[i];
-                        firstCard = available[j];
-                        available.RemoveAt(j);
+                        firstCard = cartas[j];
+                        blacklist.Add(j);
                         goto FoundCard;
                     }
                    
@@ -261,19 +263,25 @@ namespace onepiece
                    the loop should also be avoided. */
                 for (int i = posNextPlay; i < occupation.Length; i++)
                 {
-                    for (int j = available.Count - 1; j >= 0; j--)
+                    for (int j = cartas.Count - 1; j >= 0; j--)
                     {
-                        if (occupation[i] == 0 && (blueprint[i].ToString() == available[j]))
+                        if (occupation[i] == 0 && (blueprint[i].ToString() == cartas[j]))
                         {
-                            available.RemoveAt(j);
+                            blacklist.Add(j);
                         }
                     }
                 }
 
-                if(available.Any())
+                if(blacklist.Count != cartas.Count)
                 {
-                    secondCard = available.First();
-                    return true;
+                    for (int i = cartas.Count - 1; i >= 0; i--)
+                    {
+                        if (!blacklist.Contains(i))
+                        {
+                            secondCard = cartas[i];
+                            return true;
+                        }
+                    }
                 }
                 else
                 {

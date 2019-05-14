@@ -150,7 +150,6 @@ namespace onepiece
             /*  Builds the map using tiles based on the blueprint requested from the server.
                 Returns a char list of all the symbols and their order in the map. Stores it in the blueprint list
                 to be used in the strategy section. */
-
            strategy.blueprint = tabuleiro.construir(picMapBackground, mapTiles, mapBlueprint);
         }
 
@@ -189,8 +188,6 @@ namespace onepiece
                 if (position == 37 && repeat == 6)
                 {
                     jogoTerminado = true;
-                    tmrVerificarVez.Enabled = false;
-                    MessageBox.Show("O jogo terminou!");
                 }
 
                 // Populate myPos
@@ -211,6 +208,12 @@ namespace onepiece
             
             // Draws board state
             drawBoardState(response, estadoTabuleiro);
+
+            if (jogoTerminado)
+            {
+                tmrVerificarVez.Enabled = false;
+                MessageBox.Show("O jogo terminou!");
+            }
         }
 
         private void drawBoardState(string response, string[] estadoTabuleiro)
@@ -487,10 +490,14 @@ namespace onepiece
 
             updateMao();
 
-            while (rodada < 4 && !jogoTerminado)
+            while (rodada < 4)
             {
                 updateBoardState();
                 Application.DoEvents();
+
+                // Break the loop if the game ended
+                if (jogoTerminado)
+                    break;
 
                 if(strategy.twoTurnPlay > 2)
                     strategy.twoTurnPlay = 0;
@@ -534,15 +541,19 @@ namespace onepiece
                 updateMao();
             }
 
-            tmrVerificarVez.Enabled = true;
+            if (jogoTerminado)
+                tmrVerificarVez.Enabled = false;
+            else
+                tmrVerificarVez.Enabled = true;
         }
 
         private void tmrVerificarVez_Tick(object sender, EventArgs e)
         {
             // Only plays if the game has started
-            if (jogoIniciado)
+            if (jogoIniciado && !jogoTerminado)
             {
                 updateBoardState();
+                Application.DoEvents();
 
                 if (vez == Convert.ToInt32(loginForm.idJogador))
                 {
