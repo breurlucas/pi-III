@@ -95,7 +95,7 @@
             this.txtVerificarVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtVerificarVez.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerificarVez.Location = new System.Drawing.Point(0, 60);
-            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtVerificarVez.Margin = new System.Windows.Forms.Padding(2);
             this.txtVerificarVez.Multiline = true;
             this.txtVerificarVez.Name = "txtVerificarVez";
             this.txtVerificarVez.ReadOnly = true;
@@ -315,7 +315,7 @@
             this.groupBox3.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.groupBox3.Location = new System.Drawing.Point(442, 441);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(324, 214);
+            this.groupBox3.Size = new System.Drawing.Size(341, 226);
             this.groupBox3.TabIndex = 111;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cartas";
@@ -323,7 +323,7 @@
             // lblKey
             // 
             this.lblKey.AutoSize = true;
-            this.lblKey.Location = new System.Drawing.Point(102, 113);
+            this.lblKey.Location = new System.Drawing.Point(77, 110);
             this.lblKey.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKey.Name = "lblKey";
             this.lblKey.Size = new System.Drawing.Size(20, 24);
@@ -333,7 +333,7 @@
             // lblBottle
             // 
             this.lblBottle.AutoSize = true;
-            this.lblBottle.Location = new System.Drawing.Point(66, 113);
+            this.lblBottle.Location = new System.Drawing.Point(26, 110);
             this.lblBottle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBottle.Name = "lblBottle";
             this.lblBottle.Size = new System.Drawing.Size(20, 24);
@@ -343,7 +343,7 @@
             // lblPistol
             // 
             this.lblPistol.AutoSize = true;
-            this.lblPistol.Location = new System.Drawing.Point(175, 113);
+            this.lblPistol.Location = new System.Drawing.Point(181, 110);
             this.lblPistol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPistol.Name = "lblPistol";
             this.lblPistol.Size = new System.Drawing.Size(20, 24);
@@ -353,7 +353,7 @@
             // lblKnife
             // 
             this.lblKnife.AutoSize = true;
-            this.lblKnife.Location = new System.Drawing.Point(139, 113);
+            this.lblKnife.Location = new System.Drawing.Point(128, 110);
             this.lblKnife.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblKnife.Name = "lblKnife";
             this.lblKnife.Size = new System.Drawing.Size(20, 24);
@@ -363,7 +363,7 @@
             // lblTricorn
             // 
             this.lblTricorn.AutoSize = true;
-            this.lblTricorn.Location = new System.Drawing.Point(245, 113);
+            this.lblTricorn.Location = new System.Drawing.Point(287, 110);
             this.lblTricorn.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTricorn.Name = "lblTricorn";
             this.lblTricorn.Size = new System.Drawing.Size(20, 24);
@@ -373,7 +373,7 @@
             // lblSkull
             // 
             this.lblSkull.AutoSize = true;
-            this.lblSkull.Location = new System.Drawing.Point(210, 113);
+            this.lblSkull.Location = new System.Drawing.Point(234, 110);
             this.lblSkull.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSkull.Name = "lblSkull";
             this.lblSkull.Size = new System.Drawing.Size(20, 24);
@@ -383,10 +383,10 @@
             // pictureBox6
             // 
             this.pictureBox6.Image = global::onepiece.Properties.Resources.cardHandKnife;
-            this.pictureBox6.Location = new System.Drawing.Point(125, 58);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Location = new System.Drawing.Point(110, 35);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(37, 53);
+            this.pictureBox6.Size = new System.Drawing.Size(54, 65);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 118;
             this.pictureBox6.TabStop = false;
@@ -394,10 +394,10 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::onepiece.Properties.Resources.cardHandPistol;
-            this.pictureBox5.Location = new System.Drawing.Point(160, 58);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Location = new System.Drawing.Point(163, 35);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(37, 53);
+            this.pictureBox5.Size = new System.Drawing.Size(54, 65);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 117;
             this.pictureBox5.TabStop = false;
@@ -405,10 +405,10 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = global::onepiece.Properties.Resources.cardHandSkull;
-            this.pictureBox4.Location = new System.Drawing.Point(196, 58);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Location = new System.Drawing.Point(216, 35);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(37, 53);
+            this.pictureBox4.Size = new System.Drawing.Size(54, 65);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 116;
             this.pictureBox4.TabStop = false;
@@ -416,10 +416,10 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::onepiece.Properties.Resources.cardHandTricorn;
-            this.pictureBox3.Location = new System.Drawing.Point(230, 58);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Location = new System.Drawing.Point(269, 35);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(37, 53);
+            this.pictureBox3.Size = new System.Drawing.Size(54, 65);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 115;
             this.pictureBox3.TabStop = false;
@@ -427,10 +427,10 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::onepiece.Properties.Resources.cardHandKey;
-            this.pictureBox2.Location = new System.Drawing.Point(90, 58);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Location = new System.Drawing.Point(59, 35);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(37, 53);
+            this.pictureBox2.Size = new System.Drawing.Size(54, 65);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 114;
             this.pictureBox2.TabStop = false;
@@ -439,10 +439,10 @@
             // 
             this.pictureBox1.ErrorImage = null;
             this.pictureBox1.Image = global::onepiece.Properties.Resources.cardHandBottle;
-            this.pictureBox1.Location = new System.Drawing.Point(54, 58);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(8, 35);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(38, 53);
+            this.pictureBox1.Size = new System.Drawing.Size(54, 65);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 113;
             this.pictureBox1.TabStop = false;
@@ -503,7 +503,7 @@
             this.txtHistorico.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtHistorico.Font = new System.Drawing.Font("Arial", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHistorico.Location = new System.Drawing.Point(0, 25);
-            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtHistorico.Margin = new System.Windows.Forms.Padding(2);
             this.txtHistorico.Multiline = true;
             this.txtHistorico.Name = "txtHistorico";
             this.txtHistorico.ReadOnly = true;
@@ -571,7 +571,7 @@
             this.dgvCadeia.ColumnHeadersVisible = false;
             this.dgvCadeia.Enabled = false;
             this.dgvCadeia.Location = new System.Drawing.Point(-1, 28);
-            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCadeia.MultiSelect = false;
             this.dgvCadeia.Name = "dgvCadeia";
             this.dgvCadeia.ReadOnly = true;
@@ -591,7 +591,7 @@
             this.dgvBarco.ColumnHeadersVisible = false;
             this.dgvBarco.Enabled = false;
             this.dgvBarco.Location = new System.Drawing.Point(1094, 28);
-            this.dgvBarco.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvBarco.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBarco.MultiSelect = false;
             this.dgvBarco.Name = "dgvBarco";
             this.dgvBarco.ReadOnly = true;
@@ -606,11 +606,11 @@
             // 
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picMapBackground.Image = ((System.Drawing.Image)(resources.GetObject("picMapBackground.Image")));
-            this.picMapBackground.Location = new System.Drawing.Point(149, 0);
+            this.picMapBackground.Image = global::onepiece.Properties.Resources.Map;
+            this.picMapBackground.Location = new System.Drawing.Point(149, 28);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
-            this.picMapBackground.Size = new System.Drawing.Size(943, 398);
+            this.picMapBackground.Size = new System.Drawing.Size(943, 370);
             this.picMapBackground.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picMapBackground.TabIndex = 0;
             this.picMapBackground.TabStop = false;
@@ -641,7 +641,7 @@
             this.ForeColor = System.Drawing.Color.Goldenrod;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameForm";
             this.Text = "One Piece – Game";
             this.groupBox1.ResumeLayout(false);
