@@ -73,6 +73,8 @@
             this.dgvBarco = new System.Windows.Forms.DataGridView();
             this.picMapBackground = new System.Windows.Forms.PictureBox();
             this.tmrVerificarVez = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -87,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadeia)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.SuspendLayout();
             // 
             // txtVerificarVez
@@ -619,6 +623,26 @@
             // 
             this.tmrVerificarVez.Tick += new System.EventHandler(this.tmrVerificarVez_Tick);
             // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::onepiece.Properties.Resources.cadeia;
+            this.pictureBox7.Location = new System.Drawing.Point(10, 153);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(149, 245);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 121;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::onepiece.Properties.Resources.barco;
+            this.pictureBox8.Location = new System.Drawing.Point(1100, 153);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(149, 245);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 122;
+            this.pictureBox8.TabStop = false;
+            // 
             // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -628,6 +652,8 @@
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1262, 720);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.dgvBarco);
             this.Controls.Add(this.dgvCadeia);
             this.Controls.Add(this.label4);
@@ -664,6 +690,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCadeia)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBarco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picMapBackground)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,5 +741,7 @@
         private System.Windows.Forms.Label lblBottle;
         private System.Windows.Forms.Label lblPistol;
         private System.Windows.Forms.Label lblKnife;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
     }
 }
