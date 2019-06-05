@@ -271,10 +271,16 @@ namespace onepiece
 
             dgvCadeia.DataSource = null;
             dgvCadeia.DataSource = cadeia;
+            dgvCadeia.Columns[2].Visible = false;
+            dgvCadeia.Columns[3].Visible = false;
+            dgvCadeia.Columns[4].Visible = false;
             dgvCadeia.ClearSelection();
 
             dgvBarco.DataSource = null;
             dgvBarco.DataSource = barco;
+            dgvBarco.Columns[2].Visible = false;
+            dgvBarco.Columns[3].Visible = false;
+            dgvBarco.Columns[4].Visible = false;
             dgvBarco.ClearSelection();
 
             // Fill in the strategy occupation vector
@@ -565,5 +571,3 @@ namespace onepiece
 
     }
 }
-
-        

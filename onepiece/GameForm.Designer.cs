@@ -249,7 +249,7 @@
             this.groupBox2.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.groupBox2.Location = new System.Drawing.Point(198, 441);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(238, 214);
+            this.groupBox2.Size = new System.Drawing.Size(238, 226);
             this.groupBox2.TabIndex = 110;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Jogada";
@@ -468,9 +468,9 @@
             this.groupBox4.Controls.Add(this.txtVerificarVez);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox4.Location = new System.Drawing.Point(772, 441);
+            this.groupBox4.Location = new System.Drawing.Point(790, 441);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(215, 214);
+            this.groupBox4.Size = new System.Drawing.Size(215, 226);
             this.groupBox4.TabIndex = 112;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vez";
@@ -517,9 +517,9 @@
             this.groupBox5.Controls.Add(this.txtHistorico);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.groupBox5.Location = new System.Drawing.Point(993, 441);
+            this.groupBox5.Location = new System.Drawing.Point(1013, 441);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(240, 214);
+            this.groupBox5.Size = new System.Drawing.Size(240, 226);
             this.groupBox5.TabIndex = 115;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Histórico";
@@ -543,7 +543,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label3.Location = new System.Drawing.Point(8, 3);
+            this.label3.Location = new System.Drawing.Point(12, 3);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 24);
@@ -555,7 +555,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGoldenrod;
-            this.label4.Location = new System.Drawing.Point(1094, 3);
+            this.label4.Location = new System.Drawing.Point(1102, 3);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(59, 24);
@@ -570,7 +570,7 @@
             this.dgvCadeia.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCadeia.ColumnHeadersVisible = false;
             this.dgvCadeia.Enabled = false;
-            this.dgvCadeia.Location = new System.Drawing.Point(-1, 28);
+            this.dgvCadeia.Location = new System.Drawing.Point(10, 28);
             this.dgvCadeia.Margin = new System.Windows.Forms.Padding(2);
             this.dgvCadeia.MultiSelect = false;
             this.dgvCadeia.Name = "dgvCadeia";
@@ -590,7 +590,7 @@
             this.dgvBarco.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBarco.ColumnHeadersVisible = false;
             this.dgvBarco.Enabled = false;
-            this.dgvBarco.Location = new System.Drawing.Point(1094, 28);
+            this.dgvBarco.Location = new System.Drawing.Point(1101, 28);
             this.dgvBarco.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBarco.MultiSelect = false;
             this.dgvBarco.Name = "dgvBarco";
@@ -607,7 +607,7 @@
             this.picMapBackground.BackColor = System.Drawing.Color.Transparent;
             this.picMapBackground.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.picMapBackground.Image = global::onepiece.Properties.Resources.Map;
-            this.picMapBackground.Location = new System.Drawing.Point(149, 28);
+            this.picMapBackground.Location = new System.Drawing.Point(157, 28);
             this.picMapBackground.Margin = new System.Windows.Forms.Padding(0);
             this.picMapBackground.Name = "picMapBackground";
             this.picMapBackground.Size = new System.Drawing.Size(943, 370);
@@ -627,7 +627,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.BurlyWood;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1215, 693);
+            this.ClientSize = new System.Drawing.Size(1262, 720);
             this.Controls.Add(this.dgvBarco);
             this.Controls.Add(this.dgvCadeia);
             this.Controls.Add(this.label4);
@@ -643,6 +643,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "One Piece – Game";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
